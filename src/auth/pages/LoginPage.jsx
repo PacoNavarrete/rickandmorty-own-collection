@@ -12,7 +12,11 @@ export const LoginPage = () => {
       <LoginBackground>
         <LoginContainer>
           <LoginTitle> Create your local user </LoginTitle>
-          <LoginInput type="text" placeholder="Type your user name" autofocus={'true'} />
+          <LoginInput
+            type="text"
+            placeholder="Type your user name"
+            autofocus={'true'}
+          />
           <LoginButton>Create Account</LoginButton>
         </LoginContainer>
       </LoginBackground>

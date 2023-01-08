@@ -1,15 +1,21 @@
+import { TitleLarge } from '../styled_components/TitleLarge';
+import { TextMedium } from '../styled_components/TextMedium';
+import { ButtonPrimary } from '../styled_components/ButtonPrimary';
+
 export const HomePage = () => {
   return (
     <>
-      <h1>Make your own characters collection</h1>
-      <p>
-        You con search, filter, collect, make notes, and stored in your browser
-        local storage.
-      </p>
+      <TitleLarge>
+        Make your own collection of Rick and Morty characters
+      </TitleLarge>
+      <TextMedium>
+        You can search, filter, collect, make notes, and stored it in local
+        storage of your browser.
+      </TextMedium>
       <img src="" alt="Card image of character" /> <br />
-      <button>
-        <h3> Start your collection</h3>
-      </button>
+      <ButtonPrimary>
+        <h3> Start a collection</h3>
+      </ButtonPrimary>
     </>
   );
 };
