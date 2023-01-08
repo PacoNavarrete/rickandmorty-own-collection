@@ -1,10 +1,11 @@
 import { TitleLarge } from '../styled_components/TitleLarge';
 import { TextMedium } from '../styled_components/TextMedium';
 import { ButtonPrimary } from '../styled_components/ButtonPrimary';
+import { BackgroundContainer } from '../styled_components/BackgroundContainer';
 
 export const HomePage = () => {
   return (
-    <>
+    <BackgroundContainer>
       <TitleLarge>
         Make your own collection of Rick and Morty characters
       </TitleLarge>
@@ -16,6 +17,6 @@ export const HomePage = () => {
       <ButtonPrimary>
         <h3> Start a collection</h3>
       </ButtonPrimary>
-    </>
+    </BackgroundContainer>
   );
 };
