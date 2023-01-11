@@ -6,15 +6,15 @@ export const LoginInput = styled.input`
   margin: 0 auto;
   border: 0;
   outline: 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #d7d7d7;
   border-radius: 3px;
   margin-bottom: 20px;
   background: transparent;
-  color: #000;
+  color: #fff;
   font-size: 18px;
 
   &::placeholder {
-    color: #000;
+    color: #fff;
     font-size: 18px;
   }
 

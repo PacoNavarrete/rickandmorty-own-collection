@@ -10,9 +10,9 @@ export const LoginContainer = styled.div`
   align-content: center;
   justify-content: space-arround;
   box-shadow: 0px 10px 22px #000;
-  background: rgba(255, 255, 255, 0.21);
+  background: rgba(0, 0, 0, 0.41);
   border-radius: 26px;
-  backdrop-filter: blur(9.6px);
-  -webkit-backdrop-filter: blur(7.6px);
-  border: 5px solid #000;
+  backdrop-filter: blur(5.6px);
+  -webkit-backdrop-filter: blur(5.6px);
+  border: 2px solid #000;
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginButton = styled.button`
+export const PrimaryButton = styled.button`
   width: 120px;
   height: 40px;
   background: #01A606;
@@ -14,4 +14,5 @@ export const LoginButton = styled.button`
   &:hover {
     scale: 1.05;
   }
+
 `;

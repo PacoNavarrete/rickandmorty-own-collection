@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const LoginTitle = styled.h1`
-  font-size: 72px;
+export const TitleMedium = styled.h2`
+  font-size: 48px;
   text-align: center;
   color: #fff;
   padding: 0 10px;
