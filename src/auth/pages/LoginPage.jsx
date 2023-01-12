@@ -1,25 +1,17 @@
-import { LoginButton } from '../styled_components/LoginButton';
-import { LoginTitle } from '../styled_components/LoginTitle';
-import { LoginContainer } from '../styled_components/LoginContainer';
-import { LoginInput } from '../styled_components/LoginInput';
-import { LoginBackground } from '../styled_components/LoginBackground';
-import GlobalStyles from '../styled_components/GlobalStyles';
+import { FormLogin } from '../components/FormLogin';
+import {
+  CardContainer,
+  FlexContainer,
+  TitleMedium,
+} from '../../styled_components/StyledComponents';
 
 export const LoginPage = () => {
   return (
-    <>
-      <GlobalStyles />
-      <LoginBackground>
-        <LoginContainer>
-          <LoginTitle> Create your local user </LoginTitle>
-          <LoginInput
-            type="text"
-            placeholder="Type your user name"
-            autofocus={'true'}
-          />
-          <LoginButton>Create Account</LoginButton>
-        </LoginContainer>
-      </LoginBackground>
-    </>
+    <FlexContainer width="100%" height="100vh" flexDir="row">
+      <CardContainer width="320px" height="450px" flexDir="column">
+        <TitleMedium>Create your account</TitleMedium>
+        <FormLogin />
+      </CardContainer>
+    </FlexContainer>
   );
 };

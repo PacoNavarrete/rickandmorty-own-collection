@@ -1,22 +1,24 @@
-import { TitleLarge } from '../styled_components/TitleLarge';
-import { TextMedium } from '../styled_components/TextMedium';
-import { ButtonPrimary } from '../styled_components/ButtonPrimary';
-import { BackgroundContainer } from '../styled_components/BackgroundContainer';
+import {
+  FlexContainer,
+  TitleLarge,
+  Text,
+} from '../../styled_components/StyledComponents';
 
 export const HomePage = () => {
   return (
-    <BackgroundContainer>
-      <TitleLarge>
-        Make your own collection of Rick and Morty characters
-      </TitleLarge>
-      <TextMedium>
-        You can search, filter, collect, make notes, and stored it in local
-        storage of your browser.
-      </TextMedium>
-      <img src="" alt="Card image of character" /> <br />
-      <ButtonPrimary>
-        <h3> Start a collection</h3>
-      </ButtonPrimary>
-    </BackgroundContainer>
+    <FlexContainer width="80%">
+      <FlexContainer width="60%" flexDir="column" align="start">
+        <TitleLarge align="start">
+          Make your own collection of Rick <br />
+          and Morty <br />
+          characters
+        </TitleLarge>
+        <Text>
+          You can search, filter, collect, make notes, and <br />
+          stored it in local storage of your browser.
+        </Text>
+      </FlexContainer>
+      <FlexContainer width="40%"></FlexContainer>
+    </FlexContainer>
   );
 };
