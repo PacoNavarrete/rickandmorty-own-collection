@@ -78,9 +78,9 @@ export const PrimaryInput = styled.input`
 `;
 
 export const Text = styled.p`
-  font-size: ${(props) => props.size};
-  font-weigth: ${(props) => props.thickness};
-  text-align: ${(props) => props.align};
+  font-size: ${(props) => props.size || '16px'};
+  font-weigth: ${(props) => props.thickness || 'regular'};
+  text-align: ${(props) => props.align || 'start'};
   color: #fff;
 `;
 
