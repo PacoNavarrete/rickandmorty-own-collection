@@ -19,8 +19,8 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.flexDir};
   align-items: ${(props) => props.align || 'center'};
-  justify-content: center;
-  margin: auto auto ;
+  justify-content: ${(props) => props.justify || 'center'};
+  margin: ${(props) => props.margin} ;
 `;
 
 export const BrandName = styled.p`
@@ -40,7 +40,7 @@ export const PrimaryButton = styled.button`
   color: #fff;
   cursor: pointer;
   transition: 0.3s ease-out;
-  margin: 30px 0;
+  margin: ${(props) => props.margin};
 
   &:hover {
     scale: 1.05;
@@ -56,6 +56,7 @@ export const SecondaryButton = styled.button`
   color: #d7d7d7;
   cursor: pointer;
   transition: 0.3s ease-out;
+  margin: ${(props) => props.margin};
 
   &:hover {
     scale: 1.05;
@@ -79,13 +80,13 @@ export const PrimaryInput = styled.input`
 
 export const Text = styled.p`
   font-size: ${(props) => props.size || '16px'};
-  font-weigth: ${(props) => props.thickness || 'regular'};
   text-align: ${(props) => props.align || 'start'};
+  margin: ${(props) => props.margin};
   color: #fff;
 `;
 
 export const TitleLarge = styled.h1`
-  font-size: 72px;
+  font-size: 62px;
   text-align: ${(props) => props.align || 'center'};
   color: #fff;
 `;
