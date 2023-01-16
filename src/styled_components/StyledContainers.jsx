@@ -12,6 +12,9 @@ export const FlexBox = styled.div`
   order: ${({ flexOrder }) => flexOrder};
   margin: ${({ margin }) => margin};
 
+  // add a rule: if props is spaceL, M or S
+  // add a rule: if Props screen L, M, or S return the media screen values acconding to props.
+
   @media screen and (max-width: 1255px) {
     width: 90%;
     justify-content: center;
@@ -19,20 +22,15 @@ export const FlexBox = styled.div`
   }
 `;
 
-export const FlexItem = styled.div`
-  width: fit-content;
-  height: fit-content;
-`;
-
 export const CardContainer = styled.div`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  border: 2px solid #000;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  ${({ border }) => border && `border: 2px solid #000;`}
   border-radius: 30px;
-  background: rgba(0, 0, 0, 0.61);
-  box-shadow: 0px 0px 24px #000;
+  background: rgba(0, 0, 0, ${({ transparency }) => transparency || '0.60'});
+  ${({ boxShadow }) => boxShadow && `box-shadow: 0px 0px 24px #000;`}
   display: flex;
-  flex-direction: ${(props) => props.flexDir};
+  flex-direction: ${({ flexDir }) => flexDir};
   align-items: center;
   justify-content: center;
 `;

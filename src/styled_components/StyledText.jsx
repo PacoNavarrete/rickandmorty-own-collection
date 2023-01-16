@@ -38,6 +38,6 @@ export const TitleLarge = styled.h1`
 
 export const TitleMedium = styled.h2`
   font-size: 48px;
-  text-align: center;
+  text-align: ${(props) => props.align || 'center'};
   color: #fff;
 `;
