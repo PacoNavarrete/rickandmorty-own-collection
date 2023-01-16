@@ -1,8 +1,8 @@
+import { Text } from '../../styled_components/StyledText';
 import {
   PrimaryInput,
   PrimaryButton,
-  Text,
-} from '../../styled_components/StyledComponents';
+} from '../../styled_components/StyledControls';
 
 export const FormLogin = () => {
   return (

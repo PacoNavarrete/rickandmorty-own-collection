@@ -1,17 +1,18 @@
 import { FormLogin } from '../components/FormLogin';
+import { TitleMedium } from '../../styled_components/StyledText';
+
 import {
+  FlexBox,
   CardContainer,
-  FlexContainer,
-  TitleMedium,
-} from '../../styled_components/StyledComponents';
+} from '../../styled_components/StyledContainers';
 
 export const LoginPage = () => {
   return (
-    <FlexContainer width="100%" height="100vh" flexDir="row">
+    <FlexBox width="100%" height="100vh" flexDir="row">
       <CardContainer width="320px" height="450px" flexDir="column">
         <TitleMedium>Create your account</TitleMedium>
         <FormLogin />
       </CardContainer>
-    </FlexContainer>
+    </FlexBox>
   );
 };

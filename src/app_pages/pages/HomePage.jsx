@@ -1,36 +1,41 @@
+import { FlexBox } from '../../styled_components/StyledContainers';
+import { TitleLarge, Text } from '../../styled_components/StyledText';
 import {
-  FlexContainer,
-  TitleLarge,
-  Text,
   PrimaryButton,
   SecondaryButton,
-} from '../../styled_components/StyledComponents';
+} from '../../styled_components/StyledControls';
 
 export const HomePage = () => {
   return (
-    <FlexContainer width="80%" flexDir="row" margin="auto auto">
-      <FlexContainer width="60%" flexDir="column" align="start">
+    <FlexBox
+      width="80%"
+      height="100vh"
+      flexFlow="row wrap"
+      margin="auto auto"
+      justify="center"
+      alignContent="center"
+    >
+      <FlexBox width="60%" flexFlow="column nowrap">
         <TitleLarge align="start">
-          Make your own collection of Rick <br />
-          and Morty <br />
-          characters
+          Make your own collection of Rick and Morty characters
         </TitleLarge>
         <Text size="24px" margin="5px 0 60px 0">
           You can search, filter, collect, make notes, and <br />
           stored it in local storage of your browser.
         </Text>
-        <FlexContainer width="270px" justify="space-between" height="content">
+        <FlexBox width="100%" justify="flex-start" gap="30px" height="content">
           <PrimaryButton>Start now</PrimaryButton>
           <SecondaryButton>How it works</SecondaryButton>
-        </FlexContainer>
-      </FlexContainer>
-      <FlexContainer width="40%">
+        </FlexBox>
+      </FlexBox>
+      <FlexBox>
         <img
           src="https://res.cloudinary.com/paconavarrete/image/upload/v1673555699/RickandMorty/CardCharacter_y0gw5v.png"
-          width="350px"
           alt="RickandMorty-Card"
+          width="396px"
+          height="487px"
         />
-      </FlexContainer>
-    </FlexContainer>
+      </FlexBox>
+    </FlexBox>
   );
 };
