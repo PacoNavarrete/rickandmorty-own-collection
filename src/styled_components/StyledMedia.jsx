@@ -4,6 +4,7 @@ export const ImageContainer = styled.div`
   width: fit-content;
   height: fit-content;
   align-self: center;
+  grid-area: ${({ gridArea }) => gridArea};
   
   img {
     width: ${({ width }) => width};

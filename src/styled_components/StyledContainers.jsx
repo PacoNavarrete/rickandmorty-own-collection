@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const FlexBox = styled.div`
   width: ${({ width }) => width};
-  min-height: ${({ height }) => height};
+  height: ${({ height }) => height};
+  min-height: ${({ minHeight }) => minHeight};
   display: flex;
   flex-flow: ${({ flexFlow }) => flexFlow};
   justify-content: ${({ justify }) => justify};
@@ -11,16 +12,30 @@ export const FlexBox = styled.div`
   gap: ${({ gap }) => gap};
   order: ${({ flexOrder }) => flexOrder};
   margin: ${({ margin }) => margin};
+  grid-area: ${({ gridArea }) => gridArea}
 
   // add a rule: if props is spaceL, M or S
   // add a rule: if Props screen L, M, or S return the media screen values acconding to props.
 
   @media screen and (max-width: 1255px) {
-    width: 90%;
+    width: 100%;
     justify-content: center;
     margin: auto auto;
   }
 `;
+
+export const GridSection = styled.section`
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: ${({ templateColumns }) => templateColumns};
+  ${(props) => (props.templateRows ? 'grid-template-rows: auto;' : null)}
+";
+  
+
+
+
+  `;
 
 export const CardContainer = styled.div`
   width: ${({ width }) => width};

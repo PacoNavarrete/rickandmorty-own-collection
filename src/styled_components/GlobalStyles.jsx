@@ -38,5 +38,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'DM Sans', sans-serif;
     margin: 0;
   }
+
 `;
 export default GlobalStyles;

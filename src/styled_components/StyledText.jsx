@@ -5,7 +5,7 @@ export const BrandName = styled.p`
   text-align: center;
   color: #01A606;
   padding: 0 10px;
-  margin: 120px 0;
+  margin: auto 0;
 `;
 
 export const Text = styled.p`
