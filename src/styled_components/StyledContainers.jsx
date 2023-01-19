@@ -12,30 +12,15 @@ export const FlexBox = styled.div`
   gap: ${({ gap }) => gap};
   order: ${({ flexOrder }) => flexOrder};
   margin: ${({ margin }) => margin};
-  grid-area: ${({ gridArea }) => gridArea}
+  padding: ${({ padding }) => padding};
+  grid-area: ${({ gridArea }) => gridArea};
 
-  // add a rule: if props is spaceL, M or S
-  // add a rule: if Props screen L, M, or S return the media screen values acconding to props.
-
-  @media screen and (max-width: 1255px) {
-    width: 100%;
-    justify-content: center;
-    margin: auto auto;
+  @media screen and (max-width: 824px){
+    padding: ${({ mobilePadding }) => mobilePadding};
+    justify-content: ${({ mobileJustify }) => mobileJustify};
   }
+
 `;
-
-export const GridSection = styled.section`
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: ${({ templateColumns }) => templateColumns};
-  ${(props) => (props.templateRows ? 'grid-template-rows: auto;' : null)}
-";
-  
-
-
-
-  `;
 
 export const CardContainer = styled.div`
   width: ${({ width }) => width};

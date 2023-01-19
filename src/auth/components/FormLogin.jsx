@@ -1,4 +1,4 @@
-import { Text } from '../../styled_components/StyledText';
+import { TextMedium } from '../../styled_components/StyledText';
 import {
   PrimaryInput,
   PrimaryButton,
@@ -8,11 +8,11 @@ export const FormLogin = () => {
   return (
     <>
       <form style={{ textAlign: 'center' }}>
-        <PrimaryInput placeholder="Type your name" autofocus={'true'} />
+        <PrimaryInput placeholder="Type your name" autoFocus={'true'} />
         <PrimaryButton>
-          <Text size="12px" thickness="200" align="center">
+          <TextMedium size="12px" thickness="200" align="center">
             Crate Account
-          </Text>
+          </TextMedium>
         </PrimaryButton>
       </form>
     </>

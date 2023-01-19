@@ -5,13 +5,14 @@ export const ImageContainer = styled.div`
   height: fit-content;
   align-self: center;
   grid-area: ${({ gridArea }) => gridArea};
+  place-self: ${({placeSelf}) => placeSelf};
   
   img {
     width: ${({ width }) => width};
     height: ${({ height }) => height};
     
-    @media screen and (max-width: 740px) {
-      width: 250px;
+    @media screen and (max-width: 1024px) {
+      width: 290px;
     }
   
   };

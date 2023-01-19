@@ -1,6 +1,9 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { ImageContainer } from '../../styled_components/StyledMedia';
-import { Text, TitleLarge } from '../../styled_components/StyledText';
+import {
+  TextSmall,
+  TitleLarge,
+} from '../../styled_components/StyledText';
 import {
   PrimaryButton,
   SecondaryButton,
@@ -8,33 +11,43 @@ import {
 
 export const HomeHeroSection = () => {
   return (
-    <FlexBox
-      width="80%"
-      minHeight="100vh"
-      flexFlow="row wrap"
-      margin="auto auto"
-      justify="center"
-      alignContent="center"
-    >
-      <FlexBox width="60%" flexFlow="column nowrap">
-        <TitleLarge align="start">
+    <div className="grid-home_hero">
+      <FlexBox
+        width="100%"
+        flexFlow="column nowrap"
+        gap="20px"
+        gridArea="hero-text"
+      >
+        <TitleLarge textAlign="start">
           Make your own collection of Rick and Morty characters
         </TitleLarge>
-        <Text size="24px" margin="5px 0 60px 0">
+        <TextSmall textAlign="start">
           You can search, filter, collect, make notes, and <br />
           stored it in local storage of your browser.
-        </Text>
-        <FlexBox width="100%" justify="flex-start" gap="30px" height="content">
-          <PrimaryButton>Start Now</PrimaryButton>
-          <SecondaryButton>How it Works</SecondaryButton>
-        </FlexBox>
+        </TextSmall>
       </FlexBox>
-      <ImageContainer width="350px">
+
+      <FlexBox
+        width="100%"
+        height="content"
+        justify="flex-start"
+        alignItems="flex-start"
+        gap="30px"
+        padding="60px 0 0 0"
+        gridArea="hero-btn"
+        mobilePadding="0"
+        mobileJustify="center"
+      >
+        <PrimaryButton>Start Now</PrimaryButton>
+        <SecondaryButton>How it Works</SecondaryButton>
+      </FlexBox>
+
+      <ImageContainer width="350px" gridArea="hero-img" placeSelf="center center">
         <img
           src="https://res.cloudinary.com/paconavarrete/image/upload/v1673555699/RickandMorty/CardCharacter_y0gw5v.png"
           alt="RickandMorty-Card"
         />
       </ImageContainer>
-    </FlexBox>
+    </div>
   );
 };

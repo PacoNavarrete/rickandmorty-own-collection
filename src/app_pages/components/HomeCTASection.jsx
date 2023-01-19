@@ -3,7 +3,7 @@ import filterIcon from '../../assets/icons/filter.svg';
 import archiveIcon from '../../assets/icons/archive.svg';
 
 import { PrimaryButton } from '../../styled_components/StyledControls';
-import { Text, TitleMedium } from '../../styled_components/StyledText';
+import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
 import {
   CardContainer,
   FlexBox,
@@ -14,14 +14,14 @@ export const HomeCTASection = () => {
     <FlexBox
       width="80%"
       minHeight="100vh"
-      margin="auto"
+      margin="90px auto"
       flexFlow="column nowrap"
       alignItems="center"
     >
       <TitleMedium>Crate your Collection</TitleMedium>
-      <Text align="center" size="24px">
+      <TextSmall align="center">
         Getting started with your own collection of Rick and Morty characters
-      </Text>
+      </TextSmall>
       <FlexBox
         width="100%"
         minHeight="auto"
@@ -35,23 +35,23 @@ export const HomeCTASection = () => {
           <CardContainer width="150px" height="150px" transparency="0.2">
             <img src={accountIcon} alt="account icon" />
           </CardContainer>
-          <Text align="center">Create your Account</Text>
+          <TextSmall align="center">Create your Account</TextSmall>
         </FlexBox>
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
           <CardContainer width="150px" height="150px" transparency="0.2">
             <img src={filterIcon} alt="filter icon" />
           </CardContainer>
-          <Text align="center">
+          <TextSmall align="center">
             Navigate trough all <br /> the characters
-          </Text>
+          </TextSmall>
         </FlexBox>
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
           <CardContainer width="150px" height="150px" transparency="0.2">
             <img src={archiveIcon} alt="archive icon" />
           </CardContainer>
-          <Text align="center">
+          <TextSmall align="center">
             Store your own <br /> collection with notes
-          </Text>
+          </TextSmall>
         </FlexBox>
       </FlexBox>
       <PrimaryButton>Start Now</PrimaryButton>
