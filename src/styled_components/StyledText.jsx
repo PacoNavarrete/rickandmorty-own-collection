@@ -24,6 +24,7 @@ export const TitleLarge = styled.h1`
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
   
   ${mediaScreenMobile}
 `;
@@ -33,6 +34,7 @@ export const TitleMedium = styled.h2`
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -41,6 +43,7 @@ export const TitleSmall = styled.h2`
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -50,6 +53,7 @@ export const TextLarge = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -58,6 +62,7 @@ export const TextMedium = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -66,6 +71,7 @@ export const TextSmall = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -74,6 +80,7 @@ export const TextXSmall = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
 
   ${mediaScreenMobile}
 `;
@@ -82,14 +89,18 @@ export const TextXTiny = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
   color: ${({ color }) => color || '#fff'};
+  grid-area: ${({gridArea}) => gridArea};
   
   ${mediaScreenMobile}
 `;
 
 export const BrandName = styled.p`
+  font-family: 'poppins';
   font-size: 32px;
   text-align: center;
+  font-weight: bold;
   color: #01A606;
   padding: 0 10px;
   margin: auto 0;
+  grid-area: ${({gridArea}) => gridArea};
 `;

@@ -10,6 +10,16 @@
   margin: 60px auto 0 auto;
 }
 
+.grid-main-footer {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    '';
+
+}
+
 @media screen and (max-width: 824px) {
   .grid-home_hero {
     grid-template-areas:

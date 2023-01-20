@@ -19,8 +19,8 @@ export const FlexBox = styled.div`
     padding: ${({ mobilePadding }) => mobilePadding};
     justify-content: ${({ mobileJustify }) => mobileJustify};
   }
-
 `;
+
 
 export const CardContainer = styled.div`
   width: ${({ width }) => width};

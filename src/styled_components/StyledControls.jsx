@@ -36,7 +36,7 @@ export const SecondaryButton = styled.button`
   height: 40px;
   background: transparent;
   border-radius: 3px;
-  border: 1px solid #d7d7d7;
+  border: 2px solid #d7d7d7;
   color: #d7d7d7;
   cursor: pointer;
   transition: 0.3s ease-out;
@@ -44,5 +44,6 @@ export const SecondaryButton = styled.button`
 
   &:hover {
     scale: 1.05;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `;
