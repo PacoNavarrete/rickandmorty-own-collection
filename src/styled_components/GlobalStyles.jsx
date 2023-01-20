@@ -36,7 +36,6 @@ const GlobalStyles = createGlobalStyle`
   }
   p {
     font-family: 'DM Sans', sans-serif;
-    margin: 0;
   }
   li  {
     font-family: 'DM Sans', sans-serif;

@@ -12,12 +12,14 @@
 
 .grid-main-footer {
   width: 90%;
+  height: 200px;
   display: grid;
+  margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '';
-
+    'brand brand contact socials'
+    'icons icons icons madeby';
 }
 
 @media screen and (max-width: 824px) {

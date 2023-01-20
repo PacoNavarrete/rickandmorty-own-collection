@@ -23,31 +23,31 @@ export const HomeCTASection = () => {
         Getting started with your own collection of Rick and Morty characters
       </TextSmall>
       <FlexBox
-        width="100%"
+        width="90%"
         minHeight="auto"
         flexFlow="row wrap"
-        justify="center"
+        justify="space-around"
         alignContent="center"
         gap="30px"
         margin="60px 0"
       >
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="150px" height="150px" transparency="0.2">
-            <img src={accountIcon} alt="account icon" />
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={accountIcon} alt="account icon" width="80px" />
           </CardContainer>
           <TextSmall align="center">Create your Account</TextSmall>
         </FlexBox>
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="150px" height="150px" transparency="0.2">
-            <img src={filterIcon} alt="filter icon" />
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={filterIcon} alt="filter icon" width="80px" />
           </CardContainer>
           <TextSmall align="center">
             Navigate trough all <br /> the characters
           </TextSmall>
         </FlexBox>
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="150px" height="150px" transparency="0.2">
-            <img src={archiveIcon} alt="archive icon" />
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={archiveIcon} alt="archive icon" width="80px" />
           </CardContainer>
           <TextSmall align="center">
             Store your own <br /> collection with notes
