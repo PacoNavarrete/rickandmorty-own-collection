@@ -10,10 +10,13 @@ export const FlexBox = styled.div`
   align-items: ${({ alignItems }) => alignItems};
   align-content: ${({ alignContent }) => alignContent};
   gap: ${({ gap }) => gap};
-  order: ${({ flexOrder }) => flexOrder};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
   grid-area: ${({ gridArea }) => gridArea};
+  background-color: ${({backgroundColor}) => backgroundColor};
+  border: ${({border}) => border};
+  border-radius: ${({radius}) => radius};
+  box-shadow: ${({boxShadow}) => boxShadow};
 
   @media screen and (max-width: 824px){
     padding: ${({ mobilePadding }) => mobilePadding};

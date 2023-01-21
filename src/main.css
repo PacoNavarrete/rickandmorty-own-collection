@@ -15,10 +15,11 @@
   height: 200px;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
     'brand brand contact socials'
+    'divider divider divider divider'
     'icons icons icons madeby';
 }
 
@@ -29,5 +30,14 @@
       'hero-text hero-text hero-text'
       'hero-img hero-img hero-img'
       'hero-btn hero-btn hero-btn';
+  }
+  .grid-main-footer {
+    height: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
   }
 }

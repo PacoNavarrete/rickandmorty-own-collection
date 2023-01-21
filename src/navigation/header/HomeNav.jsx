@@ -1,7 +1,7 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { SecondaryButton } from '../../styled_components/StyledControls';
 import { BrandName } from '../../styled_components/StyledText';
-import { ListNavMenu } from '../coponents/ListNavMenu';
+import { HomeHeaderMenu } from '../coponents/HomeHeaderMenu';
 
 export const HomeNav = () => {
   return (
@@ -15,7 +15,7 @@ export const HomeNav = () => {
         alignItems="center"
       >
         <BrandName>Rick and Morty</BrandName>
-        <ListNavMenu />
+        <HomeHeaderMenu />
         <SecondaryButton>Collect</SecondaryButton>
       </FlexBox>
     </>

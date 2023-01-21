@@ -7,7 +7,7 @@ export const UListBox = styled.ul`
   color: ${({ color }) => color};
   align-items: center;
   justify-content: space-around;
-  width: 322px;
+  width: ${({width}) => width};
   padding: 0;
   font-size: 18px;
   grid-area: ${({ gridArea }) => gridArea};

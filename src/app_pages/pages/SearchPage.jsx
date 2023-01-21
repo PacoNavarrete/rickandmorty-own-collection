@@ -1,3 +1,13 @@
+import { MainFooter } from '../../navigation/footer/MainFooter';
+import { AppNav } from '../../navigation/header/AppNav';
+
 export const SearchPage = () => {
-  return <h1>Search Page</h1>;
+  return (
+    <>
+      <AppNav />
+      <h1>Search Page</h1>
+
+      <MainFooter />
+    </>
+  );
 };
