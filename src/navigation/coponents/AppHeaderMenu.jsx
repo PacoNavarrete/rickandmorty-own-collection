@@ -1,12 +1,21 @@
 import { UListBox } from '../../styled_components/StyledNavigation';
+import { TextXTiny } from '../../styled_components/StyledText';
 
 export const AppHeaderMenu = () => {
   return (
-    <UListBox flexFlow="row nowrap" width="540px" color="#fff">
-      <li>CHARACTERS</li>
-      <li>LOCATIONS</li>
-      <li>EPISODES</li>
-      <li>MY COLLECTION</li>
+    <UListBox flexFlow="row nowrap" width="450px" color="#fff">
+      <li>
+        <TextXTiny>CHARACTERS</TextXTiny>
+      </li>
+      <li>
+        <TextXTiny>LOCATIONS</TextXTiny>
+      </li>
+      <li>
+        <TextXTiny>EPISODES</TextXTiny>
+      </li>
+      <li>
+        <TextXTiny>MY COLLECTION</TextXTiny>
+      </li>
     </UListBox>
   );
 };

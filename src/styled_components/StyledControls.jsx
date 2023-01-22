@@ -5,11 +5,14 @@ export const PrimaryInput = styled.input`
   height: 38px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #d7d7d7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.21);
   outline: 0;
   color: #d7d7d7;
   font-size: 18px;
-
+  align-self: ${({alignSelf})=> alignSelf};
+  &:hover{
+    border-bottom: 1px solid #000;
+  }
   &::placeholder {
     color: #d7d7d7;
   }

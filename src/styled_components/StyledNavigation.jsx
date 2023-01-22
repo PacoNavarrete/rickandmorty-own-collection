@@ -16,7 +16,7 @@ export const UListBox = styled.ul`
     list-style: none;
     cursor: pointer;
   }
-  li:hover {
+  P:hover {
     color: #01A606;
   }
 `;
