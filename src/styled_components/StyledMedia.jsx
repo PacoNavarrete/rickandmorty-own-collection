@@ -10,6 +10,7 @@ export const ImageContainer = styled.div`
   img {
     width: ${({ width }) => width};
     height: ${({ height }) => height};
+    border-radius: ${({borderRadius}) => borderRadius};
     
     @media screen and (max-width: 1024px) {
       width: 290px;

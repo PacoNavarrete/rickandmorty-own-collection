@@ -3,7 +3,9 @@ import { UListBox } from '../../styled_components/StyledNavigation';
 import {
   BrandName,
   TextLarge,
+  TextMedium,
   TextXSmall,
+  TextXTiny,
 } from '../../styled_components/StyledText';
 import { Divider } from '../../styled_components/StyledUtils';
 
@@ -14,13 +16,19 @@ export const MainFooter = () => {
         <BrandName textAlign="start" gridArea="brand">
           Rick And Morty
         </BrandName>
-        <TextLarge margin="auto 0" gridArea="contact">
+        <TextMedium margin="auto 0" gridArea="contact">
           Get in touch
-        </TextLarge>
+        </TextMedium>
         <UListBox color="#fff" width="322px" gridArea="socials">
-          <li>github</li>
-          <li>linkedIn</li>
-          <li>Portfolio</li>
+          <li>
+            <TextXTiny>Github</TextXTiny>
+          </li>
+          <li>
+            <TextXTiny>LinkedIn</TextXTiny>
+          </li>
+          <li>
+            <TextXTiny>Portfolio</TextXTiny>
+          </li>
         </UListBox>
         <Divider
           gridArea="divider"

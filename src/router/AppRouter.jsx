@@ -4,10 +4,11 @@ import { LoginPage } from '../auth/pages/LoginPage';
 
 import {
   CharacterPage,
-  FilterPage,
   SearchPage,
   MyCollection,
   HomePage,
+  EpisodesPage,
+  LocationsPage,
 } from '../app_pages';
 
 export const AppRouter = () => {
@@ -16,7 +17,8 @@ export const AppRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/character" element={<CharacterPage />} />
-      <Route path="/filter" element={<FilterPage />} />
+      <Route path="/Episodes" element={<EpisodesPage />} />
+      <Route path="/Locations" element={<LocationsPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/my-collection" element={<MyCollection />} />
     </Routes>

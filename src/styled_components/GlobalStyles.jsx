@@ -40,6 +40,9 @@ const GlobalStyles = createGlobalStyle`
   li  {
     font-family: 'DM Sans', sans-serif;
   }
+  div {
+    font-family: 'DM Sans', sans-serif;
+  }
 
 `;
 export default GlobalStyles;

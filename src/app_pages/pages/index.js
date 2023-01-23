@@ -1,5 +1,6 @@
 export * from './CharacterPage';
-export * from './FilterPage';
+export * from './EpisodesPage';
+export * from './LocationsPage';
 export * from './SearchPage';
 export * from './MyCollection';
 export * from './HomePage'

@@ -33,7 +33,8 @@ export const CardContainer = styled.div`
   background: rgba(0, 0, 0, ${({ transparency }) => transparency || '0.60'});
   ${({ boxShadow }) => boxShadow && `box-shadow: 0px 0px 24px #000;`}
   display: flex;
-  flex-direction: ${({ flexDir }) => flexDir};
+  flex-flow: ${({ flexFlow }) => flexFlow};
   align-items: center;
   justify-content: center;
+  margin: ${({margin}) => margin};
 `;

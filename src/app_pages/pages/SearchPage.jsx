@@ -2,6 +2,7 @@ import { TextLarge } from '../../styled_components/StyledText';
 import { MainFooter } from '../../navigation/footer/MainFooter';
 import { AppNav } from '../../navigation/header/AppNav';
 import { FlexBox } from '../../styled_components/StyledContainers';
+import { CardCharacter } from '../components/CardCharacter';
 import {
   PrimaryButton,
   PrimaryInput,
@@ -12,7 +13,7 @@ import useFetchCharacters from '../hooks/useFetchCharacters';
 import Grid from '@mui/material/Grid';
 
 export const SearchPage = () => {
-  const { results, pageCount } = useFetchCharacters(2, 'rick');
+  const { results, pageCount } = useFetchCharacters(3, 'rick');
 
   console.log(results);
 
@@ -39,20 +40,23 @@ export const SearchPage = () => {
       </FlexBox>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
+        spacing={{ xs: 1, md: 1 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
         sx={{
-          justifyItems: 'center',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-around',
           alignContent: 'center',
         }}
       >
-        {results.map(({ id, name, status }) => (
-          <Grid item xs={2} sm={4} md={4} key={id}>
-            <p>{name}</p>
-            <p>{status}</p>
-          </Grid>
+        {results.map(({ id, name, status, image, species, gender }) => (
+          <CardCharacter
+            key={id}
+            name={name}
+            status={status}
+            image={image}
+            species={species}
+            gender={gender}
+          />
         ))}
       </Grid>
       <MainFooter />
