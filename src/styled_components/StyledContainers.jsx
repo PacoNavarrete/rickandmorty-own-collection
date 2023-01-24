@@ -9,6 +9,7 @@ export const FlexBox = styled.div`
   justify-content: ${({ justify }) => justify};
   align-items: ${({ alignItems }) => alignItems};
   align-content: ${({ alignContent }) => alignContent};
+  align-self: ${({alignSelf}) => alignSelf};
   gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};

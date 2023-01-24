@@ -23,6 +23,7 @@ export const TitleLarge = styled.h1`
   font-size: ${fontSize.h1};
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -34,6 +35,7 @@ export const TitleMedium = styled.h2`
   font-size: ${fontSize.h2};
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -44,6 +46,7 @@ export const TitleSmall = styled.h2`
   font-size: ${fontSize.h2};
   font-weight: ${({ fontWeight }) => fontWeight || '800'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin};
@@ -55,6 +58,7 @@ export const TextLarge = styled.p`
   font-size: ${fontSize.pLarge};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -65,6 +69,7 @@ export const TextMedium = styled.p`
   font-size: ${fontSize.pMedium};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -75,6 +80,7 @@ export const TextSmall = styled.p`
   font-size: ${fontSize.pSmall};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -85,6 +91,7 @@ export const TextXSmall = styled.p`
   font-size: ${fontSize.pXS};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
@@ -95,6 +102,7 @@ export const TextXTiny = styled.p`
   font-size: ${fontSize.pTiny};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'}
@@ -106,6 +114,7 @@ export const BrandName = styled.p`
   font-family: 'poppins';
   font-size: 32px;
   text-align: ${({ textAlign }) => textAlign || 'center'};
+  align-self: ${({ alignSelf }) => alignSelf};
   font-weight: bold;
   color: #01A606;
   padding: 0 10px;
