@@ -53,12 +53,15 @@ export const SecondaryButton = styled.button`
 
 
 export const SelectorInput = styled.select`
-  width: 90px;
+  min-width: 90px;
   height: 45px;
   background: transparent;
   color: #fff;
-  font-size: 16px;
-
-  
-
+  font-size: 18px;
+  border: none;
+  padding: 5px;
+  option {
+    color: #000;
+    font-size: 16px;
+  }  
 `

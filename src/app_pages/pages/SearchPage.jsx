@@ -6,31 +6,26 @@ import { CardCharacter } from '../components/CardCharacter';
 import {
   PrimaryButton,
   PrimaryInput,
-  SelectorInput,
 } from '../../styled_components/StyledControls';
 
-import SelectControl from '../components/SelectControl';
 import useFetchCharacters from '../hooks/useFetchCharacters';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
+import { SelectOptions } from '../components/SelectOptions';
 
 export const SearchPage = () => {
   const [characterName, setCharacterName] = useState('');
   const [characterStatus, setCharacterStatus] = useState('');
+  const [characterGender, setCharacterGender] = useState('');
   const { results, pageCount } = useFetchCharacters(
     1,
     characterName,
     characterStatus,
-    'male'
+    characterGender
   );
 
   const onCharacterChange = (event) => {
     setCharacterName(event.target.value);
-  };
-
-  const handleStatus = (event) => {
-    setCharacterStatus(event.target.value);
-    console.log(event.target);
   };
 
   return (
@@ -46,26 +41,16 @@ export const SearchPage = () => {
           value={characterName}
           onChange={onCharacterChange}
         />
-        <SelectControl
-          filterNames={['Alive', 'Dead', 'Unknown']}
-          filterTag="Status"
+        <SelectOptions
+          name="Status"
+          options={['', 'Alive', 'Dead', 'Unknow']}
+          setChange={setCharacterStatus}
         />
-        {/* The SelectorInput component is only for testing, I'll create my own selector with syled components */}
-        <SelectorInput
-          name="character-status"
-          id="status-selector"
-          onChange={handleStatus}
-        >
-          <option defaultValue="status" disabled>
-            Status
-          </option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown">Unknown</option>
-        </SelectorInput>
-        <SelectControl
-          filterNames={['Female', 'Male', 'Genderless', 'unknown']}
-          filterTag="Gender"
+
+        <SelectOptions
+          name="Gender"
+          options={['', 'Female', 'Male', 'Genderless', 'unknown']}
+          setChange={setCharacterGender}
         />
         <PrimaryButton>Filter</PrimaryButton>
       </FlexBox>
