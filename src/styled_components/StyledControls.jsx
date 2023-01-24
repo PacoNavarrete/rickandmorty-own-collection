@@ -50,3 +50,15 @@ export const SecondaryButton = styled.button`
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
+
+
+export const SelectorInput = styled.select`
+  width: 90px;
+  height: 45px;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+
+  
+
+`

@@ -25,6 +25,8 @@ export default function SelectControl({ filterNames = [], filterTag="tag name" }
 
   const [personName, setPersonName] = useState([]);
 
+  console.log(personName)
+
   const handleChange = (event) => {
     const {
       target: { value },

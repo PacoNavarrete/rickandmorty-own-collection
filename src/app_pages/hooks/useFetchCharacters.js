@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const useFetchCharacters = (pageNum, search) => {
-  const url = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}`;
+const useFetchCharacters = (pageNum, search, charStatus, charGender) => {
+  const url = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}&status=${charStatus}&gender=${charGender}`;
 
   const [results, setResults] = useState([]);
   const [pageCount, setPageCount] = useState(1);

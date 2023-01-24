@@ -19,7 +19,20 @@ export const Badge = styled.div`
 `;
 
 export const AddToCollection = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 5px;
+  font-size: 34px;
+  color: #fff;
+  align-self: end;
+  margin: 0 30px 0 ;
+  translate: -10px -40px;
 
-
-
+  &:hover {
+    cursor: pointer;
+  }
 `;
