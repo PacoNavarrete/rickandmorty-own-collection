@@ -12,13 +12,15 @@ import useFetchCharacters from '../hooks/useFetchCharacters';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import { SelectOptions } from '../components/SelectOptions';
+import CardsPagination from '../components/CardsPagination';
 
 export const SearchPage = () => {
   const [characterName, setCharacterName] = useState('');
   const [characterStatus, setCharacterStatus] = useState('');
   const [characterGender, setCharacterGender] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
   const { results, pageCount } = useFetchCharacters(
-    1,
+    currentPage,
     characterName,
     characterStatus,
     characterGender
@@ -75,6 +77,11 @@ export const SearchPage = () => {
           />
         ))}
       </Grid>
+      <CardsPagination
+        pageCount={pageCount}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       <MainFooter />
     </>
   );
