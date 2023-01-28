@@ -1,4 +1,5 @@
-import useFetchLocations from '../hooks/useFetchLocations';
+import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
+import useFetchLocationsByPage from '../hooks/useFetchLocationsByPage';
 
 import { TextLarge } from '../../styled_components/StyledText';
 import { MainFooter } from '../../navigation/footer/MainFooter';
@@ -13,10 +14,19 @@ import { SelectOptions } from '../components/SelectOptions';
 import CardsPagination from '../components/CardsPagination';
 
 export const LocationsPage = () => {
-  const [location, setLocation] = useState('');
-  const { results } = useFetchLocations(location);
+  const [locationName, setLocationName] = useState("Earth (C-137)");
+  const [locationPage, setLocationPage] = useState(1);
+  const [locationsList, setLocationsList] = useState([]);
+  const [page, setPage] = useState();
 
-  console.log(results);
+  const { resultsByName, residentsByLocation } = useFetchLocationsByName(locationName);
+  const { resultsByPage } = useFetchLocationsByPage(locationPage);
+
+  const resultPages = resultsByPage.results?.map((result) => result.name);
+  
+
+  console.log(resultsByName);
+  console.log(residentsByLocation)
 
   const onCharacterChange = (event) => {
     // setCharacterName(event.target.value);
@@ -32,8 +42,8 @@ export const LocationsPage = () => {
 
         <SelectOptions
           name="locations"
-          options={['location 1', 'location 2', 'location 3']}
-          setChange={setLocation}
+          options={resultPages}
+          setChange={setLocationName}
         />
 
         <PrimaryButton>Filter</PrimaryButton>
