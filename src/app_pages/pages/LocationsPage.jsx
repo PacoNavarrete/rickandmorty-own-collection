@@ -1,5 +1,5 @@
-import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
-import useFetchLocationsByPage from '../hooks/useFetchLocationsByPage';
+import { useEffect, useState } from 'react';
+import { useFetchLocations } from '../hooks/useFetchLocations';
 
 import { TextLarge } from '../../styled_components/StyledText';
 import { MainFooter } from '../../navigation/footer/MainFooter';
@@ -9,28 +9,23 @@ import { CardCharacter } from '../components/CardCharacter';
 import { PrimaryButton } from '../../styled_components/StyledControls';
 
 import Grid from '@mui/material/Grid';
-import { useState } from 'react';
 import { SelectOptions } from '../components/SelectOptions';
 import CardsPagination from '../components/CardsPagination';
+import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
 
 export const LocationsPage = () => {
-  const [locationName, setLocationName] = useState("Earth (C-137)");
-  const [locationPage, setLocationPage] = useState(1);
-  const [locationsList, setLocationsList] = useState([]);
-  const [page, setPage] = useState();
+  const [locationName, setLocationName] = useState('Earth (C-137)');
 
-  const { resultsByName, residentsByLocation } = useFetchLocationsByName(locationName);
-  const { resultsByPage } = useFetchLocationsByPage(locationPage);
+  const { locationsList, namesOfLocations } = useFetchLocations();
+  const { residentsByLocation, resultsByName } =
+    useFetchLocationsByName(locationName);
 
-  const resultPages = resultsByPage.results?.map((result) => result.name);
-  
-
-  console.log(resultsByName);
-  console.log(residentsByLocation)
-
-  const onCharacterChange = (event) => {
-    // setCharacterName(event.target.value);
-  };
+  useEffect(() => {
+    console.log(locationsList);
+    console.log(namesOfLocations);
+    console.log(residentsByLocation);
+    console.log(resultsByName);
+  }, [locationsList, namesOfLocations, residentsByLocation, resultsByName]);
 
   return (
     <>
@@ -42,7 +37,7 @@ export const LocationsPage = () => {
 
         <SelectOptions
           name="locations"
-          options={resultPages}
+          options={namesOfLocations}
           setChange={setLocationName}
         />
 
@@ -58,16 +53,18 @@ export const LocationsPage = () => {
           alignContent: 'center',
         }}
       >
-        {/* {results?.map(({ id, name, status, image, species, gender }) => (
-          <CardCharacter
-            key={id}
-            name={name}
-            status={status}
-            image={image}
-            species={species}
-            gender={gender}
-          />
-        ))} */}
+        {residentsByLocation?.map(
+          ({ id, name, status, image, species, gender }) => (
+            <CardCharacter
+              key={id}
+              name={name}
+              status={status}
+              image={image}
+              species={species}
+              gender={gender}
+            />
+          )
+        )}
       </Grid>
 
       <MainFooter />

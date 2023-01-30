@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useFetchLocations = (pageNum) => {
+const useFetchLocationsByPage = (pageNum) => {
   const urlByPage = `https://rickandmortyapi.com/api/location?page=${pageNum}`;
 
   const [resultsByPage, setResultsByPage] = useState([]);
@@ -33,4 +33,4 @@ const useFetchLocations = (pageNum) => {
   };
 };
 
-export default useFetchLocations;
+export default useFetchLocationsByPage;

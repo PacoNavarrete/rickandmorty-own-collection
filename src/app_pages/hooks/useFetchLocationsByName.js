@@ -22,7 +22,7 @@ const useFetchLocationsByName = (locationName) => {
       setResidentsByLocation(residents);
     } catch (error) {
       console.warn(
-        `data not fetched due to the number of episode: '${episodeNum}', does not exist in the API`
+        `data not fetched due to the number of episode: does not exist in the API`
       );
       return;
     }
