@@ -23,6 +23,14 @@
     'icons icons icons madeby';
 }
 
+.grid-cards-character {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 90px 0;
+}
+
 @media screen and (max-width: 824px) {
   .grid-home_hero {
     grid-template-areas:
@@ -31,6 +39,7 @@
       'hero-img hero-img hero-img'
       'hero-btn hero-btn hero-btn';
   }
+
   .grid-main-footer {
     height: 300px;
     display: flex;

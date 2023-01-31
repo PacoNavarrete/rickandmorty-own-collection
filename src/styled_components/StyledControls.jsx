@@ -9,7 +9,7 @@ export const PrimaryInput = styled.input`
   outline: 0;
   color: #d7d7d7;
   font-size: 18px;
-  align-self: ${({alignSelf})=> alignSelf};
+  align-self: ${({ alignSelf }) => alignSelf};
   &:hover{
     border-bottom: 1px solid #000;
   }
@@ -51,7 +51,6 @@ export const SecondaryButton = styled.button`
   }
 `;
 
-
 export const SelectorInput = styled.select`
   min-width: 90px;
   height: 45px;
@@ -63,5 +62,6 @@ export const SelectorInput = styled.select`
   option {
     color: #000;
     font-size: 16px;
+    text-align: center;
   }  
-`
+`;

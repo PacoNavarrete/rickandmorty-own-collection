@@ -56,16 +56,7 @@ export const SearchPage = () => {
         />
         <PrimaryButton>Filter</PrimaryButton>
       </FlexBox>
-      <Grid
-        container
-        spacing={{ xs: 1, md: 1 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'space-around',
-          alignContent: 'center',
-        }}
-      >
+      <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
         {results?.map(({ id, name, status, image, species, gender }) => (
           <CardCharacter
             key={id}
@@ -76,7 +67,7 @@ export const SearchPage = () => {
             gender={gender}
           />
         ))}
-      </Grid>
+      </FlexBox>
       <CardsPagination
         pageCount={pageCount}
         currentPage={currentPage}
