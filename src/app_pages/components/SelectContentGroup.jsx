@@ -5,12 +5,16 @@ import { SelectOptions } from './SelectOptions';
 
 export const SelectContentGroup = ({ namesOfLocations, setLocationName }) => {
   return (
-    <FlexBox flexFlow="row wrap" justify="space-around" alignItems="center">
-      <TextLarge>
-        Find your <br /> character
-      </TextLarge>
+    <FlexBox
+      flexFlow="row wrap"
+      gap="30px"
+      margin="0 30px"
+      justify="center"
+      alignItems="center"
+    >
+      <TextLarge>Collection of Characters</TextLarge>
       <SelectOptions
-        name="locations"
+        name="locations:"
         options={namesOfLocations}
         setChange={setLocationName}
       />
