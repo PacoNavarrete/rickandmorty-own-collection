@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const UListBox = styled.ul`
-  display: ${({ burgerOpen }) => (burgerOpen ? 'flex' : 'none')};
+  display: flex;
   flex-flow: ${({ flexFlow }) => flexFlow};
   color: ${({ color }) => color};
   align-items: center;

@@ -1,20 +1,29 @@
 import { UListBox } from '../../styled_components/StyledNavigation';
 import { TextXTiny } from '../../styled_components/StyledText';
+import { Link } from 'react-router-dom';
 
 export const AppHeaderMenu = () => {
   return (
     <UListBox flexFlow="row nowrap" width="450px" color="#fff">
       <li>
-        <TextXTiny>CHARACTERS</TextXTiny>
+        <Link to="/search">
+          <TextXTiny>CHARACTERS</TextXTiny>
+        </Link>
       </li>
       <li>
-        <TextXTiny>LOCATIONS</TextXTiny>
+        <Link to="/locations">
+          <TextXTiny>LOCATIONS</TextXTiny>
+        </Link>
       </li>
       <li>
-        <TextXTiny>EPISODES</TextXTiny>
+        <Link to="/episodes">
+          <TextXTiny>EPISODES</TextXTiny>
+        </Link>
       </li>
       <li>
-        <TextXTiny>MY COLLECTION</TextXTiny>
+        <Link to="my-colloction">
+          <TextXTiny>MY COLLECTION</TextXTiny>
+        </Link>
       </li>
     </UListBox>
   );

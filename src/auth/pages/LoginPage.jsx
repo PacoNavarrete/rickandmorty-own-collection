@@ -8,9 +8,17 @@ import {
 
 export const LoginPage = () => {
   return (
-    <FlexBox width="100%" height="100vh" flexDir="row">
-      <CardContainer width="320px" height="450px" flexDir="column">
-        <TitleMedium>Create your account</TitleMedium>
+    <FlexBox
+      width="100%"
+      height="100vh"
+      justify="center"
+      alignItems="center"
+      flexFlow="row nowrap"
+    >
+      <CardContainer width="320px" height="450px" flexFlow="column nowrap">
+        <TitleMedium lineHeight="44px" margin="35px 0">
+          Create your account
+        </TitleMedium>
         <FormLogin />
       </CardContainer>
     </FlexBox>

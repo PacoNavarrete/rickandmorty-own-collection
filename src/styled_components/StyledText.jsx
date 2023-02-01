@@ -37,6 +37,7 @@ export const TitleMedium = styled.h2`
   text-align: ${({ textAlign }) => textAlign || 'center'};
   align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
+  line-height: ${({lineHeight}) => lineHeight};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
 
