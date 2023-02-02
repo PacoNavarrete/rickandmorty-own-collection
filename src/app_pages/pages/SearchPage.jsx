@@ -1,18 +1,12 @@
-import { TextLarge } from '../../styled_components/StyledText';
-import { MainFooter } from '../../navigation/footer/MainFooter';
-import { AppNav } from '../../navigation/header/AppNav';
-import { FlexBox } from '../../styled_components/StyledContainers';
-import { CardCharacter } from '../components/CardCharacter';
-import {
-  PrimaryButton,
-  PrimaryInput,
-} from '../../styled_components/StyledControls';
-
-import useFetchCharacters from '../hooks/useFetchCharacters';
-import Grid from '@mui/material/Grid';
 import { useState } from 'react';
-import { SelectOptions } from '../components/SelectOptions';
+import useFetchCharacters from '../hooks/useFetchCharacters';
+
+import { AppNav } from '../../navigation/header/AppNav';
+import { SearchContentGroup } from '../components/SearchContentGroup';
+import { CardCharacter } from '../components/CardCharacter';
+import { FlexBox } from '../../styled_components/StyledContainers';
 import CardsPagination from '../components/CardsPagination';
+import { MainFooter } from '../../navigation/footer/MainFooter';
 
 export const SearchPage = () => {
   const [characterName, setCharacterName] = useState('');
@@ -26,36 +20,15 @@ export const SearchPage = () => {
     characterGender
   );
 
-  const onCharacterChange = (event) => {
-    setCharacterName(event.target.value);
-  };
-
   return (
     <>
       <AppNav />
-      <FlexBox justify="space-around" alignItems="center">
-        <TextLarge>
-          Find your <br /> character
-        </TextLarge>
-        <PrimaryInput
-          placeholder="Type the character name"
-          alignSelf="center"
-          value={characterName}
-          onChange={onCharacterChange}
-        />
-        <SelectOptions
-          name="Status"
-          options={['', 'Alive', 'Dead', 'Unknow']}
-          setChange={setCharacterStatus}
-        />
-
-        <SelectOptions
-          name="Gender"
-          options={['', 'Female', 'Male', 'Genderless', 'unknown']}
-          setChange={setCharacterGender}
-        />
-        <PrimaryButton>Filter</PrimaryButton>
-      </FlexBox>
+      <SearchContentGroup
+        characterName={characterName}
+        setCharacterName={setCharacterName}
+        setCharacterGender={setCharacterGender}
+        setCharacterStatus={setCharacterStatus}
+      />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
         {results?.map(({ id, name, status, image, species, gender }) => (
           <CardCharacter

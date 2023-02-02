@@ -1,7 +1,7 @@
 import { Pagination, Stack, Box } from '@mui/material';
 
 const CardsPagination = ({ pageCount, setCurrentPage, currentPage }) => {
-  const handleChange = (event, value) => {
+  const handleChange = (value) => {
     setCurrentPage(value);
   };
   return (
