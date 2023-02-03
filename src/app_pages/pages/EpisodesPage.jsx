@@ -15,9 +15,7 @@ export const EpisodesPage = () => {
   const { residentsByLocation } = useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
 
-  useFetchEpisodes();
-
-  
+  const { isLoading, namesOfEpisodes, episodesList } = useFetchEpisodes();
 
   return (
     <>

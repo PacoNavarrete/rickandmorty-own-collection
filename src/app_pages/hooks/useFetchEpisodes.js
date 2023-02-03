@@ -8,27 +8,39 @@ const useFetchEpisodes = (episodeNum) => {
   const url = `https://rickandmortyapi.com/api/episode`;
 
   async function getEpisodesProcess() {
+    setIsLoading(true);
     const data = await fetch(url)
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then(({ info }) => getEpisodesByIds(info.count));
   }
-  getEpisodesProcess();
-};
 
-async function getEpisodesByIds(count) {
-  const arrayOfIds = new Array(count);
+  async function getEpisodesByIds(count) {
+    const arrayOfIds = new Array(count);
 
-  for (let i = 0; i < count; i++) {
-    arrayOfIds[i] = i + 1;
+    for (let i = 0; i < count; i++) {
+      arrayOfIds[i] = i + 1;
+    }
+
+    const episodesNames = await fetch(
+      `https://rickandmortyapi.com/api/episode/${arrayOfIds}`
+    )
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+      .then((episodes) => {
+        setEpisodesList(episodes);
+        setNamesOfEpisodes(episodes.map((episode) => episode.name));
+        setIsLoading(false);
+      });
   }
 
-  const episodesNames = await fetch(
-    `https://rickandmortyapi.com/api/episode/${arrayOfIds}`
-  )
-    .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-    .then((episodes) => {
-      console.log(episodes);
-    });
-}
+  useEffect(() => {
+    getEpisodesProcess();
+  }, []);
+
+  return {
+    isLoading,
+    episodesList,
+    namesOfEpisodes,
+  };
+};
 
 export default useFetchEpisodes;
