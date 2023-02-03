@@ -17,17 +17,17 @@ export const LocationsPage = () => {
   return (
     <>
       <AppNav />
-      <SelectContentGroup
-        namesOfLocations={namesOfLocations}
-        setLocationName={setLocationName}
+      <SelectContentGroup 
+        names={namesOfLocations} 
+        setName={setLocationName} 
+        description={'Locations'}
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
-        {
-          residentsByLocation.length < 1 
-          ? (<MissingCharacters />)
-          : (residentsByLocation?.map(({
-             id, name, status, image, species, gender 
-            }) => (
+        {residentsByLocation.length < 1 ? (
+          <MissingCharacters />
+        ) : (
+          residentsByLocation?.map(
+            ({ id, name, status, image, species, gender }) => (
               <CardCharacter
                 key={id}
                 name={name}

@@ -17,7 +17,12 @@ export const SearchContentGroup = ({
   };
 
   return (
-    <FlexBox justify="space-around" alignItems="center">
+    <FlexBox
+      flexFlow="row wrap"
+      justify="space-around"
+      alignItems="center"
+      gap="20px"
+    >
       <TextLarge>
         Find your <br /> character
       </TextLarge>

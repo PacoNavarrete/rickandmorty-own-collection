@@ -27,7 +27,7 @@ const useFetchEpisodes = (episodeNum) => {
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((episodes) => {
         setEpisodesList(episodes);
-        setNamesOfEpisodes(episodes.map((episode) => episode.name));
+        setNamesOfEpisodes(episodes.map((episode) => episode.episode));
         setIsLoading(false);
       });
   }

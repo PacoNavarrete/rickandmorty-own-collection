@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 
-const useFetchLocationsByName = (locationName) => {
-  const urlByName = `https://rickandmortyapi.com/api/location?name=${locationName}`;
+const useFetchEpisodesByName = (episodeName) => {
+  const urlByName = `https://rickandmortyapi.com/api/episode?episode=${episodeName}`;
 
   const [resultsByName, setResultsByName] = useState([]);
+  const [residentsByEpisode, setResidentsByEpisode] = useState([]);
 
-  const [residentsByLocation, setResidentsByLocation] = useState([]);
-
-  const getNewLocationByName = async () => {
+  const getNewEpisodesByName = async () => {
     const resp = await fetch(urlByName);
     const data = await resp.json();
-    console.log(data)
 
     let residents = await Promise.all(
-      data.results[0].residents.map(async (character) => {
+      data.results[0].characters.map(async (character) => {
         return fetch(character).then((resp) => resp.json());
       })
     );
 
     try {
       setResultsByName(data.results[0]);
-      setResidentsByLocation(residents);
+      setResidentsByEpisode(residents);
     } catch (error) {
       console.warn(
         `data not fetched due to the number of episode: does not exist in the API`
@@ -30,13 +28,13 @@ const useFetchLocationsByName = (locationName) => {
   };
 
   useEffect(() => {
-    getNewLocationByName();
+    getNewEpisodesByName();
   }, [urlByName]);
 
   return {
     resultsByName,
-    residentsByLocation,
+    residentsByEpisode,
   };
 };
 
-export default useFetchLocationsByName;
+export default useFetchEpisodesByName;

@@ -3,7 +3,7 @@ import { PrimaryButton } from '../../styled_components/StyledControls';
 import { TextLarge } from '../../styled_components/StyledText';
 import { SelectOptions } from './SelectOptions';
 
-export const SelectContentGroup = ({ namesOfLocations, setLocationName }) => {
+export const SelectContentGroup = ({ names, setName, description }) => {
   return (
     <FlexBox
       flexFlow="row wrap"
@@ -12,12 +12,8 @@ export const SelectContentGroup = ({ namesOfLocations, setLocationName }) => {
       justify="center"
       alignItems="center"
     >
-      <TextLarge>Collection of Characters</TextLarge>
-      <SelectOptions
-        name="locations:"
-        options={namesOfLocations}
-        setChange={setLocationName}
-      />
+      <TextLarge>{description}</TextLarge>
+      <SelectOptions name="locations:" options={names} setChange={setName} />
       <PrimaryButton>Filter</PrimaryButton>
     </FlexBox>
   );

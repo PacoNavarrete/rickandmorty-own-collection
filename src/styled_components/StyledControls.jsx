@@ -5,7 +5,7 @@ export const PrimaryInput = styled.input`
   height: 38px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom: 1px solid #fff;
   outline: 0;
   color: #d7d7d7;
   font-size: 18px;
@@ -58,7 +58,7 @@ export const SelectorInput = styled.select`
   background: transparent;
   color: #fff;
   font-size: 18px;
-  border: none;
+  border: 1px solid #fff;
   padding: 5px;
   option {
     color: #000;
