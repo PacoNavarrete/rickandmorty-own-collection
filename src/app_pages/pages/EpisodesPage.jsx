@@ -8,12 +8,15 @@ import { CardCharacter } from '../components/CardCharacter';
 import { MainFooter } from '../../navigation/footer/MainFooter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
+import { BurgerIcon } from '../../styled_components/StyledNavigation';
+import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 
 export const EpisodesPage = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
   const [episodeName, setEpisodeName] = useState('S01E01');
   const { residentsByEpisode } = useFetchEpisodesByName(episodeName);
   const { namesOfEpisodes } = useFetchEpisodes();
-
+  ``;
   return (
     <>
       <AppNav />
@@ -40,6 +43,15 @@ export const EpisodesPage = () => {
           )
         )}
       </FlexBox>
+      <AppBurgerNav burgerStatus={burgerOpen} />
+      <BurgerIcon
+        iconStatus={burgerOpen}
+        onClick={() => setBurgerOpen(!burgerOpen)}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </BurgerIcon>
       <MainFooter />
     </>
   );

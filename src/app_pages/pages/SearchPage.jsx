@@ -7,8 +7,11 @@ import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import CardsPagination from '../components/CardsPagination';
 import { MainFooter } from '../../navigation/footer/MainFooter';
+import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
+import { BurgerIcon } from '../../styled_components/StyledNavigation';
 
 export const SearchPage = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
   const [characterName, setCharacterName] = useState('');
   const [characterStatus, setCharacterStatus] = useState('');
   const [characterGender, setCharacterGender] = useState('');
@@ -46,6 +49,15 @@ export const SearchPage = () => {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
+      <AppBurgerNav burgerStatus={burgerOpen} />
+      <BurgerIcon
+        iconStatus={burgerOpen}
+        onClick={() => setBurgerOpen(!burgerOpen)}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </BurgerIcon>
       <MainFooter />
     </>
   );

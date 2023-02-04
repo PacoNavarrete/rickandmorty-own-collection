@@ -1,4 +1,3 @@
-import { BurgerIcon, UListBox } from '../../styled_components/StyledNavigation';
 import { BrandName, TextXTiny } from '../../styled_components/StyledText';
 
 export const AppBurgerMenu = ({ burgerOpen }) => {

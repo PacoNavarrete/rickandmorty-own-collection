@@ -8,8 +8,11 @@ import { CardCharacter } from '../components/CardCharacter';
 import { MainFooter } from '../../navigation/footer/MainFooter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
+import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
+import { BurgerIcon } from '../../styled_components/StyledNavigation';
 
 export const LocationsPage = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
   const [locationName, setLocationName] = useState('Earth (C-137)');
   const { residentsByLocation } = useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
@@ -17,9 +20,9 @@ export const LocationsPage = () => {
   return (
     <>
       <AppNav />
-      <SelectContentGroup 
-        names={namesOfLocations} 
-        setName={setLocationName} 
+      <SelectContentGroup
+        names={namesOfLocations}
+        setName={setLocationName}
         description={'Locations'}
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
@@ -40,6 +43,15 @@ export const LocationsPage = () => {
           )
         )}
       </FlexBox>
+      <AppBurgerNav burgerStatus={burgerOpen} />
+      <BurgerIcon
+        iconStatus={burgerOpen}
+        onClick={() => setBurgerOpen(!burgerOpen)}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </BurgerIcon>
       <MainFooter />
     </>
   );

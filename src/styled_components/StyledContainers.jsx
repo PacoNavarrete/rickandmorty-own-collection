@@ -18,6 +18,11 @@ export const FlexBox = styled.div`
   border: ${({ border }) => border};
   border-radius: ${({ radius }) => radius};
   box-shadow: ${({ boxShadow }) => boxShadow};
+  position: ${({position}) => position};
+  top: ${({topPos}) => topPos};
+  bottom: ${({bottomPos}) => bottomPos};
+  left: ${({leftPos}) => leftPos};
+  right: ${({rightPos}) => rightPos};
 
   @media screen and (max-width: 824px){
     padding: ${({ mobilePadding }) => mobilePadding};
@@ -37,7 +42,7 @@ export const CardContainer = styled.div`
   flex-flow: ${({ flexFlow }) => flexFlow};
   align-items: ${({ alignItems }) => alignItems || 'center'};
   justify-content: ${({ justify }) => justify || 'center'};
-  gap: ${({gap}) => gap};
+  gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
-  padding: ${({padding}) => padding};
+  padding: ${({ padding }) => padding};
 `;
