@@ -10,7 +10,6 @@ const useFetchLocationsByName = (locationName) => {
   const getNewLocationByName = async () => {
     const resp = await fetch(urlByName);
     const data = await resp.json();
-    console.log(data)
 
     let residents = await Promise.all(
       data.results[0].residents.map(async (character) => {

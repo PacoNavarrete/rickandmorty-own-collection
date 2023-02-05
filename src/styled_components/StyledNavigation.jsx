@@ -18,6 +18,9 @@ export const UListBox = styled.ul`
   transition: all 0.5s ease;
   border-radius: 30px 30px 0 0;
   
+  a {
+    text-decoration: none;
+  }
   li {
     list-style: none;
     cursor: pointer;
@@ -75,8 +78,7 @@ export const BurgerList = styled.ul`
     color: ${({ color }) => color};
     align-items: center;
     justify-content: ${({ justify }) => justify};
-    // background-color: ${({ backgroundColor }) => backgroundColor};
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     width: ${({ width }) => width};
     height: ${({ height }) => height};
     padding: 0;
@@ -84,18 +86,22 @@ export const BurgerList = styled.ul`
     font-size: 18px;
     grid-area: ${({ gridArea }) => gridArea};
     transition: all 0.5s ease;
-    border-radius: 30px 30px 0 0;
+    border-radius: 0;
+    gap: ${({gap}) => gap};
     position: ${({ position }) => position};
     top: ${({ topPos }) => topPos};
     bottom: ${({ bottomPos }) => bottomPos};
     left: ${({ leftPos }) => leftPos};
     right: ${({ rightPos }) => rightPos};
     
+    a {
+      text-decoration: none;
+    }
     li {
       list-style: none;
-      cursor: pointer;
     }
     P:hover {
+      cursor: pointer;
       color: #01A606;
     }
   `;

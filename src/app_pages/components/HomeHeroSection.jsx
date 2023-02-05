@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import {
@@ -38,7 +39,9 @@ export const HomeHeroSection = () => {
         mobilePadding="0"
         mobileJustify="center"
       >
-        <PrimaryButton>Start Now</PrimaryButton>
+        <Link to="/login">
+          <PrimaryButton>Start Now</PrimaryButton>
+        </Link>
         <SecondaryButton>How it Works</SecondaryButton>
       </FlexBox>
 

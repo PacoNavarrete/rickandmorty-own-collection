@@ -7,6 +7,7 @@ import {
 } from '../../styled_components/StyledContainers';
 
 export const LoginPage = () => {
+
   return (
     <FlexBox
       width="100%"
@@ -15,7 +16,7 @@ export const LoginPage = () => {
       alignItems="center"
       flexFlow="row nowrap"
     >
-      <CardContainer width="320px" height="450px" flexFlow="column nowrap">
+      <CardContainer width="380px" height="450px" flexFlow="column nowrap">
         <TitleMedium lineHeight="44px" margin="35px 0">
           Create your account
         </TitleMedium>

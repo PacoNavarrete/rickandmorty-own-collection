@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import accountIcon from '../../assets/icons/account.svg';
 import filterIcon from '../../assets/icons/filter.svg';
 import archiveIcon from '../../assets/icons/archive.svg';
@@ -54,7 +55,9 @@ export const HomeCTASection = () => {
           </TextSmall>
         </FlexBox>
       </FlexBox>
-      <PrimaryButton>Start Now</PrimaryButton>
+      <Link to="/login">
+        <PrimaryButton>Start Now</PrimaryButton>
+      </Link>
     </FlexBox>
   );
 };

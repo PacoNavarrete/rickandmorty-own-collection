@@ -1,25 +1,21 @@
+import { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { TextXSmall } from '../../styled_components/StyledText';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import {
   PrimaryInput,
   PrimaryButton,
 } from '../../styled_components/StyledControls';
-import { useState } from 'react';
 
 export const FormLogin = () => {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [user, setUserLoged] = useState({
-    userName: '',
-    userLoged: false,
-  });
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(name);
-    setUserLoged({
-      userName: name,
-      userLoged: true,
-    });
+    login(name);
     setName('');
   }
 
