@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../auth/context/AuthContext';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { AppHeaderMenu } from '../coponents/AppHeaderMenu';
 import {
@@ -6,7 +8,11 @@ import {
   TextXTiny,
 } from '../../styled_components/StyledText';
 
-export const AppNav = ({ userName, displayState }) => {
+export const AppNav = () => {
+  const { authState } = useContext(AuthContext);
+
+  const userName = authState.user.userName;
+
   return (
     <>
       <FlexBox
@@ -14,12 +20,13 @@ export const AppNav = ({ userName, displayState }) => {
         width="100%"
         height="125px"
         margin="0"
-        justify="space-around"
+        padding="0 20px 0 20px"
+        justify="space-between"
         alignItems="center"
       >
         <BrandName>Rick and Morty</BrandName>
         <AppHeaderMenu />
-        <FlexBox gap="10px" justify="center">
+        <FlexBox gap="10px" justify="space-arround" alignItems="center">
           <TextXTiny>{userName}</TextXTiny>
           <FlexBox
             width="40px"
@@ -29,7 +36,7 @@ export const AppNav = ({ userName, displayState }) => {
             border="1px solid #fff"
             radius="20px"
           >
-            <TextSmall>{'TBD'}</TextSmall>
+            <TextSmall>{userName[0]}</TextSmall>
           </FlexBox>
         </FlexBox>
       </FlexBox>

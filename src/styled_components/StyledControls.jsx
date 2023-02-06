@@ -12,7 +12,7 @@ export const PrimaryInput = styled.input`
   align-self: ${({ alignSelf }) => alignSelf};
   text-align: ${({ textAlign }) => textAlign};
   &:hover{
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #01A606;
   }
   &::placeholder {
     color: #d7d7d7;

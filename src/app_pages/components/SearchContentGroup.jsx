@@ -1,10 +1,7 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { TextLarge } from '../../styled_components/StyledText';
 import { SelectOptions } from './SelectOptions';
-import {
-  PrimaryButton,
-  PrimaryInput,
-} from '../../styled_components/StyledControls';
+import { PrimaryInput } from '../../styled_components/StyledControls';
 
 export const SearchContentGroup = ({
   characterName,
@@ -19,31 +16,35 @@ export const SearchContentGroup = ({
   return (
     <FlexBox
       flexFlow="row wrap"
-      justify="space-around"
+      justify="center"
       alignItems="center"
-      gap="20px"
+      gap="50px"
+      margin="0 30px"
     >
-      <TextLarge>
-        Find your <br /> character
-      </TextLarge>
-      <PrimaryInput
-        placeholder="Type the character name"
-        alignSelf="center"
-        value={characterName}
-        onChange={onCharacterChange}
-      />
-      <SelectOptions
-        name="Status"
-        options={['', 'Alive', 'Dead', 'Unknow']}
-        setChange={setCharacterStatus}
-      />
-
-      <SelectOptions
-        name="Gender"
-        options={['', 'Female', 'Male', 'Genderless', 'unknown']}
-        setChange={setCharacterGender}
-      />
-      <PrimaryButton>Filter</PrimaryButton>
+      <FlexBox flexFlow="column nowrap" gap="30px">
+        <TextLarge>
+          Find your <br /> character
+        </TextLarge>
+        <PrimaryInput
+          width="300px"
+          placeholder="Type the character name"
+          alignSelf="center"
+          value={characterName}
+          onChange={onCharacterChange}
+        />
+      </FlexBox>
+      <FlexBox flexFlow="row nowrap" gap="30px">
+        <SelectOptions
+          name="Status"
+          options={['', 'Alive', 'Dead', 'Unknow']}
+          setChange={setCharacterStatus}
+        />
+        <SelectOptions
+          name="Gender"
+          options={['', 'Female', 'Male', 'Genderless', 'unknown']}
+          setChange={setCharacterGender}
+        />
+      </FlexBox>
     </FlexBox>
   );
 };

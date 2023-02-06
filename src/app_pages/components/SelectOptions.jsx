@@ -3,17 +3,18 @@ import { SelectorInput } from '../../styled_components/StyledControls';
 import { TextXTiny } from '../../styled_components/StyledText';
 
 export const SelectOptions = ({ options, name, setChange }) => {
-  
   const handleChangeOption = (event) => {
     setChange(event.target.value);
   };
 
   return (
     <FlexBox flexFlow="column nowrap">
-      <TextXTiny>{name}</TextXTiny>
+      <label htmlFor={name + 'selector'}>
+        <TextXTiny>{name}:</TextXTiny>
+      </label>
       <SelectorInput
         name={name}
-        id={name + 'solector'}
+        id={name + 'selector'}
         onChange={handleChangeOption}
       >
         {options?.map((option) => (
