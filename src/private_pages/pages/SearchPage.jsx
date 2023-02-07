@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useFetchCharacters from '../hooks/useFetchCharacters';
 
-import { AppNav } from '../../navigation/header/AppNav';
 import { SearchContentGroup } from '../components/SearchContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
@@ -25,7 +24,6 @@ export const SearchPage = () => {
 
   return (
     <>
-      <AppNav />
       <SearchContentGroup
         characterName={characterName}
         setCharacterName={setCharacterName}

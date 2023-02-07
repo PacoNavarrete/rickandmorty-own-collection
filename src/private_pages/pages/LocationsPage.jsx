@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useFetchLocations } from '../hooks/useFetchLocations';
 import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
 
-import { AppNav } from '../../navigation/header/AppNav';
 import { SelectContentGroup } from '../components/SelectContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
 import { MainFooter } from '../../navigation/footer/MainFooter';
@@ -19,7 +18,6 @@ export const LocationsPage = () => {
 
   return (
     <>
-      <AppNav />
       <SelectContentGroup
         names={namesOfLocations}
         setName={setLocationName}

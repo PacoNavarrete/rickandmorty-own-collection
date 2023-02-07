@@ -2,7 +2,6 @@ import { useState } from 'react';
 import useFetchEpisodes from '../hooks/useFetchEpisodes';
 import useFetchEpisodesByName from '../hooks/useFetchEpisodesByName';
 
-import { AppNav } from '../../navigation/header/AppNav';
 import { SelectContentGroup } from '../components/SelectContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
 import { MainFooter } from '../../navigation/footer/MainFooter';
@@ -19,7 +18,6 @@ export const EpisodesPage = () => {
   ``;
   return (
     <>
-      <AppNav />
       <SelectContentGroup
         names={namesOfEpisodes}
         setName={setEpisodeName}

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import accountIcon from '../../assets/icons/account.svg';
-import filterIcon from '../../assets/icons/filter.svg';
-import archiveIcon from '../../assets/icons/archive.svg';
-
-import { PrimaryButton } from '../../styled_components/StyledControls';
-import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
+import { PrimaryButton } from '../../styled_components/StyledControls';
+import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
+
+const accountIcon = '../../assets/icons/account.svg';
+const archiveIcon = '../../assets/icons/archive.svg';
+const filterIcon = '../../assets/icons/filter.svg';
 
 export const HomeCTASection = () => {
   return (

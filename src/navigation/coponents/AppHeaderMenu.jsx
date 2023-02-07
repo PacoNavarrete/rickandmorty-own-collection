@@ -21,7 +21,7 @@ export const AppHeaderMenu = () => {
         </Link>
       </li>
       <li>
-        <Link to="/my-colloction">
+        <Link to="/my-collection">
           <TextXTiny>MY COLLECTION</TextXTiny>
         </Link>
       </li>

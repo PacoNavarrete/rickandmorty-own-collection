@@ -1,3 +1,5 @@
+import { ImageContainer } from '../../styled_components/StyledMedia';
+import { TextXTiny } from '../../styled_components/StyledText';
 import {
   CardContainer,
   FlexBox,
@@ -6,8 +8,6 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from '../../styled_components/StyledControls';
-import { ImageContainer } from '../../styled_components/StyledMedia';
-import { TextXTiny } from '../../styled_components/StyledText';
 
 const name = 'Ants in my eyes jhonson';
 const origin = 'Earth (C-137)';
