@@ -66,3 +66,21 @@ export const SelectorInput = styled.select`
     text-align: center;
   }  
 `;
+
+export const PaginationButton = styled.button`
+  width: fit-content;
+  height: 30px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+`;
+export const PaginationInput = styled.input`
+
+  width: 44px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+
+
+`;

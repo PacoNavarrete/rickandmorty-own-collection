@@ -2,6 +2,7 @@ import { FlexBox } from '../../styled_components/StyledContainers';
 import { useContext } from 'react';
 import { AuthContext } from '../../auth/context/AuthContext';
 import { PrimaryButton } from '../../styled_components/StyledControls';
+import { OwnPagination } from '../components/OwnPagination';
 
 export const MyCollection = () => {
   const { logout } = useContext(AuthContext);
@@ -16,6 +17,8 @@ export const MyCollection = () => {
       <PrimaryButton onClick={onClickLogout}>
         logout and delete my account
       </PrimaryButton>
+      <br/>
+      <OwnPagination/>
     </FlexBox>
   );
 };
