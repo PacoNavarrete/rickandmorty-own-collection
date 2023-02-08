@@ -8,6 +8,8 @@ import CardsPagination from '../components/CardsPagination';
 import { MainFooter } from '../../navigation/footer/MainFooter';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
+import { OwnPagination } from '../components/OwnPagination';
+
 
 export const SearchPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -42,10 +44,9 @@ export const SearchPage = () => {
           />
         ))}
       </FlexBox>
-      <CardsPagination
-        pageCount={pageCount}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
+      <OwnPagination
+        totalPages={pageCount}
+        setPage={setCurrentPage}
       />
       <AppBurgerNav burgerStatus={burgerOpen} />
       <BurgerIcon

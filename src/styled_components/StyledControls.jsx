@@ -70,9 +70,19 @@ export const SelectorInput = styled.select`
 export const PaginationButton = styled.button`
   width: fit-content;
   height: 30px;
-  background-color: black;
+  background-color: transparent;
+  border: none;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:disabled {
+    color: gray;
+    transform: none;
+  }
 `;
 export const PaginationInput = styled.input`
 
@@ -81,6 +91,20 @@ export const PaginationInput = styled.input`
   text-align: center;
   color: white;
   background-color: transparent;
+  border: none;
+  outline: none;
+`;
+
+export const EditButton = styled.button`
+  with: 32px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  &.rote {
+    transform: rotate(145deg);
+  }
 
 
 `;
