@@ -1,12 +1,26 @@
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextXSmall } from '../../styled_components/StyledText';
 import { AddToCollection, Badge } from '../../styled_components/StyledUtils';
+
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
 
-export const CardCharacter = ({ name, status, image, species, gender }) => {
+export const CardCharacter = ({ name, status, image, species, gender, id }) => {
+  const onAddToCollection = () => {
+    const character = {
+      name,
+      status,
+      image,
+      species,
+      gender,
+      id,
+    };
+
+    localStorage.setItem('charCollection', JSON.stringify(character));
+  };
+
   return (
     <>
       <CardContainer
@@ -16,9 +30,7 @@ export const CardCharacter = ({ name, status, image, species, gender }) => {
         flexFlow="column nowrap"
         transparency="0.31"
       >
-        <TextXSmall  margin="0 0 15px 30px">
-          {name}
-        </TextXSmall>
+        <TextXSmall margin="0 0 15px 30px">{name}</TextXSmall>
         <ImageContainer width="280px" height="250px" borderRadius="40px">
           <img src={image} alt="name" />
         </ImageContainer>
@@ -35,7 +47,7 @@ export const CardCharacter = ({ name, status, image, species, gender }) => {
         <Badge bgColor="red" alignSelf="start" margin="0 30px">
           {status}
         </Badge>
-        <AddToCollection>+</AddToCollection>
+        <AddToCollection onClick={onAddToCollection}>+</AddToCollection>
       </CardContainer>
     </>
   );

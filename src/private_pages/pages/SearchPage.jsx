@@ -39,6 +39,7 @@ export const SearchPage = () => {
             image={image}
             species={species}
             gender={gender}
+            id={id}
           />
         ))}
       </FlexBox>

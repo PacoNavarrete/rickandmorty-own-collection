@@ -36,6 +36,7 @@ export const EpisodesPage = () => {
                 image={image}
                 species={species}
                 gender={gender}
+                id={id}
               />
             )
           )

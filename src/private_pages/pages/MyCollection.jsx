@@ -3,22 +3,12 @@ import { useContext } from 'react';
 import { AuthContext } from '../../auth/context/AuthContext';
 import { PrimaryButton } from '../../styled_components/StyledControls';
 import { OwnPagination } from '../components/OwnPagination';
+import { IsLoading } from '../components/IsLoading';
 
 export const MyCollection = () => {
-  const { logout } = useContext(AuthContext);
-
-  const onClickLogout = () => {
-    logout();
-  };
-
-  return (
-    <FlexBox flexFlow="column nowrap" justify="center" alignItems="center">
-      <h1>My Collection</h1>
-      <PrimaryButton onClick={onClickLogout}>
-        logout and delete my account
-      </PrimaryButton>
-      <br/>
-      <OwnPagination/>
-    </FlexBox>
-  );
+  return(
+    <>
+      <IsLoading/>
+    </> 
+  )
 };

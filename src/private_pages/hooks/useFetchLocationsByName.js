@@ -4,10 +4,15 @@ const useFetchLocationsByName = (locationName) => {
   const urlByName = `https://rickandmortyapi.com/api/location?name=${locationName}`;
 
   const [resultsByName, setResultsByName] = useState([]);
-
   const [residentsByLocation, setResidentsByLocation] = useState([]);
+  const [loadingState, setLoadingState] = useState(false);
+
+  useEffect(() => {
+    setLoadingState(false)
+  }, [residentsByLocation]);
 
   const getNewLocationByName = async () => {
+    setLoadingState(true);
     const resp = await fetch(urlByName);
     const data = await resp.json();
 
@@ -35,6 +40,7 @@ const useFetchLocationsByName = (locationName) => {
   return {
     resultsByName,
     residentsByLocation,
+    loadingState,
   };
 };
 

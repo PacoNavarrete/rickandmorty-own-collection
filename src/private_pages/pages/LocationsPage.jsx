@@ -9,11 +9,13 @@ import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
+import { IsLoading } from '../components/IsLoading';
 
 export const LocationsPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [locationName, setLocationName] = useState('Earth (C-137)');
-  const { residentsByLocation } = useFetchLocationsByName(locationName);
+  const { residentsByLocation, loadingState } =
+    useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
 
   return (
@@ -24,8 +26,8 @@ export const LocationsPage = () => {
         description={'Locations'}
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
-        {residentsByLocation.length < 1 ? (
-          <MissingCharacters />
+        {loadingState ? (
+          <IsLoading />
         ) : (
           residentsByLocation?.map(
             ({ id, name, status, image, species, gender }) => (
@@ -36,9 +38,15 @@ export const LocationsPage = () => {
                 image={image}
                 species={species}
                 gender={gender}
+                id={id}
               />
             )
           )
+        )}
+        {!loadingState && residentsByLocation.length < 0 ? (
+          ''
+        ) : (
+          <MissingCharacters />
         )}
       </FlexBox>
       <AppBurgerNav burgerStatus={burgerOpen} />
