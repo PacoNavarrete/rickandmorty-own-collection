@@ -4,12 +4,10 @@ import useFetchCharacters from '../hooks/useFetchCharacters';
 import { SearchContentGroup } from '../components/SearchContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
-import CardsPagination from '../components/CardsPagination';
 import { MainFooter } from '../../navigation/footer/MainFooter';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { OwnPagination } from '../components/OwnPagination';
-
 
 export const SearchPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -44,10 +42,7 @@ export const SearchPage = () => {
           />
         ))}
       </FlexBox>
-      <OwnPagination
-        totalPages={pageCount}
-        setPage={setCurrentPage}
-      />
+      <OwnPagination totalPages={pageCount} setPage={setCurrentPage} />
       <AppBurgerNav burgerStatus={burgerOpen} />
       <BurgerIcon
         iconStatus={burgerOpen}
