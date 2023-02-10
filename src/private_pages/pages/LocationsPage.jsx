@@ -18,6 +18,8 @@ export const LocationsPage = () => {
     useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
 
+  console.log(residentsByLocation.length);
+
   return (
     <>
       <SelectContentGroup
@@ -43,10 +45,10 @@ export const LocationsPage = () => {
             )
           )
         )}
-        {!loadingState && residentsByLocation.length < 0 ? (
-          ''
-        ) : (
+        {!loadingState && residentsByLocation.length < 1 ? (
           <MissingCharacters />
+        ) : (
+          ''
         )}
       </FlexBox>
       <AppBurgerNav burgerStatus={burgerOpen} />

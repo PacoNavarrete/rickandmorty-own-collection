@@ -1,16 +1,28 @@
-import { CharacterContext } from "./CharacterContext"
+import { useReducer } from 'react';
+import { CharacterContext } from './CharacterContext';
+import { characterReducer } from './characterReducer';
 
-export const CharacterProvider = ({children}) => {
+const init = () => {
+  const fromLocalStorage = JSON.parse(localStorage.getItem('charCollection'));
 
-  const addCharacter = () => {
+  return { fromLocalStorage };
+};
 
-  }
+export const CharacterProvider = ({ children }) => {
+  const [charactersState, dispatch] = useReducer(characterReducer, {}, init);
 
-  return(
-    <CharacterContext.Provider value={{addCharacter, }} >
+  const addCharacter = (characterObj) => {
+    const action = {
+      type: '[Character] add',
+      payload: characterObj,
+    };
+  };
+
+  const deleteCharacter = (stateCharacters, id) => {};
+
+  return (
+    <CharacterContext.Provider value={{ addCharacter, deleteCharacter }}>
       {children}
     </CharacterContext.Provider>
-
-  )
-
-}
+  );
+};

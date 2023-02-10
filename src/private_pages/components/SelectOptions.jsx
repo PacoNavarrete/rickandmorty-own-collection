@@ -2,7 +2,7 @@ import { FlexBox } from '../../styled_components/StyledContainers';
 import { SelectorInput } from '../../styled_components/StyledControls';
 import { TextXTiny } from '../../styled_components/StyledText';
 
-export const SelectOptions = ({ options, name, setChange }) => {
+export const SelectOptions = ({ options, name, setChange, }) => {
   const handleChangeOption = (event) => {
     setChange(event.target.value);
   };

@@ -1,5 +1,5 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
-import { TextLarge } from '../../styled_components/StyledText';
+import { TextLarge, TextMedium } from '../../styled_components/StyledText';
 import { LoadingAnimation } from '../../styled_components/StyledUtils';
 
 export const IsLoading = () => {
@@ -7,9 +7,13 @@ export const IsLoading = () => {
     <>
       <FlexBox flexFlow="column nowrap" width="100%" height="100vh">
         <LoadingAnimation>
-          <span></span>
+          <img
+            width="250px"
+            src="https://res.cloudinary.com/paconavarrete/image/upload/v1676000229/RickandMorty/spiner_sowxwm.png"
+            alt="logo-loading"
+          />
         </LoadingAnimation>
-        <TextLarge>Loading...</TextLarge>
+        <TextMedium color="gray">Loading</TextMedium>
       </FlexBox>
     </>
   );
