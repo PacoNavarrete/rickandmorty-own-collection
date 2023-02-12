@@ -15,6 +15,7 @@ export const SearchPage = () => {
   const [characterStatus, setCharacterStatus] = useState('');
   const [characterGender, setCharacterGender] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [inputValue, setInputValue] = useState(1);
   const { results, pageCount } = useFetchCharacters(
     currentPage,
     characterName,
@@ -22,11 +23,18 @@ export const SearchPage = () => {
     characterGender
   );
 
+  const onCharacterChange = (event) => {
+    setCharacterName(event.target.value);
+    setInputValue(1);
+    setCurrentPage(1);
+  };
+
   return (
     <>
       <SearchContentGroup
         characterName={characterName}
         setCharacterName={setCharacterName}
+        onCharacterChange={onCharacterChange}
         setCharacterGender={setCharacterGender}
         setCharacterStatus={setCharacterStatus}
       />
@@ -43,7 +51,12 @@ export const SearchPage = () => {
           />
         ))}
       </FlexBox>
-      <OwnPagination totalPages={pageCount} setPage={setCurrentPage} />
+      <OwnPagination
+        totalPages={pageCount}
+        setPage={setCurrentPage}
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+      />
       <AppBurgerNav burgerStatus={burgerOpen} />
       <BurgerIcon
         iconStatus={burgerOpen}

@@ -23,6 +23,7 @@ const useFetchCharacters = (pageNum, search, charStatus, charGender) => {
 
   useEffect(() => {
     getNewCharacters();
+    console.log(url);
   }, [url]);
 
   return {

@@ -5,14 +5,10 @@ import { PrimaryInput } from '../../styled_components/StyledControls';
 
 export const SearchContentGroup = ({
   characterName,
-  setCharacterName,
+  onCharacterChange,
   setCharacterStatus,
   setCharacterGender,
 }) => {
-  const onCharacterChange = (event) => {
-    setCharacterName(event.target.value);
-  };
-
   return (
     <FlexBox
       flexFlow="row wrap"

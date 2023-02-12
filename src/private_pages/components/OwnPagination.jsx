@@ -7,41 +7,31 @@ import {
   PaginationInput,
 } from '../../styled_components/StyledControls';
 
-export const OwnPagination = ({ totalPages, setPage }) => {
-  // state of the page number used to display it into the input
-  const [inputValue, setInputValue] = useState(1);
+export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }) => {
   const inputAsNumber = Number(inputValue);
-  // state of the page number used to render the pagination in the app
-  const [renderPage, setRenderPage] = useState(1);
   const [editInput, setEditInput] = useState(true);
-
-  useEffect(() => {
-    setPage(renderPage);
-  }, [renderPage]);
-
-  const total = totalPages;
 
   const onNextPage = () => {
     if (inputValue < 1) return;
     setInputValue(inputAsNumber + 1);
-    setRenderPage(inputAsNumber + 1);
+    setPage(inputAsNumber + 1);
   };
 
   const onPrevPage = () => {
-    if (inputValue > total) return;
+    if (inputValue > totalPages) return;
     setInputValue(inputAsNumber - 1);
-    setRenderPage(inputAsNumber - 1);
+    setPage(inputAsNumber - 1);
   };
 
   const onSubmitInput = (event) => {
     event.preventDefault();
 
-    if (inputAsNumber > 0 && inputAsNumber <= total) {
+    if (inputAsNumber > 0 && inputAsNumber <= totalPages) {
       setInputValue(inputAsNumber);
-      setRenderPage(inputAsNumber);
+      setPage(inputAsNumber);
     } else {
       setInputValue(1);
-      setRenderPage(1);
+      setPage(1);
     }
     setEditInput(true);
   };
@@ -78,7 +68,7 @@ export const OwnPagination = ({ totalPages, setPage }) => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               min={1}
-              max={total}
+              max={totalPages}
               disabled={editInput}
             />
             {!editInput ? <EditButton>↩</EditButton> : ''}
@@ -91,10 +81,10 @@ export const OwnPagination = ({ totalPages, setPage }) => {
             </EditButton>
           )}
         </FlexBox>
-        <TextXTiny>of {total}</TextXTiny>
+        <TextXTiny>of {totalPages}</TextXTiny>
         <PaginationButton
           onClick={onNextPage}
-          disabled={inputAsNumber >= total ? true : false}
+          disabled={inputAsNumber >= totalPages ? true : false}
         >
           Next ▶
         </PaginationButton>
