@@ -3,25 +3,26 @@ import { CharacterContext } from './CharacterContext';
 import { characterReducer } from './characterReducer';
 
 const init = () => {
-  const fromLocalStorage = JSON.parse(localStorage.getItem('charCollection'));
-
-  return { fromLocalStorage };
+  return JSON.parse(localStorage.getItem('R&M Collection')) ?? [];
 };
 
 export const CharacterProvider = ({ children }) => {
-  const [charactersState, dispatch] = useReducer(characterReducer, {}, init);
+  const [charactersState, dispatch] = useReducer(characterReducer, [], init);
 
   const addCharacter = (characterObj) => {
     const action = {
       type: '[Character] add',
       payload: characterObj,
     };
+    dispatch(action);
+    localStorage.setItem(
+      'R&M Collection',
+      JSON.stringify([...charactersState, characterObj])
+    );
   };
 
-  const deleteCharacter = (stateCharacters, id) => {};
-
   return (
-    <CharacterContext.Provider value={{ addCharacter, deleteCharacter }}>
+    <CharacterContext.Provider value={{ addCharacter, charactersState }}>
       {children}
     </CharacterContext.Provider>
   );

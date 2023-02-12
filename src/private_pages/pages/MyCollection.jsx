@@ -1,14 +1,27 @@
+import { CharacterContext } from '../context/CharacterContext';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { useContext } from 'react';
-import { AuthContext } from '../../auth/context/AuthContext';
-import { PrimaryButton } from '../../styled_components/StyledControls';
-import { OwnPagination } from '../components/OwnPagination';
-import { IsLoading } from '../components/IsLoading';
+
+import { CardCharacter } from '../components/CardCharacter';
 
 export const MyCollection = () => {
-  return(
-    <>
-      <IsLoading/>
-    </> 
-  )
+  const { charactersState } = useContext(CharacterContext);
+
+  console.log(charactersState)
+
+  return (
+    <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
+      {charactersState.map(({ name, status, image, species, gender, id }) => (
+        <CardCharacter 
+          key={id} 
+          name={name}
+          status={status}
+          image={image}
+          species={species}
+          gender={gender}
+          id={id}
+        />
+      ))};
+    </FlexBox>
+  );
 };

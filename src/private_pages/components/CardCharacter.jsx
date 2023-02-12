@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { CharacterContext } from '../context/CharacterContext';
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextXSmall } from '../../styled_components/StyledText';
 import { AddToCollection, Badge } from '../../styled_components/StyledUtils';
@@ -8,6 +10,9 @@ import {
 } from '../../styled_components/StyledContainers';
 
 export const CardCharacter = ({ name, status, image, species, gender, id }) => {
+  
+  const { addCharacter } = useContext(CharacterContext);
+  
   const onAddToCollection = () => {
     const character = {
       name,
@@ -17,9 +22,9 @@ export const CardCharacter = ({ name, status, image, species, gender, id }) => {
       gender,
       id,
     };
-
-    localStorage.setItem('charCollection', JSON.stringify(character));
+    addCharacter(character);
   };
+
 
   return (
     <>
