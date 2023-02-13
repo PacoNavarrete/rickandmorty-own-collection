@@ -33,7 +33,7 @@ export const AppBurgerNav = ({ burgerStatus }) => {
           </Link>
         </li>
         <li>
-          <Link to="/my-colloction">
+          <Link to="/my-collection">
             <TextXSmall>MY COLLECTION</TextXSmall>
           </Link>
         </li>

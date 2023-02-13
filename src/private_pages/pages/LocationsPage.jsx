@@ -18,8 +18,6 @@ export const LocationsPage = () => {
     useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
 
-  console.log(residentsByLocation.length);
-
   return (
     <>
       <SelectContentGroup

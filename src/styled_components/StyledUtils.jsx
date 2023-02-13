@@ -31,6 +31,7 @@ export const AddToCollection = styled.div`
   align-self: end;
   margin: 0 30px 0 ;
   translate: -10px -40px;
+  
 
   &:hover {
     cursor: pointer;

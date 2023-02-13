@@ -12,6 +12,7 @@ import {
 export const CardCharacter = ({ name, status, image, species, gender, id }) => {
   
   const { addCharacter } = useContext(CharacterContext);
+
   
   const onAddToCollection = () => {
     const character = {
@@ -52,6 +53,7 @@ export const CardCharacter = ({ name, status, image, species, gender, id }) => {
         <Badge bgColor="red" alignSelf="start" margin="0 30px">
           {status}
         </Badge>
+        {}
         <AddToCollection onClick={onAddToCollection}>+</AddToCollection>
       </CardContainer>
     </>
