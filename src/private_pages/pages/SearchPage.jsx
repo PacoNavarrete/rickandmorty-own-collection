@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import useFetchCharacters from '../hooks/useFetchCharacters';
-import { CharacterContext } from '../context/CharacterContext'
+import { CharacterContext } from '../context/CharacterContext';
 
 import { SearchContentGroup } from '../components/SearchContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
@@ -10,6 +10,7 @@ import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { OwnPagination } from '../components/OwnPagination';
 import { filterCharacters } from '../helpers/filterCharacters';
+import { MissingCharacters } from '../components/MissingCharacters';
 
 export const SearchPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -18,23 +19,21 @@ export const SearchPage = () => {
   const [characterGender, setCharacterGender] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [inputValue, setInputValue] = useState(1);
-  const { charactersState } = useContext(CharacterContext)
+  const { charactersState } = useContext(CharacterContext);
   const { results, pageCount } = useFetchCharacters(
     currentPage,
     characterName,
     characterStatus,
     characterGender
   );
-  
-  const charactersToRender = filterCharacters(charactersState, results)
+
+  const charactersToRender = filterCharacters(charactersState, results);
 
   const onCharacterChange = (event) => {
     setCharacterName(event.target.value);
     setInputValue(1);
     setCurrentPage(1);
   };
-
-  console.log(charactersToRender)
 
   return (
     <>
@@ -46,17 +45,23 @@ export const SearchPage = () => {
         setCharacterStatus={setCharacterStatus}
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
-        {charactersToRender?.map(({ id, name, status, image, species, gender }) => (
-          <CardCharacter
-            key={id}
-            name={name}
-            status={status}
-            image={image}
-            species={species}
-            gender={gender}
-            id={id}
-          />
-        ))}
+        {charactersToRender.length < 1 ? (
+          <MissingCharacters />
+        ) : (
+          charactersToRender?.map(
+            ({ id, name, status, image, species, gender }) => (
+              <CardCharacter
+                key={id}
+                name={name}
+                status={status}
+                image={image}
+                species={species}
+                gender={gender}
+                id={id}
+              />
+            )
+          )
+        )}
       </FlexBox>
       <OwnPagination
         totalPages={pageCount}
