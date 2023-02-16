@@ -9,7 +9,7 @@ export const SelectContentGroup = ({ names, setName, description }) => {
       gap="30px"
       margin="30px"
       justify="center"
-      alignItems="center"
+      alignItems="end"
     >
       <TextLarge>{description}</TextLarge>
       <SelectOptions name={description} options={names} setChange={setName} />

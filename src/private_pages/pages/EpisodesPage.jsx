@@ -33,7 +33,7 @@ export const EpisodesPage = () => {
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
         {charactersToRender.length < 1 ? (
-          <MissingCharacters />
+          <MissingCharacters textVariant="episode" />
         ) : (
           charactersToRender?.map(
             ({ id, name, status, image, species, gender }) => (

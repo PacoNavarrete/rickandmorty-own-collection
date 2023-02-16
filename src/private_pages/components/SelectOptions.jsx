@@ -10,7 +10,6 @@ export const SelectOptions = ({ options, name, setChange }) => {
   return (
     <FlexBox flexFlow="column nowrap">
       <label htmlFor={name + 'selector'}>
-        <TextXTiny>{name}:</TextXTiny>
       </label>
       <SelectorInput
         name={name}

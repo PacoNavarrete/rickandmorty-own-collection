@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CharacterContext } from '../context/CharacterContext';
 import { useFetchLocations } from '../hooks/useFetchLocations';
 import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
 
@@ -10,13 +11,21 @@ import { MissingCharacters } from '../components/MissingCharacters';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { IsLoading } from '../components/IsLoading';
+import { filterCharacters } from '../helpers/filterCharacters';
+import { TextSmall } from '../../styled_components/StyledText';
 
 export const LocationsPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [locationName, setLocationName] = useState('Earth (C-137)');
-  const { residentsByLocation, loadingState } =
-    useFetchLocationsByName(locationName);
   const { namesOfLocations } = useFetchLocations();
+  const { charactersState } = useContext(CharacterContext);
+  const { resultsByName, residentsByLocation, loadingState } =
+    useFetchLocationsByName(locationName);
+
+  const charactersToRender = filterCharacters(
+    charactersState,
+    residentsByLocation
+  );
 
   return (
     <>
@@ -25,11 +34,14 @@ export const LocationsPage = () => {
         setName={setLocationName}
         description={'Locations'}
       />
+      <FlexBox flexFlow="column nowrap" justify="center" gap="5px">
+        <TextSmall>Location Type: "{resultsByName.type}"</TextSmall>
+        <TextSmall>Total Residents: {charactersToRender?.length}</TextSmall>
+      </FlexBox>
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
-        {loadingState ? (
-          <IsLoading />
-        ) : (
-          residentsByLocation?.map(
+        {loadingState && <IsLoading />}
+        {!loadingState && charactersToRender.length > 0 ? (
+          charactersToRender?.map(
             ({ id, name, status, image, species, gender }) => (
               <CardCharacter
                 key={id}
@@ -42,11 +54,8 @@ export const LocationsPage = () => {
               />
             )
           )
-        )}
-        {!loadingState && residentsByLocation.length < 1 ? (
-          <MissingCharacters />
         ) : (
-          ''
+          <MissingCharacters textVariant="location" />
         )}
       </FlexBox>
       <AppBurgerNav burgerStatus={burgerOpen} />

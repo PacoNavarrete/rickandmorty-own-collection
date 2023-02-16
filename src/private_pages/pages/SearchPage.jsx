@@ -46,7 +46,7 @@ export const SearchPage = () => {
       />
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
         {charactersToRender.length < 1 ? (
-          <MissingCharacters />
+          <MissingCharacters textVariant="search or page" />
         ) : (
           charactersToRender?.map(
             ({ id, name, status, image, species, gender }) => (
