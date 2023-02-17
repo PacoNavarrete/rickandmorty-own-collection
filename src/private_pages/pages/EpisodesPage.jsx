@@ -11,11 +11,13 @@ import { MissingCharacters } from '../components/MissingCharacters';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { filterCharacters } from '../helpers/filterCharacters';
+import { TextSmall } from '../../styled_components/StyledText';
 
 export const EpisodesPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [episodeName, setEpisodeName] = useState('S01E01');
-  const { residentsByEpisode } = useFetchEpisodesByName(episodeName);
+  const { resultsByName, residentsByEpisode } =
+    useFetchEpisodesByName(episodeName);
   const { namesOfEpisodes } = useFetchEpisodes();
   const { charactersState } = useContext(CharacterContext);
 
@@ -24,6 +26,8 @@ export const EpisodesPage = () => {
     residentsByEpisode
   );
 
+  console.log(resultsByName);
+
   return (
     <>
       <SelectContentGroup
@@ -31,6 +35,10 @@ export const EpisodesPage = () => {
         setName={setEpisodeName}
         description={'Episodes'}
       />
+      <FlexBox flexFlow="column nowrap" justify="center" gap="5px">
+        <TextSmall>Episode name: "{resultsByName.name}"</TextSmall>
+        <TextSmall>Air date: {resultsByName.air_date}</TextSmall>
+      </FlexBox>
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
         {charactersToRender.length < 1 ? (
           <MissingCharacters textVariant="episode" />
