@@ -45,6 +45,7 @@ export const EpisodesPage = () => {
                 species={species}
                 gender={gender}
                 id={id}
+                addBtn={true}
               />
             )
           )

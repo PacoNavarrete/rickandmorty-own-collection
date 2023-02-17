@@ -58,6 +58,7 @@ export const SearchPage = () => {
                 species={species}
                 gender={gender}
                 id={id}
+                addBtn={true}
               />
             )
           )

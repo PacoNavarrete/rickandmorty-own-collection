@@ -51,6 +51,7 @@ export const LocationsPage = () => {
                 species={species}
                 gender={gender}
                 id={id}
+                addBtn={true}
               />
             )
           )

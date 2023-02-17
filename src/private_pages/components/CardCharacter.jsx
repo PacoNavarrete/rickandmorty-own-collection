@@ -1,19 +1,29 @@
 import { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
 import { ImageContainer } from '../../styled_components/StyledMedia';
-import { TextXSmall } from '../../styled_components/StyledText';
-import { AddToCollection, Badge } from '../../styled_components/StyledUtils';
+import { TextXSmall, TextXTiny } from '../../styled_components/StyledText';
+import {
+  AddToCollection,
+  Badge,
+  DeleteCharacterBtn,
+} from '../../styled_components/StyledUtils';
 
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
 
-export const CardCharacter = ({ name, status, image, species, gender, id }) => {
-  
+export const CardCharacter = ({
+  name,
+  status,
+  image,
+  species,
+  gender,
+  id,
+  addBtn,
+}) => {
   const { addCharacter } = useContext(CharacterContext);
 
-  
   const onAddToCollection = () => {
     const character = {
       name,
@@ -25,7 +35,6 @@ export const CardCharacter = ({ name, status, image, species, gender, id }) => {
     };
     addCharacter(character);
   };
-
 
   return (
     <>
@@ -40,21 +49,30 @@ export const CardCharacter = ({ name, status, image, species, gender, id }) => {
         <ImageContainer width="280px" height="250px" borderRadius="40px">
           <img src={image} alt="name" />
         </ImageContainer>
-        <FlexBox
-          width="130px"
-          justify="start"
-          gap="10px"
-          alignSelf="start"
-          margin="10px 30px"
-        >
-          <Badge bgColor="orange">{gender}</Badge>
-          <Badge bgColor="purple">{species}</Badge>
+        <FlexBox width="130px" justify="center" gap="10px" margin="15px 0">
+          <FlexBox flexFlow="column nowrap" gap="3px">
+            <TextXTiny>Gender</TextXTiny>
+            <Badge bgColor="orange">{gender}</Badge>
+          </FlexBox>
+          <FlexBox flexFlow="column nowrap" gap="3px">
+            <TextXTiny>Species</TextXTiny>
+            <Badge bgColor="purple">{species}</Badge>
+          </FlexBox>
+          <FlexBox flexFlow="column nowrap" gap="3px">
+            <TextXTiny>Status</TextXTiny>
+            <Badge bgColor="red">{status}</Badge>
+          </FlexBox>
         </FlexBox>
-        <Badge bgColor="red" alignSelf="start" margin="0 30px">
-          {status}
-        </Badge>
-        {}
-        <AddToCollection onClick={onAddToCollection}>+</AddToCollection>
+        {addBtn && (
+          <AddToCollection onClick={onAddToCollection}>
+            <TextXTiny>Collect</TextXTiny>
+          </AddToCollection>
+        )}
+        {!addBtn && (
+          <DeleteCharacterBtn>
+            <TextXTiny>Delete</TextXTiny>
+          </DeleteCharacterBtn>
+        )}
       </CardContainer>
     </>
   );

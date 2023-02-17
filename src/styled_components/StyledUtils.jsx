@@ -19,23 +19,25 @@ export const Badge = styled.div`
 `;
 
 export const AddToCollection = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 120px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: blue;
-  border-radius: 5px;
+  border-radius: 30px 30px 30px 30px;
   font-size: 34px;
   color: #fff;
-  align-self: end;
-  margin: 0 30px 0 ;
-  translate: -10px -40px;
-  
+  // align-self: center;
+  margin: 0 ;
 
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const DeleteCharacterBtn = styled(AddToCollection)`
+  background-color: red;
 `;
 
 export const LoadingAnimation = styled.div`
