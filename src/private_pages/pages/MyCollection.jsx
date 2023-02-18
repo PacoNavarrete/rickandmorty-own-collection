@@ -7,7 +7,6 @@ import { CardCharacter } from '../components/CardCharacter';
 export const MyCollection = () => {
   const { charactersState } = useContext(CharacterContext);
   const charactersToRender = [...charactersState].reverse();
-
   return (
     <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
       {charactersToRender?.map(

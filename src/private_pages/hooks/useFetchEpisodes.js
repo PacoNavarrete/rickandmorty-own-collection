@@ -1,44 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { getArrayOfIds } from '../helpers/getArrayOfIds';
 
-const useFetchEpisodes = (episodeNum) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [episodesList, setEpisodesList] = useState([]);
+const useFetchEpisodes = () => {
   const [namesOfEpisodes, setNamesOfEpisodes] = useState([]);
 
-  const url = `https://rickandmortyapi.com/api/episode`;
-
-  async function getEpisodesProcess() {
-    setIsLoading(true);
-    const data = await fetch(url)
-      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-      .then(({ info }) => getEpisodesByIds(info.count));
+  function getAllEpisodeNames() {
+    fetch('https://rickandmortyapi.com/api/episode')
+      .then((res) => res.json())
+      .then((resParsed) => getArrayOfIds(resParsed.info.count))
+      .then((result) => getEpisodesByIds(result));
   }
 
-  async function getEpisodesByIds(count) {
-    const arrayOfIds = new Array(count);
-
-    for (let i = 0; i < count; i++) {
-      arrayOfIds[i] = i + 1;
-    }
-
-    const episodesNames = await fetch(
-      `https://rickandmortyapi.com/api/episode/${arrayOfIds}`
-    )
-      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-      .then((episodes) => {
-        setEpisodesList(episodes);
-        setNamesOfEpisodes(episodes.map((episode) => episode.episode));
-        setIsLoading(false);
-      });
+  function getEpisodesByIds(arrayOfIds) {
+    fetch(`https://rickandmortyapi.com/api/episode/${arrayOfIds}`)
+      .then((res) => res.json())
+      .then((results) => results.map((result) => result.episode))
+      .then((episodes) => setNamesOfEpisodes(episodes));
   }
 
-  useEffect(() => {
-    getEpisodesProcess();
-  }, []);
+  getAllEpisodeNames();
 
   return {
-    isLoading,
-    episodesList,
     namesOfEpisodes,
   };
 };

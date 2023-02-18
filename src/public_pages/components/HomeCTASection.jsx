@@ -6,9 +6,9 @@ import {
 import { PrimaryButton } from '../../styled_components/StyledControls';
 import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
 
-const accountIcon = '../../assets/icons/account.svg';
-const archiveIcon = '../../assets/icons/archive.svg';
-const filterIcon = '../../assets/icons/filter.svg';
+import accountIcon from '../../assets/icons/account.svg';
+import archiveIcon from '../../assets/icons/archive.svg';
+import filterIcon from '../../assets/icons/filter.svg';
 
 export const HomeCTASection = () => {
   return (

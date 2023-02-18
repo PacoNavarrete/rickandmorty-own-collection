@@ -26,8 +26,6 @@ export const EpisodesPage = () => {
     residentsByEpisode
   );
 
-  console.log(resultsByName);
-
   return (
     <>
       <SelectContentGroup
