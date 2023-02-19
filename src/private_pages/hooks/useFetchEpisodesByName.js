@@ -6,29 +6,35 @@ const useFetchEpisodesByName = (episodeName) => {
   const [resultsByName, setResultsByName] = useState([]);
   const [residentsByEpisode, setResidentsByEpisode] = useState([]);
 
-  const getNewEpisodesByName = async () => {
-    const resp = await fetch(urlByName);
-    const data = await resp.json();
+  function getEpisodeByName() {
+    fetch(urlByName)
+      .then((res) => res.json())
+      .then((resParsed) => {
+        getcharactersByEpisode(resParsed);
+        setResultsByName(resParsed.results[0]);
+      });
+  }
 
-    let residents = await Promise.all(
-      data.results[0].characters.map(async (character) => {
-        return fetch(character).then((resp) => resp.json());
-      })
+  function getcharactersByEpisode(resParsed) {
+    const arrOfCharactersByUrl = resParsed.results[0].characters;
+    arrOfCharactersByUrl.map((character) =>
+      fetch(character)
+        .then((res) => res.json())
+        .then((charactersParsed) => {
+          // setResidentsByEpisode(charactersParsed)
+          console.log(charactersParsed);
+        })
     );
+  }
 
-    try {
-      setResultsByName(data.results[0]);
-      setResidentsByEpisode(residents);
-    } catch (error) {
-      console.warn(
-        `data not fetched due to the number of episode: does not exist in the API`
-      );
-      return;
-    }
-  };
+  async function getAllCharactersByEpisode(resParsed) {
+    const arrOfCharacterByUrl = resParsed.results[0].characters;
+    const promiseAll = new Promise.all()
+
+  }
 
   useEffect(() => {
-    getNewEpisodesByName();
+    getEpisodeByName();
   }, [urlByName]);
 
   return {
