@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getArrayOfIds } from '../helpers/getArrayOfIds';
 
 const useFetchEpisodes = () => {
   const [namesOfEpisodes, setNamesOfEpisodes] = useState([]);
 
   function getAllEpisodeNames() {
-    fetch('https://rickandmortyapi.com/api/episode')
+    const apiEpisodes = 'https://rickandmortyapi.com/api/episode';
+    fetch(apiEpisodes)
       .then((res) => res.json())
       .then((resParsed) => getArrayOfIds(resParsed.info.count))
       .then((result) => getEpisodesByIds(result));
   }
 
   function getEpisodesByIds(arrayOfIds) {
-    fetch(`https://rickandmortyapi.com/api/episode/${arrayOfIds}`)
+    const apiCharactersByEpisodeIds = `https://rickandmortyapi.com/api/episode/${arrayOfIds}`;
+    fetch(apiCharactersByEpisodeIds)
       .then((res) => res.json())
       .then((results) => results.map((result) => result.episode))
       .then((episodes) => setNamesOfEpisodes(episodes));
   }
 
-  getAllEpisodeNames();
+  useEffect(() => {
+    getAllEpisodeNames();
+  }, []);
 
   return {
     namesOfEpisodes,

@@ -16,7 +16,7 @@ import { TextSmall } from '../../styled_components/StyledText';
 export const EpisodesPage = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [episodeName, setEpisodeName] = useState('S01E01');
-  const { resultsByName, residentsByEpisode } =
+  const { resultsByName, residentsByEpisode, isLoading } =
     useFetchEpisodesByName(episodeName);
   const { namesOfEpisodes } = useFetchEpisodes();
   const { charactersState } = useContext(CharacterContext);

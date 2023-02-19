@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
 const useFetchEpisodesByName = (episodeName) => {
-  const urlByName = `https://rickandmortyapi.com/api/episode?episode=${episodeName}`;
-
   const [resultsByName, setResultsByName] = useState([]);
   const [residentsByEpisode, setResidentsByEpisode] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const apiEpisodeByName = `https://rickandmortyapi.com/api/episode?episode=${episodeName}`;
 
   function getEpisodeByName() {
-    fetch(urlByName)
+    fetch(apiEpisodeByName)
       .then((res) => res.json())
       .then((resParsed) => {
         getcharactersByEpisode(resParsed);
@@ -17,29 +18,25 @@ const useFetchEpisodesByName = (episodeName) => {
 
   function getcharactersByEpisode(resParsed) {
     const arrOfCharactersByUrl = resParsed.results[0].characters;
-    arrOfCharactersByUrl.map((character) =>
-      fetch(character)
-        .then((res) => res.json())
-        .then((charactersParsed) => {
-          // setResidentsByEpisode(charactersParsed)
-          console.log(charactersParsed);
-        })
-    );
-  }
-
-  async function getAllCharactersByEpisode(resParsed) {
-    const arrOfCharacterByUrl = resParsed.results[0].characters;
-    const promiseAll = new Promise.all()
-
+    Promise.all(
+      arrOfCharactersByUrl.map((character) =>
+        fetch(character).then((characters) => characters.json())
+      )
+    ).then((result) => {
+      setResidentsByEpisode(result);
+      setIsLoading(false);
+    });
   }
 
   useEffect(() => {
+    setIsLoading(true);
     getEpisodeByName();
-  }, [urlByName]);
+  }, [apiEpisodeByName]);
 
   return {
     resultsByName,
     residentsByEpisode,
+    isLoading,
   };
 };
 
