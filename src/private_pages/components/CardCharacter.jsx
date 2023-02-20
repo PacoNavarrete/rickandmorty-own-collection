@@ -50,7 +50,12 @@ export const CardCharacter = ({
         flexFlow="column nowrap"
         transparency="0.31"
       >
-        <TextXSmall margin="0 0 15px 30px">{name}</TextXSmall>
+        <TextXSmall margin="5px">{name}</TextXSmall>
+        <Link to={`/character/${id}`}>
+          <TextXTiny color="orange" margin="0 0 5px 0">
+            See more...
+          </TextXTiny>
+        </Link>
         <ImageContainer width="280px" height="250px" borderRadius="40px">
           <img src={image} alt="name" />
         </ImageContainer>
@@ -68,9 +73,6 @@ export const CardCharacter = ({
             <Badge bgColor="red">{status}</Badge>
           </FlexBox>
         </FlexBox>
-        <Link to={`/character/${id}`}>
-          <TextXTiny>more...</TextXTiny>
-        </Link>
         {addBtn && (
           <AddToCollection onClick={onAddToCollection}>
             <TextXTiny>Collect</TextXTiny>

@@ -53,7 +53,6 @@ export const CharacterPage = () => {
               <TextXTiny>Gender: {gender}</TextXTiny>
               <TextXTiny>Specie: {species}</TextXTiny>
               <TextXTiny>Status: {status}</TextXTiny>
-              <PrimaryButton margin="14px 0">Add</PrimaryButton>
               <SecondaryButton onClick={onReturn}>Return </SecondaryButton>
             </FlexBox>
           </FlexBox>

@@ -106,7 +106,7 @@ export const TextXTiny = styled.p`
   align-self: ${({ alignSelf }) => alignSelf};
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
-  margin: ${({ margin }) => margin || '0'}
+  margin: ${({ margin }) => margin || '0'};
   
   ${mediaScreenMobile}
 `;
