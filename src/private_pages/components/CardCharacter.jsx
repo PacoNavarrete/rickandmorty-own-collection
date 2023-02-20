@@ -23,7 +23,7 @@ export const CardCharacter = ({
   id,
   addBtn,
 }) => {
-  const { addCharacter } = useContext(CharacterContext);
+  const { addCharacter, deleteCharacter } = useContext(CharacterContext);
 
   const onAddToCollection = () => {
     const character = {
@@ -37,8 +37,12 @@ export const CardCharacter = ({
     addCharacter(character);
   };
 
+  const onDeleteCharacter = () => {
+    deleteCharacter(id);
+  };
+
   return (
-    <Link to={`/character/${id}`}>
+    <>
       <CardContainer
         width="338px"
         height="440px"
@@ -64,17 +68,20 @@ export const CardCharacter = ({
             <Badge bgColor="red">{status}</Badge>
           </FlexBox>
         </FlexBox>
+        <Link to={`/character/${id}`}>
+          <TextXTiny>more...</TextXTiny>
+        </Link>
         {addBtn && (
           <AddToCollection onClick={onAddToCollection}>
             <TextXTiny>Collect</TextXTiny>
           </AddToCollection>
         )}
         {!addBtn && (
-          <DeleteCharacterBtn>
+          <DeleteCharacterBtn onClick={onDeleteCharacter}>
             <TextXTiny>Delete</TextXTiny>
           </DeleteCharacterBtn>
         )}
       </CardContainer>
-    </Link>
+    </>
   );
 };

@@ -21,8 +21,25 @@ export const CharacterProvider = ({ children }) => {
     );
   };
 
+  const deleteCharacter = (id) => {
+    const currentCollection = JSON.parse(
+      localStorage.getItem('R&M Collection')
+    );
+    const newCollection = currentCollection.filter(
+      (character) => character.id !== id
+    );
+    const action = {
+      type: '[Character] delete',
+      payload: newCollection,
+    };
+    dispatch(action);
+    localStorage.setItem('R&M Collection', JSON.stringify(newCollection));
+  };
+
   return (
-    <CharacterContext.Provider value={{ addCharacter, charactersState }}>
+    <CharacterContext.Provider
+      value={{ addCharacter, charactersState, deleteCharacter }}
+    >
       {children}
     </CharacterContext.Provider>
   );
