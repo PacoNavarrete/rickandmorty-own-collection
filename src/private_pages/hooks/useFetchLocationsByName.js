@@ -1,46 +1,38 @@
 import { useEffect, useState } from 'react';
 
 const useFetchLocationsByName = (locationName) => {
-  const urlByName = `https://rickandmortyapi.com/api/location?name=${locationName}`;
-
   const [resultsByName, setResultsByName] = useState([]);
   const [residentsByLocation, setResidentsByLocation] = useState([]);
-  const [loadingState, setLoadingState] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const apiByLocation = `https://rickandmortyapi.com/api/location?name=${locationName}`;
+
+  function getLocationByName() {
+    fetch(apiByLocation)
+      .then((res) => res.json())
+      .then((resParsed) => {
+        const locationResults = resParsed.results[0];
+        setResultsByName(locationResults);
+        Promise.all(
+          locationResults.residents.map((resident) =>
+            fetch(resident).then((res) => res.json())
+          )
+        ).then((resResidents) => {
+          setResidentsByLocation(resResidents);
+          setIsLoading(false);
+        });
+      });
+  }
 
   useEffect(() => {
-    setLoadingState(false)
-  }, [residentsByLocation]);
-
-  const getNewLocationByName = async () => {
-    setLoadingState(true);
-    const resp = await fetch(urlByName);
-    const data = await resp.json();
-
-    let residents = await Promise.all(
-      data.results[0].residents.map(async (character) => {
-        return fetch(character).then((resp) => resp.json());
-      })
-    );
-
-    try {
-      setResultsByName(data.results[0]);
-      setResidentsByLocation(residents);
-    } catch (error) {
-      console.warn(
-        `data not fetched due to the number of episode: does not exist in the API`
-      );
-      return;
-    }
-  };
-
-  useEffect(() => {
-    getNewLocationByName();
-  }, [urlByName]);
+    setIsLoading(true);
+    getLocationByName();
+  }, [apiByLocation]);
 
   return {
     resultsByName,
     residentsByLocation,
-    loadingState,
+    isLoading,
   };
 };
 

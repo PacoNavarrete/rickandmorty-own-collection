@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { TextXTiny } from '../../styled_components/StyledText';
 import {
@@ -7,7 +7,12 @@ import {
   PaginationInput,
 } from '../../styled_components/StyledControls';
 
-export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }) => {
+export const OwnPagination = ({
+  totalPages,
+  setPage,
+  setInputValue,
+  inputValue,
+}) => {
   const inputAsNumber = Number(inputValue);
   const [editInput, setEditInput] = useState(true);
 
@@ -39,8 +44,9 @@ export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }
   return (
     <>
       <FlexBox
-        width="300px"
-        backgroundColor="black"
+        width="270px"
+        height="45px"
+        backgroundColor="green"
         radius="5px"
         gap="15px"
         justify="center"
@@ -48,12 +54,13 @@ export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }
         position="sticky"
         bottomPos="30px"
         margin="0 auto"
+        boxShadow="0px 20px 30px #000"
       >
         <PaginationButton
           disabled={inputAsNumber <= 1 ? true : false}
           onClick={onPrevPage}
         >
-          ◀ Prev
+          ◀ <br /> Prev
         </PaginationButton>
         <FlexBox
           width="75px"
@@ -71,6 +78,7 @@ export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }
               max={totalPages}
               disabled={editInput}
             />
+
             {!editInput ? <EditButton>↩</EditButton> : ''}
           </form>
           {!editInput ? (
@@ -86,7 +94,7 @@ export const OwnPagination = ({ totalPages, setPage, setInputValue, inputValue }
           onClick={onNextPage}
           disabled={inputAsNumber >= totalPages ? true : false}
         >
-          Next ▶
+          ▶ <br /> Next
         </PaginationButton>
       </FlexBox>
     </>

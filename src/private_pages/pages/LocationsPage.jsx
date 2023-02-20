@@ -19,7 +19,7 @@ export const LocationsPage = () => {
   const [locationName, setLocationName] = useState('Earth (C-137)');
   const { namesOfLocations } = useFetchLocations();
   const { charactersState } = useContext(CharacterContext);
-  const { resultsByName, residentsByLocation, loadingState } =
+  const { resultsByName, residentsByLocation, isLoading } =
     useFetchLocationsByName(locationName);
 
   const charactersToRender = filterCharacters(
@@ -39,8 +39,8 @@ export const LocationsPage = () => {
         <TextSmall>Total Residents: {charactersToRender?.length}</TextSmall>
       </FlexBox>
       <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
-        {loadingState && <IsLoading />}
-        {!loadingState && charactersToRender.length > 0 ? (
+        {isLoading && <IsLoading />}
+        {!isLoading && charactersToRender.length > 0 ? (
           charactersToRender?.map(
             ({ id, name, status, image, species, gender }) => (
               <CardCharacter

@@ -22,8 +22,8 @@ const useFetchEpisodesByName = (episodeName) => {
       arrOfCharactersByUrl.map((character) =>
         fetch(character).then((characters) => characters.json())
       )
-    ).then((result) => {
-      setResidentsByEpisode(result);
+    ).then((resCharacters) => {
+      setResidentsByEpisode(resCharacters);
       setIsLoading(false);
     });
   }

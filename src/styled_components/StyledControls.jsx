@@ -5,18 +5,17 @@ export const PrimaryInput = styled.input`
   height: 38px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #01A606;
   outline: 0;
   color: #d7d7d7;
   font-size: 18px;
   align-self: ${({ alignSelf }) => alignSelf};
   text-align: ${({ textAlign }) => textAlign};
-  &:hover{
-    border-bottom: 1px solid #01A606;
-  }
+   
   &::placeholder {
     color: #d7d7d7;
   }
+
 `;
 
 export const PrimaryButton = styled.button`
@@ -58,7 +57,7 @@ export const SelectorInput = styled.select`
   background: transparent;
   color: #fff;
   font-size: 18px;
-  border: 1px solid #fff;
+  border: 1px solid #01A606;
   padding: 5px;
   option {
     color: #000;

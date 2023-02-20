@@ -27,6 +27,7 @@ export const SearchContentGroup = ({
           alignSelf="center"
           value={characterName}
           onChange={onCharacterChange}
+          autoFocus
         />
       </FlexBox>
       <FlexBox flexFlow="row nowrap" gap="30px">
