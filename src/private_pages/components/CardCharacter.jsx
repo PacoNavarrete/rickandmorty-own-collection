@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CharacterContext } from '../context/CharacterContext';
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextXSmall, TextXTiny } from '../../styled_components/StyledText';
@@ -37,7 +38,7 @@ export const CardCharacter = ({
   };
 
   return (
-    <>
+    <Link to={`/character/${id}`}>
       <CardContainer
         width="338px"
         height="440px"
@@ -74,6 +75,6 @@ export const CardCharacter = ({
           </DeleteCharacterBtn>
         )}
       </CardContainer>
-    </>
+    </Link>
   );
 };

@@ -15,11 +15,11 @@ export const PrivateAppRoutes = () => {
       <AppNav />
       <CharacterProvider>
         <Routes>
-          <Route path="/character" element={<CharacterPage />} />
-          <Route path="/Episodes" element={<EpisodesPage />} />
-          <Route path="/Locations" element={<LocationsPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/Locations" element={<LocationsPage />} />
+          <Route path="/Episodes" element={<EpisodesPage />} />
           <Route path="/my-collection" element={<MyCollection />} />
+          <Route path="/character/:id" element={<CharacterPage />} />
 
           <Route path="/" element={<Navigate to="/search" />} />
         </Routes>
