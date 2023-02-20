@@ -1,3 +1,6 @@
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useFetchCharacterById } from '../hooks/useFetchCharacterById';
+
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextXTiny } from '../../styled_components/StyledText';
 import {
@@ -9,13 +12,21 @@ import {
   SecondaryButton,
 } from '../../styled_components/StyledControls';
 
-const name = 'Ants in my eyes jhonson';
-const origin = 'Earth (C-137)';
-const gender = 'Male';
-const specie = 'Human';
-const status = 'Alive';
-
 export const CharacterPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { characterResult, missingCharacter } = useFetchCharacterById(id);
+  const { name, originName, gender, species, status, urlImage } =
+    characterResult;
+
+  const onReturn = () => {
+    navigate(-1);
+  };
+
+  if (missingCharacter) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <FlexBox
@@ -34,19 +45,16 @@ export const CharacterPage = () => {
             padding="55px 40px"
           >
             <ImageContainer width="346px" borderRadius="40px">
-              <img
-                src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                alt=""
-              />
+              <img src={urlImage} alt="" />
             </ImageContainer>
             <FlexBox flexFlow="column nowrap" alignItems="start">
               <TextXTiny>Name: {name}</TextXTiny>
-              <TextXTiny>Origin: {origin}</TextXTiny>
+              <TextXTiny>Origin: {originName}</TextXTiny>
               <TextXTiny>Gender: {gender}</TextXTiny>
-              <TextXTiny>Specie: {specie}</TextXTiny>
+              <TextXTiny>Specie: {species}</TextXTiny>
               <TextXTiny>Status: {status}</TextXTiny>
               <PrimaryButton margin="14px 0">Add</PrimaryButton>
-              <SecondaryButton>Return </SecondaryButton>
+              <SecondaryButton onClick={onReturn}>Return </SecondaryButton>
             </FlexBox>
           </FlexBox>
         </CardContainer>
