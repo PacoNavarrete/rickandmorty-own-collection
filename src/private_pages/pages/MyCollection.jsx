@@ -15,7 +15,13 @@ export const MyCollection = () => {
           I have {charactersState.length} Characters here!
         </TextMedium>
       </FlexBox>
-      <FlexBox layout flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
+      <FlexBox
+        layout
+        flexFlow="row wrap"
+        gap="30px"
+        justify="center"
+        margin="90px 0"
+      >
         {charactersToRender?.map(
           ({ name, status, image, species, gender, id }) => (
             <CardCharacter

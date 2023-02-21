@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 /*font-weight for poppins, thin 100, semibold 600, extrabold 800*/
 /*font-weight for DM Sans, Regular 400, Bold 700*/
@@ -77,7 +78,7 @@ export const TextMedium = styled.p`
 
   ${mediaScreenMobile}
 `;
-export const TextSmall = styled.p`
+export const TextSmall = styled(motion.p)`
   font-size: ${fontSize.pSmall};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   text-align: ${({ textAlign }) => textAlign || 'center'};
