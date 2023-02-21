@@ -36,7 +36,9 @@ export const HomeCTASection = () => {
           <CardContainer width="180px" height="180px" transparency="0.2">
             <img src={accountIcon} alt="account icon" width="80px" />
           </CardContainer>
-          <TextSmall align="center">Create your Account</TextSmall>
+          <TextSmall align="center">
+            Create your Account <br /> Only type a name
+          </TextSmall>
         </FlexBox>
         <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
           <CardContainer width="180px" height="180px" transparency="0.2">
@@ -51,7 +53,7 @@ export const HomeCTASection = () => {
             <img src={archiveIcon} alt="archive icon" width="80px" />
           </CardContainer>
           <TextSmall align="center">
-            Store your own <br /> collection with notes
+            Store your own collection, <br /> you can add and delete
           </TextSmall>
         </FlexBox>
       </FlexBox>

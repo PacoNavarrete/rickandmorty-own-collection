@@ -1,11 +1,14 @@
+import { useContext, useState } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
 import { FlexBox } from '../../styled_components/StyledContainers';
-import { useContext } from 'react';
 
 import { CardCharacter } from '../components/CardCharacter';
 import { TextMedium } from '../../styled_components/StyledText';
+import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
+import { BurgerIcon } from '../../styled_components/StyledNavigation';
 
 export const MyCollection = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
   const { charactersState } = useContext(CharacterContext);
   const charactersToRender = [...charactersState].reverse();
   return (
@@ -37,6 +40,15 @@ export const MyCollection = () => {
           )
         )}
       </FlexBox>
+      <AppBurgerNav burgerStatus={burgerOpen} />
+      <BurgerIcon
+        iconStatus={burgerOpen}
+        onClick={() => setBurgerOpen(!burgerOpen)}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </BurgerIcon>
     </>
   );
 };

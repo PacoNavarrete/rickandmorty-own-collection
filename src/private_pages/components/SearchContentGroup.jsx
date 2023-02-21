@@ -33,12 +33,12 @@ export const SearchContentGroup = ({
       <FlexBox flexFlow="row nowrap" gap="30px">
         <SelectOptions
           name="Status"
-          options={['select', 'Alive', 'Dead', 'Unknow']}
+          options={['Status...', 'Alive', 'Dead', 'Unknow']}
           setChange={setCharacterStatus}
         />
         <SelectOptions
           name="Gender"
-          options={['select', 'Female', 'Male', 'Genderless', 'unknown']}
+          options={['Gender...', 'Female', 'Male', 'Genderless', 'unknown']}
           setChange={setCharacterGender}
         />
       </FlexBox>

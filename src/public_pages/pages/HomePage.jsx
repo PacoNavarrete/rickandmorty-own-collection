@@ -1,8 +1,7 @@
-import { MainFooter } from "../../navigation/footer/MainFooter";
-import { HomeNav } from "../../navigation/header/HomeNav";
-import { HomeCTASection } from "../components/HomeCTASection";
-import { HomeHeroSection } from "../components/HomeHeroSection";
-
+import { MainFooter } from '../../navigation/footer/MainFooter';
+import { HomeNav } from '../../navigation/header/HomeNav';
+import { HomeCTASection } from '../components/HomeCTASection';
+import { HomeHeroSection } from '../components/HomeHeroSection';
 
 export const HomePage = () => {
   return (
@@ -10,7 +9,6 @@ export const HomePage = () => {
       <HomeNav />
       <HomeHeroSection />
       <HomeCTASection />
-      <MainFooter/>
     </>
   );
 };

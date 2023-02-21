@@ -11,6 +11,9 @@ export const HomeHeroSection = () => {
   return (
     <div className="grid-home_hero">
       <FlexBox
+        initial={{ x: -800 }}
+        animate={{ x: 0 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 2 }}
         width="100%"
         flexFlow="column nowrap"
         gap="20px"
@@ -19,14 +22,9 @@ export const HomeHeroSection = () => {
         <TitleLarge textAlign="start">
           Make your own collection of Rick and Morty characters
         </TitleLarge>
-        <TextSmall
-          initial={{ y: 210 }}
-          animate={{ y: 0 }}
-          transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
-          textAlign="start"
-        >
-          You can search, filter, collect, make notes, and <br />
-          stored it in local storage of your browser.
+        <TextSmall textAlign="start">
+          You can search, filter and collect characters, <br />
+          all saved to local storage of your browser.
         </TextSmall>
       </FlexBox>
 

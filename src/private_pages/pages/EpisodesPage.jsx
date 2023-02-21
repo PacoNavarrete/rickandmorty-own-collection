@@ -5,7 +5,6 @@ import useFetchEpisodesByName from '../hooks/useFetchEpisodesByName';
 
 import { SelectContentGroup } from '../components/SelectContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
-import { MainFooter } from '../../navigation/footer/MainFooter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
@@ -72,7 +71,6 @@ export const EpisodesPage = () => {
         <div></div>
         <div></div>
       </BurgerIcon>
-      <MainFooter />
     </>
   );
 };

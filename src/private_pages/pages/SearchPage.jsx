@@ -5,7 +5,6 @@ import { CharacterContext } from '../context/CharacterContext';
 import { SearchContentGroup } from '../components/SearchContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
-import { MainFooter } from '../../navigation/footer/MainFooter';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { OwnPagination } from '../components/OwnPagination';
@@ -85,7 +84,6 @@ export const SearchPage = () => {
         <div></div>
         <div></div>
       </BurgerIcon>
-      <MainFooter />
     </>
   );
 };

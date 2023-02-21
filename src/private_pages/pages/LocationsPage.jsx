@@ -5,7 +5,6 @@ import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
 
 import { SelectContentGroup } from '../components/SelectContentGroup';
 import { CardCharacter } from '../components/CardCharacter';
-import { MainFooter } from '../../navigation/footer/MainFooter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
 import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
@@ -74,7 +73,6 @@ export const LocationsPage = () => {
         <div></div>
         <div></div>
       </BurgerIcon>
-      <MainFooter />
     </>
   );
 };
