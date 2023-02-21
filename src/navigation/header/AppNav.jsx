@@ -20,7 +20,7 @@ export const AppNav = () => {
         width="100%"
         height="125px"
         margin="0"
-        padding="0 20px 0 20px"
+        padding="0 50px"
         justify="space-between"
         alignItems="center"
       >

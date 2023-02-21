@@ -2,15 +2,12 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useFetchCharacterById } from '../hooks/useFetchCharacterById';
 
 import { ImageContainer } from '../../styled_components/StyledMedia';
-import { TextXTiny } from '../../styled_components/StyledText';
+import { TextSmall } from '../../styled_components/StyledText';
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
-import {
-  PrimaryButton,
-  SecondaryButton,
-} from '../../styled_components/StyledControls';
+import { SecondaryButton } from '../../styled_components/StyledControls';
 
 export const CharacterPage = () => {
   const { id } = useParams();
@@ -31,7 +28,8 @@ export const CharacterPage = () => {
     <>
       <FlexBox
         width="100%"
-        minHeight="100vh"
+        height="auto"
+        margin="20px 0"
         justify="center"
         alignItems="center"
       >
@@ -47,13 +45,30 @@ export const CharacterPage = () => {
             <ImageContainer width="346px" borderRadius="40px">
               <img src={urlImage} alt="" />
             </ImageContainer>
-            <FlexBox flexFlow="column nowrap" alignItems="start">
-              <TextXTiny>Name: {name}</TextXTiny>
-              <TextXTiny>Origin: {originName}</TextXTiny>
-              <TextXTiny>Gender: {gender}</TextXTiny>
-              <TextXTiny>Specie: {species}</TextXTiny>
-              <TextXTiny>Status: {status}</TextXTiny>
-              <SecondaryButton onClick={onReturn}>Return </SecondaryButton>
+            <FlexBox
+              height="200px"
+              flexFlow="column nowrap"
+              alignItems="start"
+              justify="space-around"
+            >
+              <TextSmall>
+                <b>Name:</b> {name}
+              </TextSmall>
+              <TextSmall>
+                <b>Origin:</b> {originName}
+              </TextSmall>
+              <TextSmall>
+                <b>Gender</b>: {gender}
+              </TextSmall>
+              <TextSmall>
+                <b>Specie</b>: {species}
+              </TextSmall>
+              <TextSmall>
+                <b>Status</b>: {status}
+              </TextSmall>
+              <SecondaryButton margin="15px 0" onClick={onReturn}>
+                Return
+              </SecondaryButton>
             </FlexBox>
           </FlexBox>
         </CardContainer>
