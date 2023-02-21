@@ -38,7 +38,13 @@ export const LocationsPage = () => {
         <TextSmall>Location Type: "{resultsByName.type}"</TextSmall>
         <TextSmall>Total Residents: {charactersToRender?.length}</TextSmall>
       </FlexBox>
-      <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
+      <FlexBox
+        layout
+        flexFlow="row wrap"
+        gap="30px"
+        justify="center"
+        margin="90px 0"
+      >
         {isLoading && <IsLoading />}
         {!isLoading && charactersToRender.length > 0 ? (
           charactersToRender?.map(

@@ -37,7 +37,13 @@ export const EpisodesPage = () => {
         <TextSmall>Episode name: "{resultsByName.name}"</TextSmall>
         <TextSmall>Air date: {resultsByName.air_date}</TextSmall>
       </FlexBox>
-      <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
+      <FlexBox
+        layout
+        flexFlow="row wrap"
+        gap="30px"
+        justify="center"
+        margin="90px 0"
+      >
         {charactersToRender.length < 1 ? (
           <MissingCharacters textVariant="episode" />
         ) : (

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const FlexBox = styled.div`
+export const FlexBox = styled(motion.div)`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-height: ${({ minHeight }) => minHeight};
@@ -18,19 +19,14 @@ export const FlexBox = styled.div`
   border: ${({ border }) => border};
   border-radius: ${({ radius }) => radius};
   box-shadow: ${({ boxShadow }) => boxShadow};
-  position: ${({position}) => position};
-  top: ${({topPos}) => topPos};
-  bottom: ${({bottomPos}) => bottomPos};
-  left: ${({leftPos}) => leftPos};
-  right: ${({rightPos}) => rightPos};
-
-  @media screen and (max-width: 824px){
-    padding: ${({ mobilePadding }) => mobilePadding};
-    justify-content: ${({ mobileJustify }) => mobileJustify};
-  }
+  position: ${({ position }) => position};
+  top: ${({ topPos }) => topPos};
+  bottom: ${({ bottomPos }) => bottomPos};
+  left: ${({ leftPos }) => leftPos};
+  right: ${({ rightPos }) => rightPos};
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(motion.div)`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-height: ${({ minHeight }) => minHeight};

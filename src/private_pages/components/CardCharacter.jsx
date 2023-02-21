@@ -44,6 +44,10 @@ export const CardCharacter = ({
   return (
     <>
       <CardContainer
+        layout
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
         width="338px"
         height="440px"
         margin="15px 0"

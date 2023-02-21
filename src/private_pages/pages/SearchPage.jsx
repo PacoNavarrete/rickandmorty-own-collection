@@ -44,7 +44,13 @@ export const SearchPage = () => {
         setCharacterGender={setCharacterGender}
         setCharacterStatus={setCharacterStatus}
       />
-      <FlexBox flexFlow="row wrap" gap="30px" justify="center" margin="90px 0">
+      <FlexBox
+        layout
+        flexFlow="row wrap"
+        gap="30px"
+        justify="center"
+        margin="90px 0"
+      >
         {charactersToRender.length < 1 ? (
           <MissingCharacters textVariant="search or page" />
         ) : (
