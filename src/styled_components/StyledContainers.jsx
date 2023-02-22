@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+const mediaScreenMobile = `@media screen and (max-width: 824px) {
+  justify-content: center;
+}`;
+
 export const FlexBox = styled(motion.div)`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -26,6 +30,8 @@ export const FlexBox = styled(motion.div)`
   bottom: ${({ bottomPos }) => bottomPos};
   left: ${({ leftPos }) => leftPos};
   right: ${({ rightPos }) => rightPos};
+
+  ${mediaScreenMobile}
 `;
 
 export const CardContainer = styled(motion.div)`

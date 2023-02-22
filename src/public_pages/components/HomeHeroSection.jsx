@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FlexBox } from '../../styled_components/StyledContainers';
-import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextSmall, TitleLarge } from '../../styled_components/StyledText';
 import {
   PrimaryButton,
   SecondaryButton,
 } from '../../styled_components/StyledControls';
+import { RandomCard } from './RandomCard';
 
 export const HomeHeroSection = () => {
   return (
@@ -34,7 +34,7 @@ export const HomeHeroSection = () => {
         justify="flex-start"
         alignItems="flex-start"
         gap="30px"
-        padding="60px 0 0 0"
+        margin="auto"
         gridArea="hero-btn"
         mobilePadding="0"
         mobileJustify="center"
@@ -44,17 +44,9 @@ export const HomeHeroSection = () => {
         </Link>
         <SecondaryButton>How it Works</SecondaryButton>
       </FlexBox>
-
-      <ImageContainer
-        width="350px"
-        gridArea="hero-img"
-        placeSelf="center center"
-      >
-        <img
-          src="https://res.cloudinary.com/paconavarrete/image/upload/v1673555699/RickandMorty/CardCharacter_y0gw5v.png"
-          alt="RickandMorty-Card"
-        />
-      </ImageContainer>
+      <FlexBox gridArea="hero-img" justify="center">
+        <RandomCard />
+      </FlexBox>
     </div>
   );
 };
