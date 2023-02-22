@@ -4,7 +4,7 @@ import {
 } from '../../styled_components/StyledContainers';
 import { TextLarge, TextSmall } from '../../styled_components/StyledText';
 
-export const MissingCharacters = ({ textVariant }) => {
+export const MissingCharacters = ({ textVariant, hideHint }) => {
   return (
     <FlexBox
       initial={{ y: -400 }}
@@ -24,9 +24,13 @@ export const MissingCharacters = ({ textVariant }) => {
           Hey! looks like there's no characters here, <br /> try another{' '}
           {textVariant}.
         </TextLarge>
-        <TextSmall color="white">
-          Pss... Maybe you have already collect it.
-        </TextSmall>
+        {hideHint ? (
+          false
+        ) : (
+          <TextSmall color="white">
+            Pss... Maybe you have already collect it.
+          </TextSmall>
+        )}
       </CardContainer>
     </FlexBox>
   );
