@@ -53,8 +53,8 @@ export const OwnPagination = ({
         alignItems="center"
         position="sticky"
         bottomPos="30px"
-        margin="0 auto"
-        boxShadow="0px 20px 30px #000"
+        margin="90px auto"
+        boxShadow="0px 10px 30px #000"
       >
         <PaginationButton
           disabled={inputAsNumber <= 1 ? true : false}
