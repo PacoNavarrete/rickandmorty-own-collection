@@ -66,8 +66,9 @@ export const LoadingAnimation = styled.div`
       transform: rotate(360deg);
     }
   }
+`;
 
-
-
-
+export const IsActivePage = styled.div`
+  border-bottom: 1px solid ${({ isActive }) => (isActive ? 'white' : 'none')};
+  padding-bottom: 2px;
 `;

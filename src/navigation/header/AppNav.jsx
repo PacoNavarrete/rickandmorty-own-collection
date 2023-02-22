@@ -10,7 +10,6 @@ import {
 
 export const AppNav = () => {
   const { authState } = useContext(AuthContext);
-
   const userName = authState.user.userName;
 
   return (

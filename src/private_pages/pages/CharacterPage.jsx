@@ -17,7 +17,7 @@ export const CharacterPage = () => {
     characterResult;
 
   const onReturn = () => {
-    navigate(-1);
+    navigate(-1,);
   };
 
   if (missingCharacter) {
