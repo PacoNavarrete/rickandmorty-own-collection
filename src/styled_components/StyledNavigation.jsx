@@ -21,14 +21,7 @@ export const UListBox = styled.ul`
   a {
     text-decoration: none;
   }
-  li {
-    list-style: none;
-    cursor: pointer;
-  }
-  P:hover {
-    color: #01A606;
-  }
-
+  
   @media screen and (max-width: 824px){
     display: none;
   }
@@ -87,7 +80,7 @@ export const BurgerList = styled.ul`
     grid-area: ${({ gridArea }) => gridArea};
     transition: all 0.5s ease;
     border-radius: 0;
-    gap: ${({gap}) => gap};
+    gap: ${({ gap }) => gap};
     position: ${({ position }) => position};
     top: ${({ topPos }) => topPos};
     bottom: ${({ bottomPos }) => bottomPos};

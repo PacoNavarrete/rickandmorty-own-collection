@@ -13,7 +13,7 @@ export const HomeHeroSection = () => {
       <FlexBox
         initial={{ x: -800 }}
         animate={{ x: 0 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 2 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
         width="100%"
         flexFlow="column nowrap"
         gap="20px"

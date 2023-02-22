@@ -41,6 +41,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'DM Sans', sans-serif;
     list-style: none;
   }
+  a {
+    text-decoration: none;
+  }
   div {
     font-family: 'DM Sans', sans-serif;
   }

@@ -18,7 +18,7 @@ export const AppNav = () => {
         flexFlow="row nowrap"
         width="100%"
         height="125px"
-        margin="0"
+        margin="0 0 60px 0"
         padding="0 50px"
         justify="space-between"
         alignItems="center"
