@@ -43,6 +43,9 @@ export const SearchPage = () => {
         setCharacterGender={setCharacterGender}
         setCharacterStatus={setCharacterStatus}
       />
+      {charactersToRender.length < 1 && (
+        <MissingCharacters textVariant="search or page" />
+      )}
       <FlexBox
         layout
         flexFlow="row wrap"
@@ -50,9 +53,7 @@ export const SearchPage = () => {
         justify="center"
         margin="90px 0"
       >
-        {charactersToRender.length < 1 ? (
-          <MissingCharacters textVariant="search or page" />
-        ) : (
+        {charactersToRender.length > 1 &&
           charactersToRender?.map(
             ({ id, name, status, image, species, gender }) => (
               <CardCharacter
@@ -66,8 +67,7 @@ export const SearchPage = () => {
                 addBtn={true}
               />
             )
-          )
-        )}
+          )}
       </FlexBox>
       <OwnPagination
         totalPages={pageCount}
