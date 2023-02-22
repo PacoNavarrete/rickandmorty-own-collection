@@ -5,6 +5,8 @@ export const FlexBox = styled(motion.div)`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-height: ${({ minHeight }) => minHeight};
+  max-width: ${({ maxWidth }) => maxWidth};
+  max-height: ${({ maxHeight }) => maxHeight};
   display: flex;
   flex-flow: ${({ flexFlow }) => flexFlow};
   justify-content: ${({ justify }) => justify};

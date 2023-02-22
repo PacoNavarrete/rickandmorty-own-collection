@@ -1,3 +1,4 @@
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import {
   CardContainer,
@@ -15,47 +16,28 @@ export const HomeCTASection = () => {
     <FlexBox
       width="80%"
       minHeight="100vh"
-      margin="90px auto"
+      margin="140px auto 0 auto"
       flexFlow="column nowrap"
       alignItems="center"
     >
       <TitleMedium>Crate your Collection</TitleMedium>
       <TextSmall align="center">
-        Getting started with your own collection of Rick and Morty characters
+        Getting started with your own collection of Rick and Morty characters.
       </TextSmall>
       <FlexBox
-        width="90%"
-        minHeight="auto"
-        flexFlow="row wrap"
-        justify="space-around"
-        alignContent="center"
-        gap="30px"
-        margin="60px 0"
+        border="2px solid #000"
+        radius="5px"
+        boxShadow="15px 20px 15px -10px black"
+        maxWidth="840px"
+        margin="60px"
       >
-        <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="180px" height="180px" transparency="0.2">
-            <img src={accountIcon} alt="account icon" width="80px" />
-          </CardContainer>
-          <TextSmall align="center">
-            Create your Account <br /> Only type a name
-          </TextSmall>
-        </FlexBox>
-        <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="180px" height="180px" transparency="0.2">
-            <img src={filterIcon} alt="filter icon" width="80px" />
-          </CardContainer>
-          <TextSmall align="center">
-            Navigate trough all <br /> the characters
-          </TextSmall>
-        </FlexBox>
-        <FlexBox flexFlow="column nowrap" alignItems="center" gap="10px">
-          <CardContainer width="180px" height="180px" transparency="0.2">
-            <img src={archiveIcon} alt="archive icon" width="80px" />
-          </CardContainer>
-          <TextSmall align="center">
-            Store your own collection, <br /> you can add and delete
-          </TextSmall>
-        </FlexBox>
+        <ReactPlayer
+          url="https://res.cloudinary.com/paconavarrete/video/upload/v1677044637/RickandMorty/rickandmortyvideo_jklj0f.mov"
+          playing={true}
+          loop={true}
+          width="100%"
+          height="100%"
+        />
       </FlexBox>
       <Link to="/login">
         <PrimaryButton>Start Now</PrimaryButton>
