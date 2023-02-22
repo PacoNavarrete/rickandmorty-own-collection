@@ -8,6 +8,9 @@ import {
 import { RandomCard } from './RandomCard';
 
 export const HomeHeroSection = () => {
+
+
+  
   return (
     <div className="grid-home_hero">
       <FlexBox

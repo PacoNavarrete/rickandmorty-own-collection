@@ -8,6 +8,7 @@
     'hero-text hero-text hero-img'
     'hero-btn hero-btn hero-img';
   margin: 60px auto 0 auto;
+  perspective: 2000px;
 }
 
 .grid-main-footer {

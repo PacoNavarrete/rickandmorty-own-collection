@@ -30,6 +30,7 @@ export const FlexBox = styled(motion.div)`
   bottom: ${({ bottomPos }) => bottomPos};
   left: ${({ leftPos }) => leftPos};
   right: ${({ rightPos }) => rightPos};
+  perspective: ${({ prespective }) => prespective};
 
   ${mediaScreenMobile}
 `;
