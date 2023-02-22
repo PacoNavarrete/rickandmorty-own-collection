@@ -36,6 +36,9 @@ export const EpisodesPage = () => {
         <TextSmall>Episode name: "{resultsByName.name}"</TextSmall>
         <TextSmall>Air date: {resultsByName.air_date}</TextSmall>
       </FlexBox>
+      {charactersToRender.length < 1 && (
+        <MissingCharacters textVariant="episode" />
+      )}
       <FlexBox
         layout
         flexFlow="row wrap"
@@ -43,22 +46,18 @@ export const EpisodesPage = () => {
         justify="center"
         margin="90px 0"
       >
-        {charactersToRender.length < 1 ? (
-          <MissingCharacters textVariant="episode" />
-        ) : (
-          charactersToRender?.map(
-            ({ id, name, status, image, species, gender }) => (
-              <CardCharacter
-                key={id}
-                name={name}
-                status={status}
-                image={image}
-                species={species}
-                gender={gender}
-                id={id}
-                addBtn={true}
-              />
-            )
+        {charactersToRender?.map(
+          ({ id, name, status, image, species, gender }) => (
+            <CardCharacter
+              key={id}
+              name={name}
+              status={status}
+              image={image}
+              species={species}
+              gender={gender}
+              id={id}
+              addBtn={true}
+            />
           )
         )}
       </FlexBox>

@@ -37,6 +37,10 @@ export const LocationsPage = () => {
         <TextSmall>Location Type: "{resultsByName.type}"</TextSmall>
         <TextSmall>Total Residents: {charactersToRender?.length}</TextSmall>
       </FlexBox>
+      {isLoading && <IsLoading />}
+      {charactersToRender.length < 1 && (
+        <MissingCharacters textVariant="location" />
+      )}
       <FlexBox
         layout
         flexFlow="row wrap"
@@ -44,24 +48,19 @@ export const LocationsPage = () => {
         justify="center"
         margin="90px 0"
       >
-        {isLoading && <IsLoading />}
-        {!isLoading && charactersToRender.length > 0 ? (
-          charactersToRender?.map(
-            ({ id, name, status, image, species, gender }) => (
-              <CardCharacter
-                key={id}
-                name={name}
-                status={status}
-                image={image}
-                species={species}
-                gender={gender}
-                id={id}
-                addBtn={true}
-              />
-            )
+        {charactersToRender?.map(
+          ({ id, name, status, image, species, gender }) => (
+            <CardCharacter
+              key={id}
+              name={name}
+              status={status}
+              image={image}
+              species={species}
+              gender={gender}
+              id={id}
+              addBtn={true}
+            />
           )
-        ) : (
-          <MissingCharacters textVariant="location" />
         )}
       </FlexBox>
       <AppBurgerNav burgerStatus={burgerOpen} />

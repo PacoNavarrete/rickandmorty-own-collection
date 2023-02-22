@@ -53,21 +53,20 @@ export const SearchPage = () => {
         justify="center"
         margin="90px 0"
       >
-        {charactersToRender.length > 1 &&
-          charactersToRender?.map(
-            ({ id, name, status, image, species, gender }) => (
-              <CardCharacter
-                key={id}
-                name={name}
-                status={status}
-                image={image}
-                species={species}
-                gender={gender}
-                id={id}
-                addBtn={true}
-              />
-            )
-          )}
+        {charactersToRender?.map(
+          ({ id, name, status, image, species, gender }) => (
+            <CardCharacter
+              key={id}
+              name={name}
+              status={status}
+              image={image}
+              species={species}
+              gender={gender}
+              id={id}
+              addBtn={true}
+            />
+          )
+        )}
       </FlexBox>
       <OwnPagination
         totalPages={pageCount}
