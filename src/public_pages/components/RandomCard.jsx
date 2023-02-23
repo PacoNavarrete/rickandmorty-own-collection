@@ -7,7 +7,7 @@ import { TextXSmall, TextXTiny } from '../../styled_components/StyledText';
 import { Badge } from '../../styled_components/StyledUtils';
 import { useFetchRandomCharacter } from '../hooks/useFetchRandomCharacter';
 
-export const RandomCard = ({ rotateX, rotateY }) => {
+export const RandomCard = () => {
   const { character } = useFetchRandomCharacter();
   const { name, gender, image, species, status } = character;
 
@@ -22,19 +22,18 @@ export const RandomCard = ({ rotateX, rotateY }) => {
       flexFlow="column nowrap"
       transparency="0.31"
       style={{
-        rotateX: rotateX,
-        rotateY: rotateY,
+        rotateX: 22,
+        rotateY: 22,
       }}
     >
       <TextXSmall margin="5px">{name}</TextXSmall>
       <ImageContainer
+        initial={{ y: -70 }}
+        animate={{ y: 0 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 1], duration: 2 }}
         width="280px"
         height="250px"
         borderRadius="40px"
-        style={{
-          rotateX: rotateX,
-          rotateY: rotateY,
-        }}
       >
         <img src={image} alt="name" />
       </ImageContainer>

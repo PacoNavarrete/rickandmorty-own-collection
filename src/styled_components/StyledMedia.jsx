@@ -7,6 +7,7 @@ export const ImageContainer = styled(motion.div)`
   align-self: center;
   grid-area: ${({ gridArea }) => gridArea};
   place-self: ${({ placeSelf }) => placeSelf};
+  box-shadow: ${({ boxShadow }) => boxShadow};
   
   img {
     width: ${({ width }) => width};

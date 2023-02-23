@@ -1,4 +1,3 @@
-import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import {
   CardContainer,
@@ -8,15 +7,15 @@ import { PrimaryButton } from '../../styled_components/StyledControls';
 import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
 
 import accountIcon from '../../assets/icons/account.svg';
-import archiveIcon from '../../assets/icons/archive.svg';
 import filterIcon from '../../assets/icons/filter.svg';
+import archiveIcon from '../../assets/icons/archive.svg';
 
 export const HomeCTASection = () => {
   return (
     <FlexBox
       width="80%"
       minHeight="100vh"
-      margin="140px auto 0 auto"
+      margin="98px auto 0 auto"
       flexFlow="column nowrap"
       alignItems="center"
     >
@@ -24,20 +23,38 @@ export const HomeCTASection = () => {
       <TextSmall align="center">
         Getting started with your own collection of Rick and Morty characters.
       </TextSmall>
+
       <FlexBox
-        border="2px solid #000"
-        radius="5px"
-        boxShadow="15px 20px 15px -10px black"
-        maxWidth="840px"
+        flexFlow="row wrap"
+        justify="space-around"
+        width="90%"
         margin="60px"
+        gap="20px"
       >
-        <ReactPlayer
-          url="https://res.cloudinary.com/paconavarrete/video/upload/v1677044637/RickandMorty/rickandmortyvideo_jklj0f.mov"
-          playing={true}
-          loop={true}
-          width="100%"
-          height="100%"
-        />
+        <FlexBox flexFlow="column nowrap" alignItems="center">
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={accountIcon} alt="account icon" width="80px" />
+          </CardContainer>
+          <TextSmall align="center">
+            Create your Account <br /> Only type a name
+          </TextSmall>
+        </FlexBox>
+        <FlexBox flexFlow="column nowrap" alignItems="center">
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={filterIcon} alt="account icon" width="80px" />
+          </CardContainer>
+          <TextSmall align="center">
+            Seach, filter and <br /> collect any character.
+          </TextSmall>
+        </FlexBox>
+        <FlexBox flexFlow="column nowrap" alignItems="center">
+          <CardContainer width="180px" height="180px" transparency="0.2">
+            <img src={archiveIcon} alt="account icon" width="80px" />
+          </CardContainer>
+          <TextSmall align="center">
+            Store your own collection, <br /> you can add and delete
+          </TextSmall>
+        </FlexBox>
       </FlexBox>
       <Link to="/login">
         <PrimaryButton>Start Now</PrimaryButton>
