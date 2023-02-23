@@ -1,4 +1,3 @@
-import { useMotionValue, useTransform } from 'framer-motion';
 import {
   CardContainer,
   FlexBox,
@@ -8,13 +7,9 @@ import { TextXSmall, TextXTiny } from '../../styled_components/StyledText';
 import { Badge } from '../../styled_components/StyledUtils';
 import { useFetchRandomCharacter } from '../hooks/useFetchRandomCharacter';
 
-export const RandomCard = () => {
+export const RandomCard = ({ rotateX, rotateY }) => {
   const { character } = useFetchRandomCharacter();
   const { name, gender, image, species, status } = character;
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(x, [-100, 100], [30, -30]);
-  const rotateY = useTransform(y, [-100, 100], [-30, 30]);
 
   return (
     <CardContainer
@@ -26,11 +21,10 @@ export const RandomCard = () => {
       margin="15px 0"
       flexFlow="column nowrap"
       transparency="0.31"
-      style={{ x, y, rotateX, rotateY, z: 100 }}
-      drag
-      dragElastic={0.16}
-      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-      whileTap={{ cursor: 'grabbing' }}
+      style={{
+        rotateX: rotateX,
+        rotateY: rotateY,
+      }}
     >
       <TextXSmall margin="5px">{name}</TextXSmall>
       <ImageContainer
@@ -38,16 +32,9 @@ export const RandomCard = () => {
         height="250px"
         borderRadius="40px"
         style={{
-          x,
-          y,
-          rotateX,
-          rotateY,
-          rotate: '0deg',
-          z: 100000,
+          rotateX: rotateX,
+          rotateY: rotateY,
         }}
-        drag
-        dragElastic={0.12}
-        whileTap={{ cursor: 'grabbing' }}
       >
         <img src={image} alt="name" />
       </ImageContainer>

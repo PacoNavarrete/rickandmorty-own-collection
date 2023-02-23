@@ -1,3 +1,4 @@
+import { useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { TextSmall, TitleLarge } from '../../styled_components/StyledText';
@@ -8,11 +9,18 @@ import {
 import { RandomCard } from './RandomCard';
 
 export const HomeHeroSection = () => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(x, [-100, 100], [40, -40]);
+  const rotateY = useTransform(y, [-100, 100], [-40, 40]);
 
+  function handleMouseMove(event) {
+    x.set((window.innerWidth / 2 - event.pageX) / 10);
+    y.set((window.innerWidth / 2 - event.pageY) / 10);
+  }
 
-  
   return (
-    <div className="grid-home_hero">
+    <div className="grid-home_hero" onMouseMove={handleMouseMove}>
       <FlexBox
         initial={{ x: -800 }}
         animate={{ x: 0 }}
@@ -48,7 +56,7 @@ export const HomeHeroSection = () => {
         <SecondaryButton>How it Works</SecondaryButton>
       </FlexBox>
       <FlexBox gridArea="hero-img" justify="center">
-        <RandomCard />
+        <RandomCard rotateX={rotateX} rotateY={rotateY} />
       </FlexBox>
     </div>
   );
