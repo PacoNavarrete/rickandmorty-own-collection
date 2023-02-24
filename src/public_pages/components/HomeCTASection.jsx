@@ -10,7 +10,7 @@ import accountIcon from '../../assets/icons/account.svg';
 import filterIcon from '../../assets/icons/filter.svg';
 import archiveIcon from '../../assets/icons/archive.svg';
 
-export const HomeCTASection = () => {
+export const HomeCTASection = ({ refHowItWorks }) => {
   return (
     <FlexBox
       width="80%"
@@ -18,6 +18,7 @@ export const HomeCTASection = () => {
       margin="98px auto 0 auto"
       flexFlow="column nowrap"
       alignItems="center"
+      ref={refHowItWorks}
     >
       <TitleMedium>Crate your Collection</TitleMedium>
       <TextSmall align="center">

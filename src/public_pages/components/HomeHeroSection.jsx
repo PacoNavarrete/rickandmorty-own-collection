@@ -8,7 +8,7 @@ import {
 } from '../../styled_components/StyledControls';
 import { RandomCard } from './RandomCard';
 
-export const HomeHeroSection = () => {
+export const HomeHeroSection = ({ refHowItWorks }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(x, [-100, 100], [40, -40]);
@@ -17,6 +17,10 @@ export const HomeHeroSection = () => {
   function handleMouseMove(event) {
     x.set((window.innerWidth / 2 - event.pageX) / 10);
     y.set((window.innerWidth / 2 - event.pageY) / 10);
+  }
+
+  function onScrollToRef() {
+    refHowItWorks.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
@@ -53,7 +57,7 @@ export const HomeHeroSection = () => {
         <Link to="/login">
           <PrimaryButton>Start Now</PrimaryButton>
         </Link>
-        <SecondaryButton>How it Works</SecondaryButton>
+        <SecondaryButton onClick={onScrollToRef}>How it Works</SecondaryButton>
       </FlexBox>
       <FlexBox gridArea="hero-img" justify="center">
         <RandomCard rotateX={rotateX} rotateY={rotateY} />

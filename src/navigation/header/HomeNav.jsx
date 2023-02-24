@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { SecondaryButton } from '../../styled_components/StyledControls';
 import { BrandName } from '../../styled_components/StyledText';
 import { HomeHeaderMenu } from '../coponents/HomeHeaderMenu';
 
-export const HomeNav = () => {
+export const HomeNav = ({refHowItWorks}) => {
   return (
     <>
       <FlexBox
@@ -15,8 +16,10 @@ export const HomeNav = () => {
         alignItems="center"
       >
         <BrandName>Rick and Morty</BrandName>
-        <HomeHeaderMenu />
-        <SecondaryButton>Collect</SecondaryButton>
+        <HomeHeaderMenu refHowItWorks={refHowItWorks} />
+        <Link to="/login">
+          <SecondaryButton>Collect</SecondaryButton>
+        </Link>
       </FlexBox>
     </>
   );

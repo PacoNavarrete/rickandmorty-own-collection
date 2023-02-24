@@ -41,6 +41,7 @@ export const TitleMedium = styled.h2`
   line-height: ${({ lineHeight }) => lineHeight};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -52,6 +53,7 @@ export const TitleSmall = styled.h2`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -64,6 +66,7 @@ export const TextLarge = styled.p`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -75,6 +78,7 @@ export const TextMedium = styled.p`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -86,6 +90,7 @@ export const TextSmall = styled(motion.p)`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -97,6 +102,7 @@ export const TextXSmall = styled.p`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
 
   ${mediaScreenMobile}
 `;
@@ -108,6 +114,7 @@ export const TextXTiny = styled.p`
   color: ${({ color }) => color || '#fff'};
   grid-area: ${({ gridArea }) => gridArea};
   margin: ${({ margin }) => margin || '0'};
+  cursor: ${({ cursor }) => cursor || 'default'};
   
   ${mediaScreenMobile}
 `;

@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { UListBox } from '../../styled_components/StyledNavigation';
 import {
   BrandName,
-  TextLarge,
   TextMedium,
   TextXSmall,
   TextXTiny,
@@ -21,13 +21,14 @@ export const MainFooter = () => {
         </TextMedium>
         <UListBox color="#fff" width="322px" gridArea="socials">
           <li>
-            <TextXTiny>Github</TextXTiny>
+            <Link to="https://github.com/PacoNavarrete">
+              <TextXTiny cursor="pointer">Github</TextXTiny>
+            </Link>
           </li>
           <li>
-            <TextXTiny>LinkedIn</TextXTiny>
-          </li>
-          <li>
-            <TextXTiny>Portfolio</TextXTiny>
+            <Link to="https://www.linkedin.com/in/francisco-cienfuegos-291619164/">
+              <TextXTiny cursor="pointer">LinkedIn</TextXTiny>
+            </Link>
           </li>
         </UListBox>
         <Divider
