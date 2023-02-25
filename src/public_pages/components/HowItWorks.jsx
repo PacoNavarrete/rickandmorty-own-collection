@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
+
+import { PrimaryButton } from '../../styled_components/StyledControls';
+import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
+import accountIcon from '../../assets/icons/account.svg';
+import filterIcon from '../../assets/icons/filter.svg';
+import archiveIcon from '../../assets/icons/archive.svg';
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
-import { PrimaryButton } from '../../styled_components/StyledControls';
-import { TextSmall, TitleMedium } from '../../styled_components/StyledText';
 
-import accountIcon from '../../assets/icons/account.svg';
-import filterIcon from '../../assets/icons/filter.svg';
-import archiveIcon from '../../assets/icons/archive.svg';
-
-export const HomeCTASection = ({ refHowItWorks }) => {
+export const HowItWorks = ({ anchorRef }) => {
   return (
     <FlexBox
       width="80%"
@@ -18,7 +18,7 @@ export const HomeCTASection = ({ refHowItWorks }) => {
       margin="98px auto 0 auto"
       flexFlow="column nowrap"
       alignItems="center"
-      ref={refHowItWorks}
+      ref={anchorRef}
     >
       <TitleMedium>Crate your Collection</TitleMedium>
       <TextSmall align="center">

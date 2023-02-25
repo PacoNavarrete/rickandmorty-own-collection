@@ -9,7 +9,7 @@ import {
   SearchPage,
 } from '../pages';
 
-export const PrivateAppRoutes = () => {
+export const AppRoutes = () => {
   return (
     <>
       <AppNav />
