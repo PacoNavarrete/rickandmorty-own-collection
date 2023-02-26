@@ -3,11 +3,36 @@ import { useFetchCharacterById } from '../hooks/useFetchCharacterById';
 
 import { ImageContainer } from '../../styled_components/StyledMedia';
 import { TextSmall } from '../../styled_components/StyledText';
+import { SecondaryButton } from '../../styled_components/StyledControls';
 import {
   CardContainer,
   FlexBox,
 } from '../../styled_components/StyledContainers';
-import { SecondaryButton } from '../../styled_components/StyledControls';
+
+
+const CharacterDetails = (props) => {
+  <>
+    <FlexBox
+      height="200px"
+      flexFlow="column nowrap"
+      alignItems="start"
+      justify="space-around"
+    >
+      <TextSmall>{`Name: ${props.name}`}</TextSmall>
+      <TextSmall>{`Origin: ${props.originName}`}</TextSmall>
+      <TextSmall>{`Gender: ${props.gender}`}</TextSmall>
+      <TextSmall>{`Species: ${props.species}`}</TextSmall>
+      <TextSmall>
+        
+        <b>Status</b>: {props.status}
+      </TextSmall>
+      <SecondaryButton margin="15px 0" onClick={onReturn}>
+        Return
+      </SecondaryButton>
+    </FlexBox>
+  </>;
+};
+
 
 export const CharacterPage = () => {
   const { id } = useParams();
@@ -17,13 +42,14 @@ export const CharacterPage = () => {
     characterResult;
 
   const onReturn = () => {
-    navigate(-1,);
+    navigate(-1);
   };
 
   if (missingCharacter) {
     return <Navigate to="/" />;
   }
 
+  
   return (
     <>
       <FlexBox
@@ -33,44 +59,20 @@ export const CharacterPage = () => {
         justify="center"
         alignItems="center"
       >
-        <CardContainer transparency="0.31">
+        <CardContainer transparency="0.31" margin="0 30px">
           <FlexBox
             flexFlow="row wrap"
             justify="center"
             alignItems="center"
-            gap="56px"
+            gap="30px"
             transparency="0.31"
             padding="55px 40px"
           >
             <ImageContainer width="346px" borderRadius="40px">
               <img src={urlImage} alt="" />
             </ImageContainer>
-            <FlexBox
-              height="200px"
-              flexFlow="column nowrap"
-              alignItems="start"
-              justify="space-around"
-            >
-              <TextSmall>
-                <b>Name:</b> {name}
-              </TextSmall>
-              <TextSmall>
-                <b>Origin:</b> {originName}
-              </TextSmall>
-              <TextSmall>
-                <b>Gender</b>: {gender}
-              </TextSmall>
-              <TextSmall>
-                <b>Specie</b>: {species}
-              </TextSmall>
-              <TextSmall>
-                <b>Status</b>: {status}
-              </TextSmall>
-              <SecondaryButton margin="15px 0" onClick={onReturn}>
-                Return
-              </SecondaryButton>
-            </FlexBox>
           </FlexBox>
+          <CharacterDetails />
         </CardContainer>
       </FlexBox>
     </>

@@ -3,12 +3,25 @@ import { TextLarge } from '../../styled_components/StyledText';
 import { SelectOptions } from './SelectOptions';
 import { PrimaryInput } from '../../styled_components/StyledControls';
 
-export const SearchContentGroup = ({
-  characterName,
-  onCharacterChange,
-  setCharacterStatus,
-  setCharacterGender,
-}) => {
+export const SearchContentGroup = (props) => {
+  const {
+    characterName,
+    setCharacterName,
+    setCharacterStatus,
+    setCharacterGender,
+    setCurrentPage,
+    setInputValue,
+  } = props;
+
+  function resetPagination() {
+    setInputValue(1);
+    setCurrentPage(1);
+  }
+  const onCharacterChange = (event) => {
+    setCharacterName(event.target.value);
+    resetPagination();
+  };
+
   return (
     <FlexBox
       flexFlow="row wrap"

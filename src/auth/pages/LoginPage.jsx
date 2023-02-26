@@ -7,7 +7,6 @@ import {
 } from '../../styled_components/StyledContainers';
 
 export const LoginPage = () => {
-
   return (
     <FlexBox
       width="100%"
@@ -15,6 +14,9 @@ export const LoginPage = () => {
       justify="center"
       alignItems="center"
       flexFlow="row nowrap"
+      initial={{ y: -400 }}
+      animate={{ y: 0 }}
+      transition={{ ease: [0.6, 0.01, -0.05, 1], duration: 2 }}
     >
       <CardContainer width="380px" height="450px" flexFlow="column nowrap">
         <TitleMedium lineHeight="44px" margin="35px 0">

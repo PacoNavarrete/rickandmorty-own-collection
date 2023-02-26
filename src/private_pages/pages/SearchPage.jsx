@@ -3,16 +3,13 @@ import useFetchCharacters from '../hooks/useFetchCharacters';
 import { CharacterContext } from '../context/CharacterContext';
 
 import { SearchContentGroup } from '../components/SearchContentGroup';
-import { CardCharacter } from '../components/CardCharacter';
-import { FlexBox } from '../../styled_components/StyledContainers';
-import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
-import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { OwnPagination } from '../components/OwnPagination';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { MissingCharacters } from '../components/MissingCharacters';
+import { GridCharactersCard } from '../components/GridCharactersCard';
+import { BurgerNavigation } from '../components/BurgerNavigation';
 
 export const SearchPage = () => {
-  const [burgerOpen, setBurgerOpen] = useState(false);
   const [characterName, setCharacterName] = useState('');
   const [characterStatus, setCharacterStatus] = useState('');
   const [characterGender, setCharacterGender] = useState('');
@@ -28,61 +25,30 @@ export const SearchPage = () => {
 
   const charactersToRender = filterCharacters(charactersState, results);
 
-  const onCharacterChange = (event) => {
-    setCharacterName(event.target.value);
-    setInputValue(1);
-    setCurrentPage(1);
-  };
-
   return (
     <>
       <SearchContentGroup
         characterName={characterName}
         setCharacterName={setCharacterName}
-        onCharacterChange={onCharacterChange}
         setCharacterGender={setCharacterGender}
         setCharacterStatus={setCharacterStatus}
+        setCurrentPage={setCurrentPage}
+        setInputValue={setInputValue}
       />
       {charactersToRender.length < 1 && (
         <MissingCharacters textVariant="search or page" />
       )}
-      <FlexBox
-        layout
-        flexFlow="row wrap"
-        gap="30px"
-        justify="center"
-        margin="90px 0"
-      >
-        {charactersToRender?.map(
-          ({ id, name, status, image, species, gender }) => (
-            <CardCharacter
-              key={id}
-              name={name}
-              status={status}
-              image={image}
-              species={species}
-              gender={gender}
-              id={id}
-              addBtn={true}
-            />
-          )
-        )}
-      </FlexBox>
+      <GridCharactersCard
+        charactersToRender={charactersToRender}
+        activeAdd={true}
+      />
       <OwnPagination
         totalPages={pageCount}
         setPage={setCurrentPage}
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <AppBurgerNav burgerStatus={burgerOpen} />
-      <BurgerIcon
-        iconStatus={burgerOpen}
-        onClick={() => setBurgerOpen(!burgerOpen)}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </BurgerIcon>
+      <BurgerNavigation />
     </>
   );
 };

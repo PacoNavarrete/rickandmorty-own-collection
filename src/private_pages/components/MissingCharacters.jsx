@@ -7,7 +7,7 @@ import { TextLarge, TextSmall } from '../../styled_components/StyledText';
 export const MissingCharacters = ({ textVariant, hideHint }) => {
   return (
     <FlexBox
-      initial={{ y: -400 }}
+      initial={{ y: 400 }}
       animate={{ y: 0 }}
       transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
       flexFlow="row wrap"

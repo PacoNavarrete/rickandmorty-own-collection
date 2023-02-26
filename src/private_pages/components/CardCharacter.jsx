@@ -21,7 +21,7 @@ export const CardCharacter = ({
   species,
   gender,
   id,
-  addBtn,
+  activeAdd,
 }) => {
   const { addCharacter, deleteCharacter } = useContext(CharacterContext);
 
@@ -77,12 +77,12 @@ export const CardCharacter = ({
             <Badge bgColor="red">{status}</Badge>
           </FlexBox>
         </FlexBox>
-        {addBtn && (
+        {activeAdd && (
           <AddToCollection onClick={onAddToCollection}>
             <TextXTiny>Collect</TextXTiny>
           </AddToCollection>
         )}
-        {!addBtn && (
+        {!activeAdd && (
           <DeleteCharacterBtn onClick={onDeleteCharacter}>
             <TextXTiny>Delete</TextXTiny>
           </DeleteCharacterBtn>

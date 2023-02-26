@@ -4,16 +4,15 @@ import useFetchEpisodes from '../hooks/useFetchEpisodes';
 import useFetchEpisodesByName from '../hooks/useFetchEpisodesByName';
 
 import { SelectContentGroup } from '../components/SelectContentGroup';
-import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
-import { BurgerIcon } from '../../styled_components/StyledNavigation';
-import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { TextSmall } from '../../styled_components/StyledText';
+import { GridCharactersCard } from '../components/GridCharactersCard';
+import { BurgerNavigation } from '../components/BurgerNavigation';
+import { IsLoading } from '../components/IsLoading';
 
 export const EpisodesPage = () => {
-  const [burgerOpen, setBurgerOpen] = useState(false);
   const [episodeName, setEpisodeName] = useState('S01E01');
   const { resultsByName, residentsByEpisode, isLoading } =
     useFetchEpisodesByName(episodeName);
@@ -36,40 +35,15 @@ export const EpisodesPage = () => {
         <TextSmall>Episode name: "{resultsByName.name}"</TextSmall>
         <TextSmall>Air date: {resultsByName.air_date}</TextSmall>
       </FlexBox>
+      {isLoading && <IsLoading />}
       {charactersToRender.length < 1 && (
         <MissingCharacters textVariant="episode" />
       )}
-      <FlexBox
-        layout
-        flexFlow="row wrap"
-        gap="30px"
-        justify="center"
-        margin="90px 0"
-      >
-        {charactersToRender?.map(
-          ({ id, name, status, image, species, gender }) => (
-            <CardCharacter
-              key={id}
-              name={name}
-              status={status}
-              image={image}
-              species={species}
-              gender={gender}
-              id={id}
-              addBtn={true}
-            />
-          )
-        )}
-      </FlexBox>
-      <AppBurgerNav burgerStatus={burgerOpen} />
-      <BurgerIcon
-        iconStatus={burgerOpen}
-        onClick={() => setBurgerOpen(!burgerOpen)}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </BurgerIcon>
+      <GridCharactersCard
+        charactersToRender={charactersToRender}
+        activeAdd={true}
+      />
+      <BurgerNavigation />
     </>
   );
 };

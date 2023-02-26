@@ -4,17 +4,15 @@ import { useFetchLocations } from '../hooks/useFetchLocations';
 import useFetchLocationsByName from '../hooks/useFetchLocationsByName';
 
 import { SelectContentGroup } from '../components/SelectContentGroup';
-import { CardCharacter } from '../components/CardCharacter';
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { MissingCharacters } from '../components/MissingCharacters';
-import { AppBurgerNav } from '../../navigation/header/AppBurgerNav';
-import { BurgerIcon } from '../../styled_components/StyledNavigation';
 import { IsLoading } from '../components/IsLoading';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { TextSmall } from '../../styled_components/StyledText';
+import { GridCharactersCard } from '../components/GridCharactersCard';
+import { BurgerNavigation } from '../components/BurgerNavigation';
 
 export const LocationsPage = () => {
-  const [burgerOpen, setBurgerOpen] = useState(false);
   const [locationName, setLocationName] = useState('Earth (C-137)');
   const { namesOfLocations } = useFetchLocations();
   const { charactersState } = useContext(CharacterContext);
@@ -41,37 +39,11 @@ export const LocationsPage = () => {
       {charactersToRender.length < 1 && (
         <MissingCharacters textVariant="location" />
       )}
-      <FlexBox
-        layout
-        flexFlow="row wrap"
-        gap="30px"
-        justify="center"
-        margin="90px 0"
-      >
-        {charactersToRender?.map(
-          ({ id, name, status, image, species, gender }) => (
-            <CardCharacter
-              key={id}
-              name={name}
-              status={status}
-              image={image}
-              species={species}
-              gender={gender}
-              id={id}
-              addBtn={true}
-            />
-          )
-        )}
-      </FlexBox>
-      <AppBurgerNav burgerStatus={burgerOpen} />
-      <BurgerIcon
-        iconStatus={burgerOpen}
-        onClick={() => setBurgerOpen(!burgerOpen)}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </BurgerIcon>
+      <GridCharactersCard
+        charactersToRender={charactersToRender}
+        activeAdd={true}
+      />
+      <BurgerNavigation />
     </>
   );
 };
