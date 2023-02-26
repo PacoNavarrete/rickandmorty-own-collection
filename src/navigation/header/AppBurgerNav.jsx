@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BurgerList } from '../../styled_components/StyledNavigation';
-import { TextXSmall } from '../../styled_components/StyledText';
+import { TextMedium, TextXSmall } from '../../styled_components/StyledText';
 
 export const AppBurgerNav = ({ burgerStatus }) => {
   return (
@@ -11,30 +11,30 @@ export const AppBurgerNav = ({ burgerStatus }) => {
         justify="center"
         alignItems="center"
         width="100%"
-        height="100vh"
+        height="40vh"
         gap="30px"
         position="fixed"
-        topPos="0"
+        bottomPos="0"
         showBurger={burgerStatus}
       >
         <li>
           <Link to="/search">
-            <TextXSmall>CHARACTERS</TextXSmall>
+            <TextMedium>CHARACTERS</TextMedium>
           </Link>
         </li>
         <li>
           <Link to="/locations">
-            <TextXSmall>LOCATIONS</TextXSmall>
+            <TextMedium>LOCATIONS</TextMedium>
           </Link>
         </li>
         <li>
           <Link to="/episodes">
-            <TextXSmall>EPISODES</TextXSmall>
+            <TextMedium>EPISODES</TextMedium>
           </Link>
         </li>
         <li>
           <Link to="/my-collection">
-            <TextXSmall>MY COLLECTION</TextXSmall>
+            <TextMedium>MY COLLECTION</TextMedium>
           </Link>
         </li>
       </BurgerList>

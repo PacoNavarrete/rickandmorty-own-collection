@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroLayOut = styled.div`
-  width: 90%;
+  max-width: 1150px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;

@@ -13,7 +13,7 @@ export const MissingCharacters = ({ textVariant, hideHint }) => {
       flexFlow="row wrap"
       gap="30px"
       justify="center"
-      margin="90px 0"
+      margin="90px 30px"
     >
       <CardContainer
         flexFlow="column nowrap"

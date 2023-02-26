@@ -1,4 +1,4 @@
-import { BrandName, TextXTiny } from '../../styled_components/StyledText';
+import { TextMedium, TextXTiny } from '../../styled_components/StyledText';
 
 export const AppBurgerMenu = ({ burgerOpen }) => {
   return (
@@ -14,10 +14,10 @@ export const AppBurgerMenu = ({ burgerOpen }) => {
         burgerOpen={burgerOpen}
       >
         <li>
-          <TextXTiny>CHARACTERS</TextXTiny>
+          <TextMedium>CHARACTERS</TextMedium>
         </li>
         <li>
-          <TextXTiny>LOCATIONS</TextXTiny>
+          <TextMedium>LOCATIONS</TextMedium>
         </li>
         <li>
           <TextXTiny>EPISODES</TextXTiny>

@@ -9,37 +9,55 @@ import {
   FlexBox,
 } from '../../styled_components/StyledContainers';
 
+const CharacterImage = (props) => {
+  const { urlImage, name } = props.characterData;
+  return (
+    <>
+      <ImageContainer width="346px" borderRadius="40px">
+        <img src={urlImage} alt={name} />
+      </ImageContainer>
+    </>
+  );
+};
 
 const CharacterDetails = (props) => {
-  <>
+  const { name, originName, gender, species, status } = props.characterData;
+  const returnPrevPage = props.return;
+
+  return (
     <FlexBox
-      height="200px"
+      height="250px"
       flexFlow="column nowrap"
       alignItems="start"
       justify="space-around"
+      gap="10px"
     >
-      <TextSmall>{`Name: ${props.name}`}</TextSmall>
-      <TextSmall>{`Origin: ${props.originName}`}</TextSmall>
-      <TextSmall>{`Gender: ${props.gender}`}</TextSmall>
-      <TextSmall>{`Species: ${props.species}`}</TextSmall>
       <TextSmall>
-        
-        <b>Status</b>: {props.status}
+        <b>Name</b>: {name}
       </TextSmall>
-      <SecondaryButton margin="15px 0" onClick={onReturn}>
+      <TextSmall>
+        <b>Origin</b>: {originName}
+      </TextSmall>
+      <TextSmall>
+        <b>Gender</b>: {gender}
+      </TextSmall>
+      <TextSmall>
+        <b>Species</b>: {species}
+      </TextSmall>
+      <TextSmall>
+        <b>Status</b>: {status}
+      </TextSmall>
+      <SecondaryButton margin="15px 0" onClick={returnPrevPage}>
         Return
       </SecondaryButton>
     </FlexBox>
-  </>;
+  );
 };
-
 
 export const CharacterPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { characterResult, missingCharacter } = useFetchCharacterById(id);
-  const { name, originName, gender, species, status, urlImage } =
-    characterResult;
 
   const onReturn = () => {
     navigate(-1);
@@ -49,32 +67,27 @@ export const CharacterPage = () => {
     return <Navigate to="/" />;
   }
 
-  
   return (
-    <>
-      <FlexBox
-        width="100%"
-        height="auto"
-        margin="20px 0"
-        justify="center"
-        alignItems="center"
-      >
-        <CardContainer transparency="0.31" margin="0 30px">
-          <FlexBox
-            flexFlow="row wrap"
-            justify="center"
-            alignItems="center"
-            gap="30px"
-            transparency="0.31"
-            padding="55px 40px"
-          >
-            <ImageContainer width="346px" borderRadius="40px">
-              <img src={urlImage} alt="" />
-            </ImageContainer>
-          </FlexBox>
-          <CharacterDetails />
-        </CardContainer>
-      </FlexBox>
-    </>
+    <FlexBox
+      width="100%"
+      height="auto"
+      margin="20px 0"
+      justify="center"
+      alignItems="center"
+    >
+      <CardContainer transparency="0.31" margin="0 30px">
+        <FlexBox
+          flexFlow="row wrap"
+          justify="center"
+          alignItems="center"
+          gap="30px"
+          transparency="0.31"
+          padding="55px 40px"
+        >
+          <CharacterImage characterData={characterResult} />
+          <CharacterDetails characterData={characterResult} return={onReturn} />
+        </FlexBox>
+      </CardContainer>
+    </FlexBox>
   );
 };

@@ -29,8 +29,8 @@ export const UListBox = styled.ul`
 `;
 
 export const BurgerIcon = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -39,23 +39,26 @@ export const BurgerIcon = styled.div`
   align-items: center;
   flex-flow: column nowrap;
   gap: 4px;
-  background-color: red;
+  background-color: white;
   border-radius: 5px;
 
   div {
-    width: 24px;
+    width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: black;
     border-radius: 2px;
+    transition: transform 0.3s ease-in;
     
     &:nth-child(1){
-      transform: ${({ iconStatus }) => (iconStatus ? 'rotate(45deg)' : '')};
+      transform: ${({ iconStatus }) =>
+        iconStatus ? 'translateY(3px) rotateZ(45deg)' : ''};
     }
     &:nth-child(2){
       display: ${({ iconStatus }) => (iconStatus ? 'none' : '')};
     }
     &:nth-child(3){
-      transform: ${({ iconStatus }) => (iconStatus ? 'rotate(-55deg)' : '')};
+      transform: ${({ iconStatus }) =>
+        iconStatus ? 'translateY(-4px) rotateZ(-45deg)' : ''};
 
     }
   }
@@ -71,7 +74,7 @@ export const BurgerList = styled.ul`
     color: ${({ color }) => color};
     align-items: center;
     justify-content: ${({ justify }) => justify};
-    background-color: rgba(0,0,0,0.9);
+    background-color: green;
     width: ${({ width }) => width};
     height: ${({ height }) => height};
     padding: 0;
@@ -79,13 +82,16 @@ export const BurgerList = styled.ul`
     font-size: 18px;
     grid-area: ${({ gridArea }) => gridArea};
     transition: all 0.5s ease;
-    border-radius: 0;
+    border-radius: 30px 30px 0 0;
     gap: ${({ gap }) => gap};
     position: ${({ position }) => position};
     top: ${({ topPos }) => topPos};
     bottom: ${({ bottomPos }) => bottomPos};
     left: ${({ leftPos }) => leftPos};
     right: ${({ rightPos }) => rightPos};
+    p{
+      transition: transform 0.3s ease-in;
+    }
     
     a {
       text-decoration: none;
@@ -95,6 +101,6 @@ export const BurgerList = styled.ul`
     }
     P:hover {
       cursor: pointer;
-      color: #01A606;
+      transform: scale(1.1);
     }
   `;
