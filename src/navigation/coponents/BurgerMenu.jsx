@@ -1,5 +1,13 @@
 import { TextMedium, TextXTiny } from '../../styled_components/StyledText';
 
+const MenuOption = ({option}) => {
+  return (
+    <li>
+      <TextMedium>{option}</TextMedium>
+    </li>
+  )
+}
+
 export const AppBurgerMenu = ({ burgerOpen }) => {
   return (
     <>
@@ -13,9 +21,9 @@ export const AppBurgerMenu = ({ burgerOpen }) => {
         margin="0"
         burgerOpen={burgerOpen}
       >
-        <li>
-          <TextMedium>CHARACTERS</TextMedium>
-        </li>
+        <MenuOption option={'CHARACTERS'} />
+        <MenuOption option={'CHARACTERS'} />
+        
         <li>
           <TextMedium>LOCATIONS</TextMedium>
         </li>

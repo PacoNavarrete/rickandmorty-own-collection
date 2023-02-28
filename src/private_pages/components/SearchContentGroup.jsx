@@ -3,6 +3,25 @@ import { TextLarge } from '../../styled_components/StyledText';
 import { SelectOptions } from './SelectOptions';
 import { PrimaryInput } from '../../styled_components/StyledControls';
 
+const SelectableOptions = (props) => {
+  const { setCharacterStatus, setCharacterGender } = props;
+
+  return (
+    <FlexBox flexFlow="row nowrap" gap="30px">
+      <SelectOptions
+        name="Status"
+        options={['Status...', 'Alive', 'Dead', 'Unknow']}
+        setChange={setCharacterStatus}
+      />
+      <SelectOptions
+        name="Gender"
+        options={['Gender...', 'Female', 'Male', 'Genderless', 'unknown']}
+        setChange={setCharacterGender}
+      />
+    </FlexBox>
+  );
+};
+
 export const SearchContentGroup = (props) => {
   const {
     characterName,
@@ -43,18 +62,10 @@ export const SearchContentGroup = (props) => {
           autoFocus
         />
       </FlexBox>
-      <FlexBox flexFlow="row nowrap" gap="30px">
-        <SelectOptions
-          name="Status"
-          options={['Status...', 'Alive', 'Dead', 'Unknow']}
-          setChange={setCharacterStatus}
-        />
-        <SelectOptions
-          name="Gender"
-          options={['Gender...', 'Female', 'Male', 'Genderless', 'unknown']}
-          setChange={setCharacterGender}
-        />
-      </FlexBox>
+      <SelectableOptions
+        setCharacterStatus={setCharacterStatus}
+        setCharacterGender={setCharacterGender}
+      />
     </FlexBox>
   );
 };

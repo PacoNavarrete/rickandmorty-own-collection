@@ -20,6 +20,14 @@ const CharacterImage = (props) => {
   );
 };
 
+const DetailText = ({ title, name }) => {
+  return (
+    <TextSmall>
+      <b>{title}</b>: {name}
+    </TextSmall>
+  );
+};
+
 const CharacterDetails = (props) => {
   const { name, originName, gender, species, status } = props.characterData;
   const returnPrevPage = props.return;
@@ -32,21 +40,11 @@ const CharacterDetails = (props) => {
       justify="space-around"
       gap="10px"
     >
-      <TextSmall>
-        <b>Name</b>: {name}
-      </TextSmall>
-      <TextSmall>
-        <b>Origin</b>: {originName}
-      </TextSmall>
-      <TextSmall>
-        <b>Gender</b>: {gender}
-      </TextSmall>
-      <TextSmall>
-        <b>Species</b>: {species}
-      </TextSmall>
-      <TextSmall>
-        <b>Status</b>: {status}
-      </TextSmall>
+      <DetailText title={'Name'} name={name} />
+      <DetailText title={'Origin'} name={originName} />
+      <DetailText title={'Gender'} name={gender} />
+      <DetailText title={'Species'} name={species} />
+      <DetailText title={'Status'} name={status} />
       <SecondaryButton margin="15px 0" onClick={returnPrevPage}>
         Return
       </SecondaryButton>
@@ -68,13 +66,7 @@ export const CharacterPage = () => {
   }
 
   return (
-    <FlexBox
-      width="100%"
-      height="auto"
-      margin="20px 0"
-      justify="center"
-      alignItems="center"
-    >
+    <FlexBox margin="20px 0" justify="center" alignItems="center">
       <CardContainer transparency="0.31" margin="0 30px">
         <FlexBox
           flexFlow="row wrap"

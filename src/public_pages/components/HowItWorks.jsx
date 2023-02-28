@@ -10,6 +10,19 @@ import {
   FlexBox,
 } from '../../styled_components/StyledContainers';
 
+const Card = ({ src, copyText }) => {
+  return (
+    <FlexBox flexFlow="column nowrap" alignItems="center">
+      <CardContainer width="180px" height="180px" transparency="0.2">
+        <img src={src} alt="account icon" width="80px" />
+      </CardContainer>
+      <FlexBox width="180px" margin="5px 0">
+        <TextSmall align="center">{copyText}</TextSmall>
+      </FlexBox>
+    </FlexBox>
+  );
+};
+
 const WhatToDoCards = () => {
   return (
     <FlexBox
@@ -19,30 +32,18 @@ const WhatToDoCards = () => {
       margin="90px 0"
       gap="20px"
     >
-      <FlexBox flexFlow="column nowrap" alignItems="center">
-        <CardContainer width="180px" height="180px" transparency="0.2">
-          <img src={accountIcon} alt="account icon" width="80px" />
-        </CardContainer>
-        <TextSmall align="center">
-          Create your Account <br /> Only type a name
-        </TextSmall>
-      </FlexBox>
-      <FlexBox flexFlow="column nowrap" alignItems="center">
-        <CardContainer width="180px" height="180px" transparency="0.2">
-          <img src={filterIcon} alt="account icon" width="80px" />
-        </CardContainer>
-        <TextSmall align="center">
-          Seach, filter and <br /> collect any character.
-        </TextSmall>
-      </FlexBox>
-      <FlexBox flexFlow="column nowrap" alignItems="center">
-        <CardContainer width="180px" height="180px" transparency="0.2">
-          <img src={archiveIcon} alt="account icon" width="80px" />
-        </CardContainer>
-        <TextSmall align="center">
-          Store your own collection, <br /> you can add and delete
-        </TextSmall>
-      </FlexBox>
+      <Card
+        src={accountIcon}
+        copyText={'Create your account, only type a name.'}
+      />
+      <Card
+        src={filterIcon}
+        copyText={'Seach, filter and collect any character.'}
+      />
+      <Card
+        src={archiveIcon}
+        copyText={'Store your own collection, you can add and delete'}
+      />
     </FlexBox>
   );
 };

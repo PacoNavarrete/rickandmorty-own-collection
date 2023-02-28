@@ -7,28 +7,88 @@ import {
   PaginationInput,
 } from '../../styled_components/StyledControls';
 
-export const OwnPagination = ({
-  totalPages,
-  setPage,
-  setInputValue,
-  inputValue,
-}) => {
-  const inputAsNumber = Number(inputValue);
-  const [editInput, setEditInput] = useState(true);
+const PaginationContainer = ({ children }) => {
+  return (
+    <FlexBox
+      width="270px"
+      height="45px"
+      backgroundColor="green"
+      radius="5px"
+      gap="15px"
+      justify="center"
+      alignItems="center"
+      position="sticky"
+      bottomPos="30px"
+      margin="90px auto"
+      boxShadow="0px 10px 30px #000"
+    >
+      {children}
+    </FlexBox>
+  );
+};
 
-  const onNextPage = () => {
-    if (inputValue < 1) return;
-    setInputValue(inputAsNumber + 1);
-    setPage(inputAsNumber + 1);
-  };
-
-  const onPrevPage = () => {
+const PrevButton = (props) => {
+  const { inputValue, totalPages, inputAsNumber, setInputValue, setPage } =
+    props;
+  function onClickPrev() {
     if (inputValue > totalPages) return;
     setInputValue(inputAsNumber - 1);
     setPage(inputAsNumber - 1);
-  };
+  }
+  return (
+    <PaginationButton
+      disabled={inputAsNumber <= 1 ? true : false}
+      onClick={onClickPrev}
+    >
+      ◀ <br /> Prev
+    </PaginationButton>
+  );
+};
 
-  const onSubmitInput = (event) => {
+const NextButton = (props) => {
+  const { inputValue, inputAsNumber, totalPages, setPage, setInputValue } =
+    props;
+
+  function onClickNext() {
+    if (inputValue < 1) return;
+    setInputValue(inputAsNumber + 1);
+    setPage(inputAsNumber + 1);
+  }
+  return (
+    <PaginationButton
+      disabled={inputAsNumber >= totalPages ? true : false}
+      onClick={onClickNext}
+    >
+      ▶ <br /> Next
+    </PaginationButton>
+  );
+};
+
+const FormContainer = ({ children }) => {
+  return (
+    <FlexBox
+      width="75px"
+      radius="5px"
+      justify="center"
+      alignItems="center"
+      border="1px solid green"
+    >
+      {children}
+    </FlexBox>
+  );
+};
+
+const SeachCharacterForm = (props) => {
+  const {
+    inputValue,
+    inputAsNumber,
+    setInputValue,
+    setPage,
+    totalPages,
+    editInput,
+  } = props;
+
+  function onSubmitInput(event) {
     event.preventDefault();
 
     if (inputAsNumber > 0 && inputAsNumber <= totalPages) {
@@ -39,64 +99,61 @@ export const OwnPagination = ({
       setPage(1);
     }
     setEditInput(true);
-  };
+  }
+  return (
+    <form onSubmit={onSubmitInput}>
+      <PaginationInput
+        type="number"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        min={1}
+        max={totalPages}
+        disabled={editInput}
+      />
+      {!editInput && <EditButton>↩</EditButton>}
+    </form>
+  );
+};
+
+export const OwnPagination = (props) => {
+  const { totalPages, setPage, setInputValue, inputValue } = props;
+  const inputAsNumber = Number(inputValue);
+  const [editInput, setEditInput] = useState(true);
 
   return (
     <>
-      <FlexBox
-        width="270px"
-        height="45px"
-        backgroundColor="green"
-        radius="5px"
-        gap="15px"
-        justify="center"
-        alignItems="center"
-        position="sticky"
-        bottomPos="30px"
-        margin="90px auto"
-        boxShadow="0px 10px 30px #000"
-      >
-        <PaginationButton
-          disabled={inputAsNumber <= 1 ? true : false}
-          onClick={onPrevPage}
-        >
-          ◀ <br /> Prev
-        </PaginationButton>
-        <FlexBox
-          width="75px"
-          radius="5px"
-          justify="center"
-          alignItems="center"
-          border="1px solid green"
-        >
-          <form onSubmit={onSubmitInput}>
-            <PaginationInput
-              type="number"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              min={1}
-              max={totalPages}
-              disabled={editInput}
-            />
-
-            {!editInput ? <EditButton>↩</EditButton> : ''}
-          </form>
-          {!editInput ? (
-            ''
-          ) : (
+      <PaginationContainer>
+        <PrevButton
+          inputValue={inputValue}
+          totalPages={totalPages}
+          inputAsNumber={inputAsNumber}
+          setInputValue={setInputValue}
+          setPage={setPage}
+        />
+        <FormContainer>
+          <SeachCharacterForm
+            inputValue={inputValue}
+            inputAsNumber={inputAsNumber}
+            setInputValue={setInputValue}
+            setPage={setPage}
+            totalPages={totalPages}
+            editInput={editInput}
+          />
+          {editInput && (
             <EditButton className="rote" onClick={() => setEditInput(false)}>
               ✏
             </EditButton>
           )}
-        </FlexBox>
+        </FormContainer>
         <TextXTiny>of {totalPages}</TextXTiny>
-        <PaginationButton
-          onClick={onNextPage}
-          disabled={inputAsNumber >= totalPages ? true : false}
-        >
-          ▶ <br /> Next
-        </PaginationButton>
-      </FlexBox>
+        <NextButton
+          inputValue={inputValue}
+          totalPages={totalPages}
+          inputAsNumber={inputAsNumber}
+          setInputValue={setInputValue}
+          setPage={setPage}
+        />
+      </PaginationContainer>
     </>
   );
 };

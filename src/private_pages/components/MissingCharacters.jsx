@@ -4,7 +4,7 @@ import {
 } from '../../styled_components/StyledContainers';
 import { TextLarge, TextSmall } from '../../styled_components/StyledText';
 
-export const MissingCharacters = ({ textVariant, hideHint }) => {
+const MessageContainer = ({ children }) => {
   return (
     <FlexBox
       initial={{ y: 400 }}
@@ -15,23 +15,39 @@ export const MissingCharacters = ({ textVariant, hideHint }) => {
       justify="center"
       margin="90px 30px"
     >
+      {children}
+    </FlexBox>
+  );
+};
+
+const MainMessage = ({ textVariant }) => {
+  return (
+    <TextLarge color="white">
+      Hey! looks like there's no characters here, <br /> try another{' '}
+      {textVariant}.
+    </TextLarge>
+  );
+};
+
+const HintMassage = () => {
+  return (
+    <TextSmall color="white">
+      Pss... Maybe you have already collect it.
+    </TextSmall>
+  );
+};
+
+export const MissingCharacters = ({ textVariant, hideHint }) => {
+  return (
+    <MessageContainer>
       <CardContainer
         flexFlow="column nowrap"
         transparency="0.41"
         padding="30px"
       >
-        <TextLarge color="white">
-          Hey! looks like there's no characters here, <br /> try another{' '}
-          {textVariant}.
-        </TextLarge>
-        {hideHint ? (
-          false
-        ) : (
-          <TextSmall color="white">
-            Pss... Maybe you have already collect it.
-          </TextSmall>
-        )}
+        <MainMessage textVariant={textVariant} />
+        {!hideHint && <HintMassage />}
       </CardContainer>
-    </FlexBox>
+    </MessageContainer>
   );
 };

@@ -1,16 +1,14 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
 import { SelectorInput } from '../../styled_components/StyledControls';
-import { TextXTiny } from '../../styled_components/StyledText';
 
 export const SelectOptions = ({ options, name, setChange }) => {
-  const handleChangeOption = (event) => {
+  function handleChangeOption(event) {
     setChange(event.target.value);
-  };
+  }
 
   return (
     <FlexBox flexFlow="column nowrap">
-      <label htmlFor={name + 'selector'}>
-      </label>
+      <label htmlFor={name + 'selector'}></label>
       <SelectorInput
         name={name}
         id={name + 'selector'}

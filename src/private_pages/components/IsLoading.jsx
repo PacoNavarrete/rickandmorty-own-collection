@@ -1,5 +1,5 @@
 import { FlexBox } from '../../styled_components/StyledContainers';
-import { TextLarge, TextMedium } from '../../styled_components/StyledText';
+import { TextMedium } from '../../styled_components/StyledText';
 import { LoadingAnimation } from '../../styled_components/StyledUtils';
 
 export const IsLoading = () => {
