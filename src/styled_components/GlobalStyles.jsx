@@ -4,7 +4,6 @@ const GlobalStyles = createGlobalStyle`
   /*font-weight for poppins, thin 100, semibold 600, extrabold 800*/
   /*font-weight for DM Sans, Regular 400, Bold 700*/
   /*font-weight for Abel, Regular 400*/
-
   
   * {
     box-sizing: border-box;

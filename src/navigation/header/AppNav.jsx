@@ -18,6 +18,7 @@ const AppNavContainer = ({ children }) => {
       padding="0 50px"
       justify="space-between"
       alignItems="center"
+      gap="15px"
     >
       {children}
     </FlexBox>
@@ -27,16 +28,16 @@ const AppNavContainer = ({ children }) => {
 const UserNameLogged = ({ userName }) => {
   return (
     <FlexBox gap="10px" justify="space-arround" alignItems="center">
-      <TextXTiny>{userName}</TextXTiny>
+      <TextXTiny color="white">{userName}</TextXTiny>
       <FlexBox
         width="40px"
         height="40px"
         justify="center"
         alignItems="center"
-        border="1px solid #fff"
+        border="1px solid white"
         radius="20px"
       >
-        <TextSmall>{userName[0]}</TextSmall>
+        <TextSmall color="white">{userName[0]}</TextSmall>
       </FlexBox>
     </FlexBox>
   );

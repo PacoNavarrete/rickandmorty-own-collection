@@ -127,7 +127,7 @@ export const BrandName = styled.p`
   align-self: ${({ alignSelf }) => alignSelf};
   font-weight: bold;
   color: #01A606;
-  text-shadow: 3px 3px 5px black;
+  text-shadow: 1px 2px 2px black;
   padding: 0 10px;
   margin: auto 0;
   grid-area: ${({ gridArea }) => gridArea};

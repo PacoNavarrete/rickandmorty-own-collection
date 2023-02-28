@@ -4,7 +4,7 @@ import { SecondaryButton } from '../../styled_components/StyledControls';
 import { BrandName } from '../../styled_components/StyledText';
 import { HomeHeaderMenu } from '../coponents/HomeHeaderMenu';
 
-export const HomeNav = ({refHowItWorks}) => {
+export const HomeNav = ({ refHowItWorks }) => {
   return (
     <>
       <FlexBox
@@ -14,6 +14,7 @@ export const HomeNav = ({refHowItWorks}) => {
         margin="0"
         justify="space-around"
         alignItems="center"
+        gap="15px"
       >
         <BrandName>Rick and Morty</BrandName>
         <HomeHeaderMenu refHowItWorks={refHowItWorks} />
