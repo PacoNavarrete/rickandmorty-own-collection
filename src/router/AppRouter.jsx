@@ -6,6 +6,8 @@ import { PublicRoutes } from './PublicRoutes';
 import { AppRoutes } from '../private_pages/routes/AppRoutes';
 import { LoginPage } from '../auth/pages/LoginPage';
 import { HomePage } from '../public_pages/pages/HomePage';
+import { BurgerNavigation } from '../navigation/footer/BurgerNavigation';
+import { MainFooter } from '../navigation/footer/MainFooter';
 
 export const AppRouter = () => {
   return (
@@ -23,6 +25,7 @@ export const AppRouter = () => {
         element={
           <PublicRoutes>
             <HomePage />
+            <MainFooter />
           </PublicRoutes>
         }
       />
@@ -31,6 +34,8 @@ export const AppRouter = () => {
         element={
           <PrivateRoutes>
             <AppRoutes />
+            <MainFooter />
+            <BurgerNavigation />
           </PrivateRoutes>
         }
       />

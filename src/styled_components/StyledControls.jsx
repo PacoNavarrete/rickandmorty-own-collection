@@ -21,34 +21,31 @@ export const PrimaryInput = styled.input`
 export const PrimaryButton = styled.button`
   width: 120px;
   height: 40px;
-  background: #01A606;
+  background-color: #01A606;
   border-radius: 3px;
   border: none;
   color: #fff;
   cursor: pointer;
-  transition: 0.3s ease-out;
-  margin: ${(props) => props.margin};
+  transition: scale 0.3s ease-out;
+  margin: ${({ margin }) => margin};
 
   &:hover {
     scale: 1.05;
   }
 `;
 
-export const SecondaryButton = styled.button`
-  width: 120px;
-  height: 40px;
-  background: transparent;
-  border-radius: 3px;
+export const SecondaryButton = styled(PrimaryButton)`
+  background-color: transparent;
   border: 2px solid #d7d7d7;
   color: #d7d7d7;
-  cursor: pointer;
-  transition: 0.3s ease-out;
-  margin: ${(props) => props.margin};
 
   &:hover {
-    scale: 1.05;
     background-color: rgba(0, 0, 0, 0.2);
   }
+`;
+
+export const DeleteButton = styled(PrimaryButton)`
+  background-color: red;
 `;
 
 export const SelectorInput = styled.select`
