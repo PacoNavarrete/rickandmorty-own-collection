@@ -18,7 +18,7 @@ const PaginationContainer = ({ children }) => {
       justify="center"
       alignItems="center"
       position="sticky"
-      bottomPos="30px"
+      bottomPos="50px"
       margin="90px auto"
       boxShadow="0px 10px 30px #000"
     >

@@ -9,11 +9,11 @@ const MenuContainer = ({ children, burgerStatus }) => {
       flexFlow="column nowrap"
       justify="center"
       alignItems="center"
-      width="250px"
+      width="100%"
       height="40vh"
       gap="30px"
       position="sticky"
-      bottomPos="55px"
+      bottomPos="45px"
       showBurger={burgerStatus}
     >
       {children}
