@@ -7,7 +7,6 @@ import { OwnPagination } from '../components/OwnPagination';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { MissingCharacters } from '../components/MissingCharacters';
 import { GridCharactersCard } from '../components/GridCharactersCard';
-import { BurgerNavigation } from '../components/BurgerNavigation';
 
 export const SearchPage = () => {
   const [characterName, setCharacterName] = useState('');
@@ -48,7 +47,6 @@ export const SearchPage = () => {
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <BurgerNavigation />
     </>
   );
 };

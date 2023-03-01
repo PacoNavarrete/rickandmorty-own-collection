@@ -10,7 +10,6 @@ import { IsLoading } from '../components/IsLoading';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { TextSmall } from '../../styled_components/StyledText';
 import { GridCharactersCard } from '../components/GridCharactersCard';
-import { BurgerNavigation } from '../components/BurgerNavigation';
 
 export const LocationsPage = () => {
   const [locationName, setLocationName] = useState('Earth (C-137)');
@@ -43,7 +42,6 @@ export const LocationsPage = () => {
         charactersToRender={charactersToRender}
         activeAdd={true}
       />
-      <BurgerNavigation />
     </>
   );
 };

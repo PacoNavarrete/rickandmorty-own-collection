@@ -5,7 +5,6 @@ import { FlexBox } from '../../styled_components/StyledContainers';
 import { TextMedium } from '../../styled_components/StyledText';
 import { MissingCharacters } from '../components/MissingCharacters';
 import { GridCharactersCard } from '../components/GridCharactersCard';
-import { BurgerNavigation } from '../components/BurgerNavigation';
 
 export const MyCollection = () => {
   const { charactersState } = useContext(CharacterContext);
@@ -24,7 +23,6 @@ export const MyCollection = () => {
         charactersToRender={charactersToRender}
         activeAdd={false}
       />
-      <BurgerNavigation />
     </>
   );
 };

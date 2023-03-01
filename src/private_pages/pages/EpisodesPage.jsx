@@ -9,7 +9,6 @@ import { MissingCharacters } from '../components/MissingCharacters';
 import { filterCharacters } from '../helpers/filterCharacters';
 import { TextSmall } from '../../styled_components/StyledText';
 import { GridCharactersCard } from '../components/GridCharactersCard';
-import { BurgerNavigation } from '../components/BurgerNavigation';
 import { IsLoading } from '../components/IsLoading';
 
 export const EpisodesPage = () => {
@@ -43,7 +42,6 @@ export const EpisodesPage = () => {
         charactersToRender={charactersToRender}
         activeAdd={true}
       />
-      <BurgerNavigation />
     </>
   );
 };
